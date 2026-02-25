@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "Let's Talk Running",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3000"],
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": ["backend/server.js"],
       "port": 3000
     }
   ]

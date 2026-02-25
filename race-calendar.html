@@ -38,9 +38,9 @@
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-    <div class="eyebrow">Find Your Next Race</div>
+    <div class="eyebrow">Live Data · Auto-Updated</div>
     <h1>Race Calendar</h1>
-    <p>Upcoming running events across India and globally — organised by distance, region, and date.</p>
+    <p>Upcoming running events across India — sourced live from indiarunning.com and bhaagoindia.com.</p>
 </section>
 
 <!-- CALENDAR -->
@@ -50,85 +50,69 @@
         <!-- FILTERS -->
         <div class="calendar-filters">
             <span class="filter-label">Region:</span>
-            <button class="filter-chip active" data-group="region">All</button>
-            <button class="filter-chip" data-group="region">India</button>
-            <button class="filter-chip" data-group="region">Global</button>
+            <button class="filter-chip active" data-group="region" data-value="all">All</button>
+            <button class="filter-chip" data-group="region" data-value="india">India</button>
 
             <span class="filter-label" style="margin-left:1rem;">Distance:</span>
-            <button class="filter-chip active" data-group="distance">All</button>
-            <button class="filter-chip" data-group="distance">5K</button>
-            <button class="filter-chip" data-group="distance">10K</button>
-            <button class="filter-chip" data-group="distance">Half Marathon</button>
-            <button class="filter-chip" data-group="distance">Full Marathon</button>
-            <button class="filter-chip" data-group="distance">Ultra</button>
+            <button class="filter-chip active" data-group="distance" data-value="all">All</button>
+            <button class="filter-chip" data-group="distance" data-value="5k">5K</button>
+            <button class="filter-chip" data-group="distance" data-value="10k">10K</button>
+            <button class="filter-chip" data-group="distance" data-value="half">Half Marathon</button>
+            <button class="filter-chip" data-group="distance" data-value="marathon">Full Marathon</button>
+            <button class="filter-chip" data-group="distance" data-value="ultra">Ultra</button>
 
-            <select class="filter-select" style="margin-left:auto;">
-                <option>All Months</option>
-                <option>January</option>
-                <option>February</option>
-                <option>March</option>
-                <option>April</option>
-                <option>May</option>
-                <option>June</option>
-                <option>July</option>
-                <option>August</option>
-                <option>September</option>
-                <option>October</option>
-                <option>November</option>
-                <option>December</option>
+            <select class="filter-select" id="month-select" style="margin-left:auto;">
+                <option value="all">All Months</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
             </select>
         </div>
 
-        <!-- EMPTY STATE -->
-        <div class="empty-state">
-            <span class="empty-icon">📅</span>
-            <h3>Calendar loading soon</h3>
-            <p>This section will auto-populate with upcoming running events from India and around the world, categorised and kept up to date.</p>
+        <!-- STATUS BAR -->
+        <div class="calendar-status">
+            <span id="api-status"><span class="status-dot"></span>Loading events…</span>
+            <span id="filtered-count" style="color:var(--text-muted);"></span>
+            <button class="btn-refresh" id="refresh-btn">
+                <span class="refresh-icon">↻</span> Refresh
+            </button>
         </div>
 
-    </div>
-</section>
+        <!-- EVENT LIST (populated by JS) -->
+        <div id="events-container">
+            <!-- skeleton -->
+            <div class="skeleton-card">
+                <div class="skeleton-block" style="width:58px;height:72px;border-radius:8px;flex-shrink:0;"></div>
+                <div style="flex:1;">
+                    <div class="skeleton-block" style="height:16px;width:55%;margin-bottom:10px;"></div>
+                    <div class="skeleton-block" style="height:12px;width:35%;"></div>
+                </div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton-block" style="width:58px;height:72px;border-radius:8px;flex-shrink:0;"></div>
+                <div style="flex:1;">
+                    <div class="skeleton-block" style="height:16px;width:65%;margin-bottom:10px;"></div>
+                    <div class="skeleton-block" style="height:12px;width:40%;"></div>
+                </div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton-block" style="width:58px;height:72px;border-radius:8px;flex-shrink:0;"></div>
+                <div style="flex:1;">
+                    <div class="skeleton-block" style="height:16px;width:48%;margin-bottom:10px;"></div>
+                    <div class="skeleton-block" style="height:12px;width:30%;"></div>
+                </div>
+            </div>
+        </div>
 
-<!-- HOW IT WORKS -->
-<section class="section section-alt">
-    <div class="container">
-        <div class="section-heading">
-            <span class="section-label">Coming soon</span>
-            <h2>How the Race Calendar Will Work</h2>
-            <p>Automated, always up to date, easy to browse.</p>
-        </div>
-        <div class="grid-3">
-            <div class="card">
-                <div class="card-icon">🔍</div>
-                <h3>Auto-Updated</h3>
-                <p>Race data is pulled automatically from running event sources so the calendar stays current without manual updates.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🇮🇳</div>
-                <h3>India Focus</h3>
-                <p>Strong coverage of Indian running events — city marathons, trail runs, ultras — across all major regions.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🌍</div>
-                <h3>Global Events</h3>
-                <p>World Majors, international ultras, and bucket-list races from around the globe, all in one place.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🏷️</div>
-                <h3>Smart Categorisation</h3>
-                <p>Filter by distance, region, month, terrain type (road / trail), and more to find exactly what you're looking for.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🔔</div>
-                <h3>Registration Alerts</h3>
-                <p>Get notified when registration opens for races on your watchlist. Never miss the early-bird window.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">📊</div>
-                <h3>Race Details</h3>
-                <p>Each event card shows distance, date, location, cut-off times, elevation profile, and a link to register.</p>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -166,5 +150,186 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+// ─── State ────────────────────────────────────────────────────────────────────
+let allEvents = [];
+let filters   = { region: 'all', distance: 'all', month: 'all' };
+
+// ─── Boot ─────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    loadEvents();
+
+    // Filter chip clicks
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const group = chip.dataset.group;
+            document.querySelectorAll(`.filter-chip[data-group="${group}"]`)
+                    .forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            filters[group] = chip.dataset.value;
+            renderEvents();
+        });
+    });
+
+    // Month select
+    document.getElementById('month-select').addEventListener('change', e => {
+        filters.month = e.target.value;
+        renderEvents();
+    });
+
+    // Refresh button
+    document.getElementById('refresh-btn').addEventListener('click', async () => {
+        const btn = document.getElementById('refresh-btn');
+        btn.classList.add('spinning');
+        btn.disabled = true;
+        try {
+            await fetch('/api/refresh', { method: 'POST' });
+            await loadEvents();
+        } catch (_) {}
+        btn.classList.remove('spinning');
+        btn.disabled = false;
+    });
+});
+
+// ─── Load events from API ─────────────────────────────────────────────────────
+async function loadEvents() {
+    try {
+        const res  = await fetch('/api/events');
+        const data = await res.json();
+
+        if (data.error) throw new Error(data.error);
+
+        allEvents = data.events || [];
+        updateStatusBar(data.total, data.fetchedAt, data.stale);
+        renderEvents();
+
+    } catch (err) {
+        console.error('loadEvents error:', err);
+        showError('Could not load events. Make sure the backend server is running.');
+    }
+}
+
+// ─── Render filtered list ─────────────────────────────────────────────────────
+function renderEvents() {
+    const container = document.getElementById('events-container');
+    const list      = clientFilter(allEvents);
+
+    document.getElementById('filtered-count').textContent =
+        list.length > 0 ? `${list.length} event${list.length !== 1 ? 's' : ''} shown` : '';
+
+    if (list.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <span class="empty-icon">🔍</span>
+                <h3>No events match your filters</h3>
+                <p>Try selecting a different distance, region, or month.</p>
+            </div>`;
+        return;
+    }
+
+    container.innerHTML = `<div class="events-list">${list.map(eventCard).join('')}</div>`;
+}
+
+// ─── Client-side filtering ────────────────────────────────────────────────────
+function clientFilter(events) {
+    return events.filter(e => {
+        // Region
+        if (filters.region === 'india'  && e.region !== 'India') return false;
+        if (filters.region === 'global' && e.region === 'India')  return false;
+
+        // Distance
+        if (filters.distance !== 'all') {
+            const match = (e.distances || []).some(d => clientDistanceMatch(d, filters.distance));
+            if (!match) return false;
+        }
+
+        // Month
+        if (filters.month !== 'all') {
+            const m = new Date(e.startDate).getMonth() + 1;
+            if (m !== parseInt(filters.month)) return false;
+        }
+
+        return true;
+    });
+}
+
+function clientDistanceMatch(label, filter) {
+    const d = (label || '').toLowerCase();
+    switch (filter) {
+        case '5k':       return d.includes('5k') || d === '5';
+        case '10k':      return d.includes('10k') || d === '10';
+        case 'half':     return d.includes('half') || d.includes('21');
+        case 'marathon': return d.includes('marathon') && !d.includes('half') && !d.includes('ultra');
+        case 'ultra':    return d.includes('ultra') || /\b(50|60|100)\b/.test(d);
+        default:         return true;
+    }
+}
+
+// ─── Event card HTML ──────────────────────────────────────────────────────────
+function eventCard(ev) {
+    const date  = new Date(ev.startDate);
+    const day   = date.getDate();
+    const month = date.toLocaleString('en-IN', { month: 'short' }).toUpperCase();
+    const year  = date.getFullYear();
+
+    const location = [ev.city, ev.state].filter(Boolean).join(', ') || 'India';
+
+    const distTags = (ev.distances || []).map(d =>
+        `<span class="tag tag-primary" style="font-size:0.72rem;">${esc(d)}</span>`
+    ).join('');
+
+    const priceHtml = ev.price
+        ? `<span class="event-price">· ${esc(ev.price)}</span>`
+        : '';
+
+    return `
+    <div class="event-card">
+        <div class="event-date">
+            <span class="day">${day}</span>
+            <span class="month">${month}</span>
+            <span class="year">${year}</span>
+        </div>
+        <div class="event-info">
+            <div class="event-title">${esc(ev.title)}</div>
+            <div class="event-meta">
+                <span class="event-location">📍 ${esc(location)}</span>
+                <div class="event-distances">${distTags}</div>
+                ${priceHtml}
+                <span class="event-source">via ${esc(ev.source)}</span>
+            </div>
+        </div>
+        <div class="event-actions">
+            <a href="${esc(ev.url)}" class="btn btn-outline" target="_blank" rel="noopener noreferrer"
+               style="padding:0.5rem 1rem;font-size:0.85rem;">
+                Details →
+            </a>
+        </div>
+    </div>`;
+}
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+function esc(str) {
+    const d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
+}
+
+function updateStatusBar(total, fetchedAt, stale) {
+    const time  = fetchedAt ? new Date(fetchedAt).toLocaleString('en-IN') : '—';
+    const extra = stale ? ' · <em>cached data</em>' : '';
+    document.getElementById('api-status').innerHTML =
+        `<span class="status-dot"></span> ${total} events loaded · Updated: ${time}${extra}`;
+}
+
+function showError(msg) {
+    document.getElementById('events-container').innerHTML = `
+        <div class="empty-state">
+            <span class="empty-icon">⚠️</span>
+            <h3>Could not load events</h3>
+            <p>${msg}</p>
+        </div>`;
+    document.getElementById('api-status').textContent = '⚠️ Connection error';
+}
+</script>
 </body>
 </html>
