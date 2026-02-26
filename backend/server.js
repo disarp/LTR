@@ -27,6 +27,9 @@ const HEADERS = {
 const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
 let cache = { events: null, fetchedAt: 0 };
 
+// Separate fallback cache for Townscript (survives across scrape cycles)
+let townscriptFallback = { events: [], fetchedAt: 0 };
+
 // ─── Middleware ───────────────────────────────────────────────────────────────
 // Serve the website static files from the parent directory
 app.use(express.static(path.join(__dirname, '..')));
@@ -85,10 +88,12 @@ app.post('/api/refresh', async (_req, res) => {
 
 // ─── Fetch & merge all sources ────────────────────────────────────────────────
 async function fetchAllEvents() {
-  const [r1, r2, r3] = await Promise.allSettled([
+  const [r1, r2, r3, r4, r5] = await Promise.allSettled([
     fetchIndiaRunning(),
     fetchBhaagoIndia(),
     fetchTownscript(),
+    fetchMySamay(),
+    fetchCityWoofer(),
   ]);
 
   let events = [];
@@ -100,6 +105,12 @@ async function fetchAllEvents() {
 
   if (r3.status === 'fulfilled') { console.log(`✓ townscript.com   — ${r3.value.length} events`); events.push(...r3.value); }
   else                           { console.warn(`✗ townscript.com   — ${r3.reason?.message}`); }
+
+  if (r4.status === 'fulfilled') { console.log(`✓ mysamay.in       — ${r4.value.length} events`); events.push(...r4.value); }
+  else                           { console.warn(`✗ mysamay.in       — ${r4.reason?.message}`); }
+
+  if (r5.status === 'fulfilled') { console.log(`✓ citywoofer.com   — ${r5.value.length} events`); events.push(...r5.value); }
+  else                           { console.warn(`✗ citywoofer.com   — ${r5.reason?.message}`); }
 
   // Manual events (BookMyShow, etc.)
   const manual = loadManualEvents();
@@ -344,45 +355,63 @@ function normaliseBhaago(e) {
   };
 }
 
-// ─── Scraper: townscript.com ──────────────────────────────────────────────────
+// ─── Scraper: townscript.com (with retry + fallback cache) ───────────────────
 async function fetchTownscript() {
-  // Townscript only pre-renders JSON-LD for search engine crawlers
   const TOWNSCRIPT_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en-US,en;q=0.9',
   };
-  // Cumulative pagination — page=15 returns ~150 events in a single JSON-LD array
   const url = 'https://www.townscript.com/in/india/running?page=15';
+  const MAX_RETRIES = 2;
+  const TIMEOUT = 30000; // 30s (up from 20s)
 
-  try {
-    const { data: html } = await axios.get(url, { headers: TOWNSCRIPT_HEADERS, timeout: 20000 });
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const { data: html } = await axios.get(url, { headers: TOWNSCRIPT_HEADERS, timeout: TIMEOUT });
 
-    // Extract JSON-LD blocks
-    const ldBlocks = [...html.matchAll(
-      /<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
-    )];
+      const ldBlocks = [...html.matchAll(
+        /<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
+      )];
 
-    const events = [];
+      const events = [];
+      for (const [, block] of ldBlocks) {
+        try {
+          const parsed = JSON.parse(block);
+          const items = Array.isArray(parsed) ? parsed : [parsed];
+          for (const item of items) {
+            if (item['@type'] !== 'Event') continue;
+            const norm = normaliseTownscript(item);
+            if (norm.startDate) events.push(norm);
+          }
+        } catch (_) { /* skip malformed JSON-LD */ }
+      }
 
-    for (const [, block] of ldBlocks) {
-      try {
-        const parsed = JSON.parse(block);
-        const items = Array.isArray(parsed) ? parsed : [parsed];
+      // Success — update fallback cache
+      if (events.length > 0) {
+        townscriptFallback = { events, fetchedAt: Date.now() };
+        console.log(`  townscript.com: fetched ${events.length} events (attempt ${attempt})`);
+      }
+      return events;
 
-        for (const item of items) {
-          if (item['@type'] !== 'Event') continue;
-          const norm = normaliseTownscript(item);
-          if (norm.startDate) events.push(norm);
-        }
-      } catch (_) { /* skip malformed JSON-LD */ }
+    } catch (err) {
+      console.warn(`  townscript.com: attempt ${attempt}/${MAX_RETRIES} failed — ${err.message}`);
+      if (attempt < MAX_RETRIES) {
+        console.log(`  townscript.com: retrying in 2s...`);
+        await new Promise(r => setTimeout(r, 2000));
+      }
     }
-
-    return events;
-  } catch (err) {
-    console.warn(`  townscript.com: ${err.message}`);
-    return [];
   }
+
+  // All retries failed — use fallback cache if available
+  if (townscriptFallback.events.length > 0) {
+    const age = Math.round((Date.now() - townscriptFallback.fetchedAt) / 60000);
+    console.log(`  townscript.com: using fallback cache (${townscriptFallback.events.length} events, ${age}m old)`);
+    return townscriptFallback.events;
+  }
+
+  console.warn(`  townscript.com: no fallback available, returning 0 events`);
+  return [];
 }
 
 function normaliseTownscript(e) {
@@ -433,6 +462,134 @@ function inferDistances(name) {
   if (/(?<!half\s)(?<!ultra\s)marathon|42\s*k/i.test(n) && !/half/i.test(n) && !/ultra/i.test(n)) distances.push('Marathon');
   if (/ultra/i.test(n)) distances.push('Ultra');
   return distances;
+}
+
+// ─── Scraper: mysamay.in ─────────────────────────────────────────────────────
+async function fetchMySamay() {
+  const url = 'https://mysamay.in/events-srv/events/all?type=upcoming';
+  try {
+    const { data } = await axios.get(url, { headers: HEADERS, timeout: 15000 });
+    const arr = Array.isArray(data) ? data : (data.data || []);
+
+    return arr
+      .filter(e => (e.eventType || '').toUpperCase() === 'RUNNING')
+      .map(e => {
+        const categories = (e.categories || []).filter(c => c.active !== false);
+        const distances = categories.map(c => c.name).filter(Boolean);
+        const cheapest  = categories.reduce((min, c) => {
+          const fee = c.feeAfterDiscount ?? c.regFee ?? Infinity;
+          return fee < min ? fee : min;
+        }, Infinity);
+
+        return {
+          id:        `ms-${e._id || e.name.replace(/[^a-z0-9]/gi, '-').slice(0, 40)}`,
+          title:     e.name || 'Unnamed Event',
+          city:      e.city || '',
+          state:     '',
+          startDate: normDate(e.eventStartDate || e.eventDate),
+          endDate:   normDate(e.eventEndDate || e.eventStartDate || e.eventDate),
+          distances,
+          price:     cheapest < Infinity ? `₹${cheapest}` : null,
+          rating:    null,
+          organizer: e.organiserName || '',
+          url:       e.eventWebsite || `https://mysamay.in/public/events`,
+          source:    'mysamay.in',
+          region:    'India',
+        };
+      });
+  } catch (err) {
+    console.warn(`  mysamay.in: ${err.message}`);
+    return [];
+  }
+}
+
+// ─── Scraper: citywoofer.com ─────────────────────────────────────────────────
+async function fetchCityWoofer() {
+  // CityWoofer loads events via AJAX with pagination (12 per page).
+  // We fetch all pages and filter for marathon/running cards.
+  const AJAX_HEADERS = {
+    ...HEADERS,
+    'Accept': '*/*',
+    'X-Requested-With': 'XMLHttpRequest',
+  };
+  const MAX_PAGES = 10;
+  const events = [];
+
+  try {
+    for (let page = 1; page <= MAX_PAGES; page++) {
+      const { data } = await axios.get(
+        `https://www.citywoofer.com/get-events-lists?all&page=${page}`,
+        { headers: AJAX_HEADERS, timeout: 15000 }
+      );
+      const gridHtml = data?.data?.grid || '';
+      if (!gridHtml || gridHtml.length < 100) break;
+
+      // Split into individual event cards
+      const cards = gridHtml.split('<div class="col-sm-6 col-xl-3 p-2 event-listing">').slice(1);
+      if (cards.length === 0) break;
+
+      for (const block of cards) {
+        // Only keep marathon/running cards (category badge)
+        const catMatch = block.match(/<div class="cat-name">\s*([^<]+)/i);
+        const cat = (catMatch?.[1] || '').trim().toLowerCase();
+        if (!cat.includes('marathon')) continue;
+
+        // Title from the "View Info" link's title attribute
+        const titleMatch = block.match(/<a[^>]+href="[^"]*\/e\/[^"]*"[^>]*title="([^"]+)"/i);
+        const slug = block.match(/\/e\/([^"]+)"/)?.[1] || '';
+        let title = titleMatch?.[1]?.trim() || '';
+        if (!title && slug) title = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        if (!title) continue;
+
+        // Decode HTML entities
+        title = title.replace(/&amp;/g, '&').replace(/&#039;/g, "'").replace(/&quot;/g, '"');
+
+        // Date
+        const dateMatch = block.match(/([A-Z][a-z]{2})\s+(\d{1,2}),?\s+(\d{4})/i);
+        let startDate = null;
+        if (dateMatch) {
+          const d = new Date(`${dateMatch[1]} ${dateMatch[2]}, ${dateMatch[3]} UTC`);
+          if (!isNaN(d)) startDate = d.toISOString().split('T')[0];
+        }
+
+        // Price
+        const priceMatch = block.match(/(₹[\d,]+(?:\s*-\s*₹[\d,]+)?)/);
+        const price = priceMatch ? priceMatch[1].trim() : null;
+
+        // City from location text (after location-icon image)
+        const locMatch = block.match(/location-icon[\s\S]*?<\/img>\s*([\s\S]*?)<\/p>/i);
+        const location = locMatch ? locMatch[1].replace(/<[^>]+>/g, '').trim() : '';
+        const city = location.split(',')[0]?.trim() || '';
+
+        const distances = inferDistances(title);
+
+        if (startDate) {
+          events.push({
+            id:        `cw-${slug || title.replace(/[^a-z0-9]/gi, '-').slice(0, 40)}`,
+            title,
+            city,
+            state:     '',
+            startDate,
+            endDate:   startDate,
+            distances,
+            price,
+            rating:    null,
+            organizer: '',
+            url:       slug ? `https://www.citywoofer.com/e/${slug}` : '',
+            source:    'citywoofer.com',
+            region:    'India',
+          });
+        }
+      }
+
+      if (cards.length < 12) break; // Last page
+    }
+
+    return events;
+  } catch (err) {
+    console.warn(`  citywoofer.com: ${err.message}`);
+    return events; // Return whatever we got so far
+  }
 }
 
 // ─── Manual events (BookMyShow, etc.) ─────────────────────────────────────────

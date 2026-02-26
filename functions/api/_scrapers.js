@@ -16,19 +16,26 @@ const HEADERS = {
   'Accept-Language': 'en-US,en;q=0.9',
 };
 
+// Fallback cache for Townscript (persists within the same Worker isolate)
+let townscriptFallback = { events: [], fetchedAt: 0 };
+
 // ─── Fetch & merge all sources ──────────────────────────────────────────────────
 
 export async function fetchAllEvents() {
-  const [r1, r2, r3] = await Promise.allSettled([
+  const [r1, r2, r3, r4, r5] = await Promise.allSettled([
     fetchIndiaRunning(),
     fetchBhaagoIndia(),
     fetchTownscript(),
+    fetchMySamay(),
+    fetchCityWoofer(),
   ]);
 
   let events = [];
   if (r1.status === 'fulfilled') events.push(...r1.value);
   if (r2.status === 'fulfilled') events.push(...r2.value);
   if (r3.status === 'fulfilled') events.push(...r3.value);
+  if (r4.status === 'fulfilled') events.push(...r4.value);
+  if (r5.status === 'fulfilled') events.push(...r5.value);
 
   // Manual events (BookMyShow, etc.)
   events.push(...loadManualEvents());
@@ -261,41 +268,62 @@ function normaliseBhaago(e) {
   };
 }
 
-// ─── Scraper: townscript.com ────────────────────────────────────────────────────
+// ─── Scraper: townscript.com (with retry + fallback cache) ─────────────────────
 
 async function fetchTownscript() {
-  // Townscript only pre-renders JSON-LD for search engine crawlers
   const TOWNSCRIPT_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en-US,en;q=0.9',
   };
-  // Cumulative pagination — page=15 returns ~150 events in the JSON-LD array
   const url = 'https://www.townscript.com/in/india/running?page=15';
-  const res = await fetch(url, { headers: TOWNSCRIPT_HEADERS });
-  const html = await res.text();
+  const MAX_RETRIES = 2;
 
-  // Extract JSON-LD blocks
-  const ldBlocks = [...html.matchAll(
-    /<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
-  )];
-
-  const events = [];
-
-  for (const [, block] of ldBlocks) {
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
-      const parsed = JSON.parse(block);
-      const items = Array.isArray(parsed) ? parsed : [parsed];
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
 
-      for (const item of items) {
-        if (item['@type'] !== 'Event') continue;
-        const norm = normaliseTownscript(item);
-        if (norm.startDate) events.push(norm);
+      const res = await fetch(url, { headers: TOWNSCRIPT_HEADERS, signal: controller.signal });
+      clearTimeout(timeoutId);
+      const html = await res.text();
+
+      const ldBlocks = [...html.matchAll(
+        /<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
+      )];
+
+      const events = [];
+      for (const [, block] of ldBlocks) {
+        try {
+          const parsed = JSON.parse(block);
+          const items = Array.isArray(parsed) ? parsed : [parsed];
+          for (const item of items) {
+            if (item['@type'] !== 'Event') continue;
+            const norm = normaliseTownscript(item);
+            if (norm.startDate) events.push(norm);
+          }
+        } catch (_) { /* skip malformed JSON-LD */ }
       }
-    } catch (_) { /* skip malformed JSON-LD blocks */ }
+
+      // Success — update fallback cache
+      if (events.length > 0) {
+        townscriptFallback = { events, fetchedAt: Date.now() };
+      }
+      return events;
+
+    } catch (err) {
+      if (attempt < MAX_RETRIES) {
+        await new Promise(r => setTimeout(r, 2000)); // wait 2s before retry
+      }
+    }
   }
 
-  return events;
+  // All retries failed — use fallback cache if available
+  if (townscriptFallback.events.length > 0) {
+    return townscriptFallback.events;
+  }
+
+  return [];
 }
 
 function normaliseTownscript(e) {
@@ -346,6 +374,121 @@ function inferDistances(name) {
   if (/(?<!half\s)(?<!ultra\s)marathon|42\s*k/i.test(n) && !/half/i.test(n) && !/ultra/i.test(n)) distances.push('Marathon');
   if (/ultra/i.test(n)) distances.push('Ultra');
   return distances;
+}
+
+// ─── Scraper: mysamay.in ──────────────────────────────────────────────────────
+
+async function fetchMySamay() {
+  const url = 'https://mysamay.in/events-srv/events/all?type=upcoming';
+  const res = await fetch(url, { headers: HEADERS });
+  const data = await res.json();
+  const arr = Array.isArray(data) ? data : (data.data || []);
+
+  return arr
+    .filter(e => (e.eventType || '').toUpperCase() === 'RUNNING')
+    .map(e => {
+      const categories = (e.categories || []).filter(c => c.active !== false);
+      const distances = categories.map(c => c.name).filter(Boolean);
+      const cheapest  = categories.reduce((min, c) => {
+        const fee = c.feeAfterDiscount ?? c.regFee ?? Infinity;
+        return fee < min ? fee : min;
+      }, Infinity);
+
+      return {
+        id:        `ms-${e._id || e.name.replace(/[^a-z0-9]/gi, '-').slice(0, 40)}`,
+        title:     e.name || 'Unnamed Event',
+        city:      e.city || '',
+        state:     '',
+        startDate: normDate(e.eventStartDate || e.eventDate),
+        endDate:   normDate(e.eventEndDate || e.eventStartDate || e.eventDate),
+        distances,
+        price:     cheapest < Infinity ? `₹${cheapest}` : null,
+        rating:    null,
+        organizer: e.organiserName || '',
+        url:       e.eventWebsite || `https://mysamay.in/public/events`,
+        source:    'mysamay.in',
+        region:    'India',
+      };
+    });
+}
+
+// ─── Scraper: citywoofer.com ──────────────────────────────────────────────────
+
+async function fetchCityWoofer() {
+  const AJAX_HEADERS = {
+    ...HEADERS,
+    'Accept': '*/*',
+    'X-Requested-With': 'XMLHttpRequest',
+  };
+  const MAX_PAGES = 10;
+  const events = [];
+
+  for (let page = 1; page <= MAX_PAGES; page++) {
+    try {
+      const res = await fetch(
+        `https://www.citywoofer.com/get-events-lists?all&page=${page}`,
+        { headers: AJAX_HEADERS }
+      );
+      const data = await res.json();
+      const gridHtml = data?.data?.grid || '';
+      if (!gridHtml || gridHtml.length < 100) break;
+
+      const cards = gridHtml.split('<div class="col-sm-6 col-xl-3 p-2 event-listing">').slice(1);
+      if (cards.length === 0) break;
+
+      for (const block of cards) {
+        const catMatch = block.match(/<div class="cat-name">\s*([^<]+)/i);
+        const cat = (catMatch?.[1] || '').trim().toLowerCase();
+        if (!cat.includes('marathon')) continue;
+
+        const titleMatch = block.match(/<a[^>]+href="[^"]*\/e\/[^"]*"[^>]*title="([^"]+)"/i);
+        const slug = block.match(/\/e\/([^"]+)"/)?.[1] || '';
+        let title = titleMatch?.[1]?.trim() || '';
+        if (!title && slug) title = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        if (!title) continue;
+
+        title = title.replace(/&amp;/g, '&').replace(/&#039;/g, "'").replace(/&quot;/g, '"');
+
+        const dateMatch = block.match(/([A-Z][a-z]{2})\s+(\d{1,2}),?\s+(\d{4})/i);
+        let startDate = null;
+        if (dateMatch) {
+          const d = new Date(`${dateMatch[1]} ${dateMatch[2]}, ${dateMatch[3]} UTC`);
+          if (!isNaN(d)) startDate = d.toISOString().split('T')[0];
+        }
+
+        const priceMatch = block.match(/(₹[\d,]+(?:\s*-\s*₹[\d,]+)?)/);
+        const price = priceMatch ? priceMatch[1].trim() : null;
+
+        const locMatch = block.match(/location-icon[\s\S]*?<\/img>\s*([\s\S]*?)<\/p>/i);
+        const location = locMatch ? locMatch[1].replace(/<[^>]+>/g, '').trim() : '';
+        const city = location.split(',')[0]?.trim() || '';
+
+        const distances = inferDistances(title);
+
+        if (startDate) {
+          events.push({
+            id:        `cw-${slug || title.replace(/[^a-z0-9]/gi, '-').slice(0, 40)}`,
+            title,
+            city,
+            state:     '',
+            startDate,
+            endDate:   startDate,
+            distances,
+            price,
+            rating:    null,
+            organizer: '',
+            url:       slug ? `https://www.citywoofer.com/e/${slug}` : '',
+            source:    'citywoofer.com',
+            region:    'India',
+          });
+        }
+      }
+
+      if (cards.length < 12) break;
+    } catch (_) { break; }
+  }
+
+  return events;
 }
 
 // ─── Manual events (BookMyShow, etc.) ───────────────────────────────────────────
