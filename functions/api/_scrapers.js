@@ -5,7 +5,10 @@
  * Sources: indiarunning.com (__NEXT_DATA__ SSR JSON)
  *          bhaagoindia.com  (regex JSON-LD extraction)
  *          townscript.com   (JSON-LD array from listing page)
+ *          manual-events    (BookMyShow + hand-curated events)
  */
+
+import { manualEvents } from './_manual-events.js';
 
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
@@ -26,6 +29,9 @@ export async function fetchAllEvents() {
   if (r1.status === 'fulfilled') events.push(...r1.value);
   if (r2.status === 'fulfilled') events.push(...r2.value);
   if (r3.status === 'fulfilled') events.push(...r3.value);
+
+  // Manual events (BookMyShow, etc.)
+  events.push(...loadManualEvents());
 
   // Deduplicate by normalised title + date
   const seen = new Set();
@@ -340,6 +346,26 @@ function inferDistances(name) {
   if (/(?<!half\s)(?<!ultra\s)marathon|42\s*k/i.test(n) && !/half/i.test(n) && !/ultra/i.test(n)) distances.push('Marathon');
   if (/ultra/i.test(n)) distances.push('Ultra');
   return distances;
+}
+
+// ─── Manual events (BookMyShow, etc.) ───────────────────────────────────────────
+
+function loadManualEvents() {
+  return (manualEvents || []).map(e => ({
+    id:        `manual-${(e.title || '').replace(/[^a-z0-9]/gi, '-').slice(0, 40).toLowerCase()}`,
+    title:     e.title || 'Unnamed Event',
+    city:      e.city || '',
+    state:     e.state || '',
+    startDate: e.startDate || null,
+    endDate:   e.endDate || e.startDate || null,
+    distances: e.distances || [],
+    price:     e.price || null,
+    rating:    null,
+    organizer: e.organizer || '',
+    url:       e.url || '',
+    source:    e.source || 'manual',
+    region:    'India',
+  }));
 }
 
 function normDate(str) {

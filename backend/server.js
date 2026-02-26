@@ -11,6 +11,7 @@ const express = require('express');
 const axios   = require('axios');
 const cheerio = require('cheerio');
 const path    = require('path');
+const fs      = require('fs');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -99,6 +100,10 @@ async function fetchAllEvents() {
 
   if (r3.status === 'fulfilled') { console.log(`✓ townscript.com   — ${r3.value.length} events`); events.push(...r3.value); }
   else                           { console.warn(`✗ townscript.com   — ${r3.reason?.message}`); }
+
+  // Manual events (BookMyShow, etc.)
+  const manual = loadManualEvents();
+  if (manual.length) { console.log(`✓ manual-events    — ${manual.length} events`); events.push(...manual); }
 
   // Deduplicate by normalised title + date
   const seen = new Set();
@@ -428,6 +433,32 @@ function inferDistances(name) {
   if (/(?<!half\s)(?<!ultra\s)marathon|42\s*k/i.test(n) && !/half/i.test(n) && !/ultra/i.test(n)) distances.push('Marathon');
   if (/ultra/i.test(n)) distances.push('Ultra');
   return distances;
+}
+
+// ─── Manual events (BookMyShow, etc.) ─────────────────────────────────────────
+function loadManualEvents() {
+  try {
+    const filePath = path.join(__dirname, '..', 'manual-events.json');
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const data = JSON.parse(raw);
+    return (data.events || []).map(e => ({
+      id:        `manual-${(e.title || '').replace(/[^a-z0-9]/gi, '-').slice(0, 40).toLowerCase()}`,
+      title:     e.title || 'Unnamed Event',
+      city:      e.city || '',
+      state:     e.state || '',
+      startDate: e.startDate || null,
+      endDate:   e.endDate || e.startDate || null,
+      distances: e.distances || [],
+      price:     e.price || null,
+      rating:    null,
+      organizer: e.organizer || '',
+      url:       e.url || '',
+      source:    e.source || 'manual',
+      region:    'India',
+    }));
+  } catch (_) {
+    return [];
+  }
 }
 
 // ─── Utility ──────────────────────────────────────────────────────────────────
