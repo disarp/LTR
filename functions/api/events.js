@@ -55,7 +55,7 @@ export async function onRequestGet(context) {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'Cache-Control': 'public, max-age=300', // browser cache: 5 min
+        'Cache-Control': 'no-cache', // always revalidate; edge cache handles TTL
       },
     });
 
