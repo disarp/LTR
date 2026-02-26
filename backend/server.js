@@ -2,7 +2,7 @@
  * Let's Talk Running — Backend Server
  *
  * Serves the static website AND provides /api/events with live Indian running
- * event data scraped from indiarunning.com and bhaagoindia.com.
+ * event data scraped from indiarunning.com, bhaagoindia.com, and townscript.com.
  *
  * Data is cached in-memory for 6 hours to avoid hammering source sites.
  */
@@ -84,9 +84,10 @@ app.post('/api/refresh', async (_req, res) => {
 
 // ─── Fetch & merge all sources ────────────────────────────────────────────────
 async function fetchAllEvents() {
-  const [r1, r2] = await Promise.allSettled([
+  const [r1, r2, r3] = await Promise.allSettled([
     fetchIndiaRunning(),
     fetchBhaagoIndia(),
+    fetchTownscript(),
   ]);
 
   let events = [];
@@ -95,6 +96,9 @@ async function fetchAllEvents() {
 
   if (r2.status === 'fulfilled') { console.log(`✓ bhaagoindia.com  — ${r2.value.length} events`); events.push(...r2.value); }
   else                           { console.warn(`✗ bhaagoindia.com  — ${r2.reason?.message}`); }
+
+  if (r3.status === 'fulfilled') { console.log(`✓ townscript.com   — ${r3.value.length} events`); events.push(...r3.value); }
+  else                           { console.warn(`✗ townscript.com   — ${r3.reason?.message}`); }
 
   // Deduplicate by normalised title + date
   const seen = new Set();
@@ -333,6 +337,97 @@ function normaliseBhaago(e) {
     source:    'bhaagoindia.com',
     region:    'India',
   };
+}
+
+// ─── Scraper: townscript.com ──────────────────────────────────────────────────
+async function fetchTownscript() {
+  // Townscript only pre-renders JSON-LD for search engine crawlers
+  const TOWNSCRIPT_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.9',
+  };
+  // Cumulative pagination — page=15 returns ~150 events in a single JSON-LD array
+  const url = 'https://www.townscript.com/in/india/running?page=15';
+
+  try {
+    const { data: html } = await axios.get(url, { headers: TOWNSCRIPT_HEADERS, timeout: 20000 });
+
+    // Extract JSON-LD blocks
+    const ldBlocks = [...html.matchAll(
+      /<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
+    )];
+
+    const events = [];
+
+    for (const [, block] of ldBlocks) {
+      try {
+        const parsed = JSON.parse(block);
+        const items = Array.isArray(parsed) ? parsed : [parsed];
+
+        for (const item of items) {
+          if (item['@type'] !== 'Event') continue;
+          const norm = normaliseTownscript(item);
+          if (norm.startDate) events.push(norm);
+        }
+      } catch (_) { /* skip malformed JSON-LD */ }
+    }
+
+    return events;
+  } catch (err) {
+    console.warn(`  townscript.com: ${err.message}`);
+    return [];
+  }
+}
+
+function normaliseTownscript(e) {
+  const name = e.name || '';
+  const startDate = e.startDate ? normDate(new Date(e.startDate).toISOString()) : null;
+  const endDate   = e.endDate   ? normDate(new Date(e.endDate).toISOString())   : startDate;
+
+  // Infer distances from event name
+  const distances = inferDistances(name);
+
+  // Extract city
+  const city = e.location?.address?.addressLocality
+            || e.location?.name
+            || '';
+
+  // Extract price
+  const price = e.offers?.lowPrice != null
+    ? (e.offers.lowPrice > 0 ? `₹${e.offers.lowPrice}` : 'Free')
+    : null;
+
+  // Fix double-slash in Townscript URLs
+  const eventUrl = (e.url || '').replace('townscript.com//e/', 'townscript.com/e/');
+  const slug = eventUrl.match(/\/e\/([^/?#]+)/)?.[1] || name.replace(/[^a-z0-9]/gi, '-').slice(0, 40);
+
+  return {
+    id:        `ts-${slug}`,
+    title:     name,
+    city,
+    state:     '',
+    startDate,
+    endDate,
+    distances,
+    price,
+    rating:    null,
+    organizer: e.performer?.name || '',
+    url:       eventUrl,
+    source:    'townscript.com',
+    region:    'India',
+  };
+}
+
+function inferDistances(name) {
+  const n = name.toLowerCase();
+  const distances = [];
+  if (/\b5\s*k/i.test(n)) distances.push('5K');
+  if (/\b10\s*k/i.test(n)) distances.push('10K');
+  if (/half\s*marathon|21\s*k/i.test(n)) distances.push('Half Marathon');
+  if (/(?<!half\s)(?<!ultra\s)marathon|42\s*k/i.test(n) && !/half/i.test(n) && !/ultra/i.test(n)) distances.push('Marathon');
+  if (/ultra/i.test(n)) distances.push('Ultra');
+  return distances;
 }
 
 // ─── Utility ──────────────────────────────────────────────────────────────────

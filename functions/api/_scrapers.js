@@ -4,6 +4,7 @@
  *
  * Sources: indiarunning.com (__NEXT_DATA__ SSR JSON)
  *          bhaagoindia.com  (regex JSON-LD extraction)
+ *          townscript.com   (JSON-LD array from listing page)
  */
 
 const HEADERS = {
@@ -15,14 +16,16 @@ const HEADERS = {
 // ─── Fetch & merge all sources ──────────────────────────────────────────────────
 
 export async function fetchAllEvents() {
-  const [r1, r2] = await Promise.allSettled([
+  const [r1, r2, r3] = await Promise.allSettled([
     fetchIndiaRunning(),
     fetchBhaagoIndia(),
+    fetchTownscript(),
   ]);
 
   let events = [];
   if (r1.status === 'fulfilled') events.push(...r1.value);
   if (r2.status === 'fulfilled') events.push(...r2.value);
+  if (r3.status === 'fulfilled') events.push(...r3.value);
 
   // Deduplicate by normalised title + date
   const seen = new Set();
@@ -250,6 +253,93 @@ function normaliseBhaago(e) {
     source:    'bhaagoindia.com',
     region:    'India',
   };
+}
+
+// ─── Scraper: townscript.com ────────────────────────────────────────────────────
+
+async function fetchTownscript() {
+  // Townscript only pre-renders JSON-LD for search engine crawlers
+  const TOWNSCRIPT_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.9',
+  };
+  // Cumulative pagination — page=15 returns ~150 events in the JSON-LD array
+  const url = 'https://www.townscript.com/in/india/running?page=15';
+  const res = await fetch(url, { headers: TOWNSCRIPT_HEADERS });
+  const html = await res.text();
+
+  // Extract JSON-LD blocks
+  const ldBlocks = [...html.matchAll(
+    /<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
+  )];
+
+  const events = [];
+
+  for (const [, block] of ldBlocks) {
+    try {
+      const parsed = JSON.parse(block);
+      const items = Array.isArray(parsed) ? parsed : [parsed];
+
+      for (const item of items) {
+        if (item['@type'] !== 'Event') continue;
+        const norm = normaliseTownscript(item);
+        if (norm.startDate) events.push(norm);
+      }
+    } catch (_) { /* skip malformed JSON-LD blocks */ }
+  }
+
+  return events;
+}
+
+function normaliseTownscript(e) {
+  const name = e.name || '';
+  const startDate = e.startDate ? normDate(new Date(e.startDate).toISOString()) : null;
+  const endDate   = e.endDate   ? normDate(new Date(e.endDate).toISOString())   : startDate;
+
+  // Infer distances from event name
+  const distances = inferDistances(name);
+
+  // Extract city
+  const city = e.location?.address?.addressLocality
+            || e.location?.name
+            || '';
+
+  // Extract price
+  const price = e.offers?.lowPrice != null
+    ? (e.offers.lowPrice > 0 ? `₹${e.offers.lowPrice}` : 'Free')
+    : null;
+
+  // Fix double-slash in Townscript URLs
+  const eventUrl = (e.url || '').replace('townscript.com//e/', 'townscript.com/e/');
+  const slug = eventUrl.match(/\/e\/([^/?#]+)/)?.[1] || name.replace(/[^a-z0-9]/gi, '-').slice(0, 40);
+
+  return {
+    id:        `ts-${slug}`,
+    title:     name,
+    city,
+    state:     '',
+    startDate,
+    endDate,
+    distances,
+    price,
+    rating:    null,
+    organizer: e.performer?.name || '',
+    url:       eventUrl,
+    source:    'townscript.com',
+    region:    'India',
+  };
+}
+
+function inferDistances(name) {
+  const n = name.toLowerCase();
+  const distances = [];
+  if (/\b5\s*k/i.test(n)) distances.push('5K');
+  if (/\b10\s*k/i.test(n)) distances.push('10K');
+  if (/half\s*marathon|21\s*k/i.test(n)) distances.push('Half Marathon');
+  if (/(?<!half\s)(?<!ultra\s)marathon|42\s*k/i.test(n) && !/half/i.test(n) && !/ultra/i.test(n)) distances.push('Marathon');
+  if (/ultra/i.test(n)) distances.push('Ultra');
+  return distances;
 }
 
 function normDate(str) {
