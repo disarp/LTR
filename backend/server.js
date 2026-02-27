@@ -86,6 +86,132 @@ app.post('/api/refresh', async (_req, res) => {
   }
 });
 
+// ─── Coaching sign-up ────────────────────────────────────────────────────────
+// Stores submissions in a local JSON file (local dev) and optionally
+// forwards to Google Sheets + sends email via Resend in production.
+const SIGNUPS_FILE = path.join(__dirname, 'coaching-signups.json');
+
+app.post('/api/coaching-signup', async (req, res) => {
+  try {
+    const data = req.body;
+
+    // Validate required fields
+    if (!data.name || !data.email || !data.phone || !data.plan_tier) {
+      return res.status(400).json({ error: 'Missing required fields: name, email, phone, plan_tier' });
+    }
+
+    // Add timestamp if not present
+    if (!data.submitted_at) data.submitted_at = new Date().toISOString();
+
+    // ── 1. Save to local JSON file (dev fallback) ──────────────────────
+    let signups = [];
+    try { signups = JSON.parse(fs.readFileSync(SIGNUPS_FILE, 'utf-8')); } catch {}
+    signups.push(data);
+    fs.writeFileSync(SIGNUPS_FILE, JSON.stringify(signups, null, 2));
+
+    // ── 2. Forward to Google Sheets (if configured) ────────────────────
+    if (process.env.GOOGLE_SHEETS_WEBHOOK_URL) {
+      try {
+        await axios.post(process.env.GOOGLE_SHEETS_WEBHOOK_URL, data, { timeout: 10000 });
+      } catch (err) {
+        console.warn('Google Sheets webhook failed:', err.message);
+      }
+    }
+
+    // ── 3. Send notification + PDF email via Resend (if configured) ────
+    if (process.env.RESEND_API_KEY) {
+      try {
+        await sendCoachingEmail(data);
+      } catch (err) {
+        console.warn('Resend email failed:', err.message);
+      }
+    }
+
+    console.log(`📝 New ${data.plan_tier} signup: ${data.name} <${data.email}>`);
+
+    res.json({
+      success: true,
+      message: data.plan_tier === 'beginner'
+        ? 'Your training plan is on its way!'
+        : 'We will be in touch soon to schedule your consultation.',
+    });
+
+  } catch (err) {
+    console.error('Coaching signup error:', err);
+    res.status(500).json({ error: 'Failed to process sign-up. Please try again.' });
+  }
+});
+
+// Email helper (uses Resend API)
+async function sendCoachingEmail(data) {
+  const RESEND_KEY = process.env.RESEND_API_KEY;
+  const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev';
+  const COACH_EMAIL = process.env.COACH_EMAIL || 'letustalkrunning@gmail.com';
+
+  // 1. Send notification to coach
+  await axios.post('https://api.resend.com/emails', {
+    from: FROM_EMAIL,
+    to: [COACH_EMAIL],
+    subject: `New ${data.plan_tier.toUpperCase()} coaching signup: ${data.name}`,
+    html: `
+      <h2>New Coaching Sign-Up</h2>
+      <table style="border-collapse:collapse;">
+        ${Object.entries(data).map(([k, v]) =>
+          `<tr><td style="padding:4px 12px 4px 0;font-weight:bold;vertical-align:top;">${k}</td><td style="padding:4px 0;">${v}</td></tr>`
+        ).join('')}
+      </table>
+    `,
+  }, {
+    headers: { Authorization: `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
+    timeout: 10000,
+  });
+
+  // 2. For beginner plan, send PDF to the user
+  if (data.plan_tier === 'beginner' && data.plan_distance) {
+    const pdfFilename = `LTR-${data.plan_distance}-Training-Plan.pdf`;
+    const pdfPath = path.join(__dirname, '..', 'plans', pdfFilename);
+    let attachments = [];
+
+    if (fs.existsSync(pdfPath)) {
+      const pdfBuffer = fs.readFileSync(pdfPath);
+      attachments = [{
+        filename: pdfFilename,
+        content: pdfBuffer.toString('base64'),
+      }];
+    }
+
+    await axios.post('https://api.resend.com/emails', {
+      from: FROM_EMAIL,
+      to: [data.email],
+      subject: `Your ${data.plan_distance} Training Plan from Let's Talk Running`,
+      html: `
+        <div style="font-family:sans-serif;max-width:520px;margin:0 auto;">
+          <h2 style="color:#0F172A;">Hey ${data.name.split(' ')[0]}! 🏃</h2>
+          <p>Thanks for signing up! ${attachments.length > 0
+            ? `Your <strong>${data.plan_distance} training plan</strong> is attached to this email.`
+            : `Your <strong>${data.plan_distance} training plan</strong> is being prepared — we'll send it to you shortly.`
+          }</p>
+          <p>A few tips to get started:</p>
+          <ul>
+            <li>Start slow — the first two weeks are about building the habit</li>
+            <li>Don't skip rest days — they're where the magic happens</li>
+            <li>Hydrate well and fuel your runs properly</li>
+          </ul>
+          <p>Happy running!<br><strong>Team Let's Talk Running</strong></p>
+          <hr style="border:none;border-top:1px solid #e2e8f0;margin:1.5rem 0;">
+          <p style="font-size:12px;color:#94a3b8;">
+            <a href="https://letstalkrunning.com" style="color:#E85D04;">letstalkrunning.com</a>
+          </p>
+        </div>
+      `,
+      attachments,
+    }, {
+      headers: { Authorization: `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
+      timeout: 15000,
+    });
+  }
+}
+
 // ─── Fetch & merge all sources ────────────────────────────────────────────────
 async function fetchAllEvents() {
   const [r1, r2, r3, r4, r5] = await Promise.allSettled([

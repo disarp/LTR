@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coaching Plans — Let's Talk Running</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/coaching.css">
 </head>
 <body>
 
@@ -40,58 +41,128 @@
 <section class="page-hero">
     <div class="eyebrow">Train with Purpose</div>
     <h1>Coaching Plans</h1>
-    <p>Structured, goal-driven coaching plans — from your first 5K to crossing an ultra finish line.</p>
+    <p>From free beginner plans to fully personalized coaching — find the right programme for your running journey.</p>
 </section>
 
-<!-- COACHING PLANS -->
+<!-- PRICING TIERS -->
 <section class="section section-alt">
     <div class="container">
         <div class="section-heading">
-            <span class="section-label">Choose your plan</span>
-            <h2>Find Your Programme</h2>
-            <p>Detailed plan descriptions and enrolment will be available soon. Here's a preview of what's coming.</p>
+            <span class="section-label">Choose your level</span>
+            <h2>Three Tiers. One Goal. Your Best Run.</h2>
+            <p>Whether you're lacing up for the first time or chasing a personal best, there's a plan built for you.</p>
         </div>
-        <div class="plan-grid">
-            <div class="plan-card">
-                <div class="plan-icon">🌱</div>
-                <div class="plan-name">Beginner</div>
-                <div class="plan-tagline">For first-time runners and those returning after a long break.</div>
-                <div class="plan-divider"></div>
-                <div class="plan-coming">Details coming soon</div>
+
+        <div class="pricing-grid">
+
+            <!-- BEGINNER -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-icon">🌱</div>
+                    <div class="pricing-tier">Beginner</div>
+                    <div class="pricing-price">Free</div>
+                    <div class="pricing-desc">Standardized training plans for first-time runners and those returning after a break.</div>
+                </div>
+                <div class="pricing-divider"></div>
+                <ul class="pricing-features">
+                    <li><span class="check">&#10003;</span> Structured 5K, 10K, or 21K training plan PDF</li>
+                    <li><span class="check">&#10003;</span> Week-by-week schedule with pacing guidance</li>
+                    <li><span class="check">&#10003;</span> Warm-up and cool-down routines</li>
+                    <li><span class="check">&#10003;</span> Basic nutrition and hydration tips</li>
+                    <li><span class="check">&#10003;</span> Emailed instantly to your inbox</li>
+                    <li class="feature-na"><span class="cross">&#10007;</span> Personalized plan adjustments</li>
+                    <li class="feature-na"><span class="cross">&#10007;</span> Coach access</li>
+                </ul>
+                <button class="btn btn-outline pricing-cta" onclick="openModal('beginner')">
+                    Download Free Plan
+                </button>
             </div>
-            <div class="plan-card featured">
-                <div class="plan-badge">Popular</div>
-                <div class="plan-icon">🏅</div>
-                <div class="plan-name">Half Marathon</div>
-                <div class="plan-tagline">Get to the 21.1 km finish line strong, with purpose and pacing.</div>
-                <div class="plan-divider"></div>
-                <div class="plan-coming">Details coming soon</div>
+
+            <!-- INTERMEDIATE -->
+            <div class="pricing-card featured">
+                <div class="pricing-badge">Most Popular</div>
+                <div class="pricing-header">
+                    <div class="pricing-icon">🏅</div>
+                    <div class="pricing-tier">Intermediate</div>
+                    <div class="pricing-price">Custom Quote</div>
+                    <div class="pricing-desc">A customized 8&ndash;12 week plan built after a one-on-one consultancy session.</div>
+                </div>
+                <div class="pricing-divider"></div>
+                <ul class="pricing-features">
+                    <li><span class="check">&#10003;</span> One-on-one consultancy session to assess your starting point</li>
+                    <li><span class="check">&#10003;</span> Customized 8&ndash;12 week training plan</li>
+                    <li><span class="check">&#10003;</span> Goal-specific pacing and periodization</li>
+                    <li><span class="check">&#10003;</span> Monthly check-ins via phone or email</li>
+                    <li><span class="check">&#10003;</span> Plan review and adjustments each month</li>
+                    <li><span class="check">&#10003;</span> Nutrition and strength recommendations</li>
+                    <li class="feature-na"><span class="cross">&#10007;</span> Weekly WhatsApp support</li>
+                </ul>
+                <button class="btn btn-primary pricing-cta" onclick="openModal('intermediate')">
+                    Sign Up for Consultation
+                </button>
             </div>
-            <div class="plan-card">
-                <div class="plan-icon">🏆</div>
-                <div class="plan-name">Full Marathon</div>
-                <div class="plan-tagline">The 42.2 km journey — built on endurance, strategy, and consistency.</div>
-                <div class="plan-divider"></div>
-                <div class="plan-coming">Details coming soon</div>
+
+            <!-- PERSONALIZED -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-icon">🏆</div>
+                    <div class="pricing-tier">Personalized Coaching</div>
+                    <div class="pricing-price">Premium</div>
+                    <div class="pricing-desc">End-to-end coaching with weekly support, plan adjustments, and data-driven insights.</div>
+                </div>
+                <div class="pricing-divider"></div>
+                <ul class="pricing-features">
+                    <li><span class="check">&#10003;</span> Everything in Intermediate, plus:</li>
+                    <li><span class="check">&#10003;</span> Weekly WhatsApp support and check-ins</li>
+                    <li><span class="check">&#10003;</span> Real-time plan adjustments for life events</li>
+                    <li><span class="check">&#10003;</span> Fitness tracker syncing for data-driven feedback</li>
+                    <li><span class="check">&#10003;</span> Race-day strategy and pacing plan</li>
+                    <li><span class="check">&#10003;</span> Priority coach access</li>
+                    <li><span class="check">&#10003;</span> Injury management and recovery protocols</li>
+                </ul>
+                <button class="btn btn-outline pricing-cta" onclick="openModal('personalized')">
+                    Sign Up for Consultation
+                </button>
             </div>
-            <div class="plan-card">
-                <div class="plan-icon">🌄</div>
-                <div class="plan-name">Ultra Marathon</div>
-                <div class="plan-tagline">Beyond the marathon — for those ready to push further than ever before.</div>
-                <div class="plan-divider"></div>
-                <div class="plan-coming">Details coming soon</div>
+
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+    <div class="container">
+        <div class="section-heading">
+            <span class="section-label">How it works</span>
+            <h2>Your Journey in 3 Steps</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Choose Your Plan</h3>
+                <p>Pick the tier that matches your experience level and goals. Beginners get instant access; Intermediate and Personalized start with a consultation.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Get Assessed</h3>
+                <p>For paid plans, we start with a call to understand your current fitness, target race, timeline, and any constraints. This shapes your custom plan.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Train with Confidence</h3>
+                <p>Follow your structured plan with ongoing support. Track progress, adjust as needed, and show up on race day ready to perform.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- WHAT'S INCLUDED -->
-<section class="section">
+<!-- WHAT EVERY PLAN INCLUDES -->
+<section class="section section-alt">
     <div class="container">
         <div class="section-heading">
             <span class="section-label">What to expect</span>
-            <h2>What Every Plan Will Include</h2>
-            <p>Each coaching plan is designed around a complete runner — not just the miles.</p>
+            <h2>Built Around the Complete Runner</h2>
+            <p>Every coaching plan addresses not just the miles, but the full picture.</p>
         </div>
         <div class="grid-3">
             <div class="card">
@@ -128,6 +199,320 @@
     </div>
 </section>
 
+<!-- ══════════════════ MODALS ══════════════════ -->
+
+<!-- BEGINNER MODAL -->
+<div class="modal-overlay" id="modal-beginner">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal('beginner')">&times;</button>
+        <div class="modal-header">
+            <div class="modal-icon">🌱</div>
+            <h2>Download Free Training Plan</h2>
+            <p>Fill in your details and we'll email you the plan instantly.</p>
+        </div>
+        <form id="form-beginner" class="coaching-form" onsubmit="return handleSubmit(event, 'beginner')">
+            <input type="hidden" name="plan_tier" value="beginner">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="b-name">Full Name <span class="req">*</span></label>
+                    <input type="text" id="b-name" name="name" required placeholder="Your name">
+                </div>
+            </div>
+
+            <div class="form-row two-col">
+                <div class="form-group">
+                    <label for="b-email">Email <span class="req">*</span></label>
+                    <input type="email" id="b-email" name="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="b-phone">Phone <span class="req">*</span></label>
+                    <input type="tel" id="b-phone" name="phone" required placeholder="+91 98765 43210">
+                </div>
+            </div>
+
+            <div class="form-row three-col">
+                <div class="form-group">
+                    <label for="b-gender">Gender <span class="req">*</span></label>
+                    <select id="b-gender" name="gender" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="b-age">Age <span class="req">*</span></label>
+                    <input type="number" id="b-age" name="age" required min="10" max="99" placeholder="e.g. 32">
+                </div>
+                <div class="form-group">
+                    <label for="b-location">City <span class="req">*</span></label>
+                    <input type="text" id="b-location" name="location" required placeholder="e.g. Mumbai">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="b-plan">Which plan do you want? <span class="req">*</span></label>
+                    <select id="b-plan" name="plan_distance" required>
+                        <option value="" disabled selected>Choose a distance</option>
+                        <option value="5K">5K Training Plan</option>
+                        <option value="10K">10K Training Plan</option>
+                        <option value="21K">21K (Half Marathon) Training Plan</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span class="btn-text">Send Me the Plan</span>
+                    <span class="btn-loading" style="display:none;">Sending...</span>
+                </button>
+            </div>
+        </form>
+        <div class="form-success" id="success-beginner" style="display:none;">
+            <div class="success-icon">&#10003;</div>
+            <h3>You're all set!</h3>
+            <p>Check your email — your training plan is on its way. Happy running!</p>
+        </div>
+    </div>
+</div>
+
+<!-- INTERMEDIATE MODAL -->
+<div class="modal-overlay" id="modal-intermediate">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal('intermediate')">&times;</button>
+        <div class="modal-header">
+            <div class="modal-icon">🏅</div>
+            <h2>Sign Up for Consultation</h2>
+            <p>Tell us about yourself and your goals. We'll reach out to schedule your session.</p>
+        </div>
+        <form id="form-intermediate" class="coaching-form" onsubmit="return handleSubmit(event, 'intermediate')">
+            <input type="hidden" name="plan_tier" value="intermediate">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="i-name">Full Name <span class="req">*</span></label>
+                    <input type="text" id="i-name" name="name" required placeholder="Your name">
+                </div>
+            </div>
+
+            <div class="form-row two-col">
+                <div class="form-group">
+                    <label for="i-email">Email <span class="req">*</span></label>
+                    <input type="email" id="i-email" name="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="i-phone">Phone <span class="req">*</span></label>
+                    <input type="tel" id="i-phone" name="phone" required placeholder="+91 98765 43210">
+                </div>
+            </div>
+
+            <div class="form-row three-col">
+                <div class="form-group">
+                    <label for="i-gender">Gender <span class="req">*</span></label>
+                    <select id="i-gender" name="gender" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="i-age">Age <span class="req">*</span></label>
+                    <input type="number" id="i-age" name="age" required min="10" max="99" placeholder="e.g. 32">
+                </div>
+                <div class="form-group">
+                    <label for="i-location">City <span class="req">*</span></label>
+                    <input type="text" id="i-location" name="location" required placeholder="e.g. Mumbai">
+                </div>
+            </div>
+
+            <div class="form-row two-col">
+                <div class="form-group">
+                    <label for="i-fitness">Current Fitness Level <span class="req">*</span></label>
+                    <select id="i-fitness" name="fitness_level" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="Sedentary">Sedentary (no regular exercise)</option>
+                        <option value="Casual Runner">Casual Runner (1-2 runs/week)</option>
+                        <option value="Regular Runner">Regular Runner (3-4 runs/week)</option>
+                        <option value="Experienced">Experienced (5+ runs/week)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="i-goal">Goal Race / Distance <span class="req">*</span></label>
+                    <select id="i-goal" name="goal_distance" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="5K">5K</option>
+                        <option value="10K">10K</option>
+                        <option value="21K">Half Marathon (21K)</option>
+                        <option value="42K">Full Marathon (42K)</option>
+                        <option value="Ultra">Ultra Marathon (50K+)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row two-col">
+                <div class="form-group">
+                    <label for="i-timeline">Target Race / Timeline <span class="req">*</span></label>
+                    <input type="text" id="i-timeline" name="timeline" required placeholder="e.g. Mumbai Marathon, Jan 2027">
+                </div>
+                <div class="form-group">
+                    <label for="i-experience">Running Experience</label>
+                    <input type="text" id="i-experience" name="experience" placeholder="e.g. Ran a 10K in 58 mins last year">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="i-notes">Anything else we should know?</label>
+                    <textarea id="i-notes" name="notes" rows="3" placeholder="Injuries, constraints, specific goals..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span class="btn-text">Request Consultation</span>
+                    <span class="btn-loading" style="display:none;">Submitting...</span>
+                </button>
+            </div>
+        </form>
+        <div class="form-success" id="success-intermediate" style="display:none;">
+            <div class="success-icon">&#10003;</div>
+            <h3>Request Received!</h3>
+            <p>We'll review your details and reach out within 24-48 hours to schedule your consultation. Talk soon!</p>
+        </div>
+    </div>
+</div>
+
+<!-- PERSONALIZED MODAL -->
+<div class="modal-overlay" id="modal-personalized">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal('personalized')">&times;</button>
+        <div class="modal-header">
+            <div class="modal-icon">🏆</div>
+            <h2>Personalized Coaching Sign-Up</h2>
+            <p>Tell us everything — we'll design your complete coaching experience.</p>
+        </div>
+        <form id="form-personalized" class="coaching-form" onsubmit="return handleSubmit(event, 'personalized')">
+            <input type="hidden" name="plan_tier" value="personalized">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="p-name">Full Name <span class="req">*</span></label>
+                    <input type="text" id="p-name" name="name" required placeholder="Your name">
+                </div>
+            </div>
+
+            <div class="form-row two-col">
+                <div class="form-group">
+                    <label for="p-email">Email <span class="req">*</span></label>
+                    <input type="email" id="p-email" name="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="p-phone">Phone / WhatsApp <span class="req">*</span></label>
+                    <input type="tel" id="p-phone" name="phone" required placeholder="+91 98765 43210">
+                </div>
+            </div>
+
+            <div class="form-row three-col">
+                <div class="form-group">
+                    <label for="p-gender">Gender <span class="req">*</span></label>
+                    <select id="p-gender" name="gender" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="p-age">Age <span class="req">*</span></label>
+                    <input type="number" id="p-age" name="age" required min="10" max="99" placeholder="e.g. 32">
+                </div>
+                <div class="form-group">
+                    <label for="p-location">City <span class="req">*</span></label>
+                    <input type="text" id="p-location" name="location" required placeholder="e.g. Mumbai">
+                </div>
+            </div>
+
+            <div class="form-row two-col">
+                <div class="form-group">
+                    <label for="p-fitness">Current Fitness Level <span class="req">*</span></label>
+                    <select id="p-fitness" name="fitness_level" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="Sedentary">Sedentary (no regular exercise)</option>
+                        <option value="Casual Runner">Casual Runner (1-2 runs/week)</option>
+                        <option value="Regular Runner">Regular Runner (3-4 runs/week)</option>
+                        <option value="Experienced">Experienced (5+ runs/week)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="p-goal">Goal Race / Distance <span class="req">*</span></label>
+                    <select id="p-goal" name="goal_distance" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="5K">5K</option>
+                        <option value="10K">10K</option>
+                        <option value="21K">Half Marathon (21K)</option>
+                        <option value="42K">Full Marathon (42K)</option>
+                        <option value="Ultra">Ultra Marathon (50K+)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row two-col">
+                <div class="form-group">
+                    <label for="p-timeline">Target Race / Timeline <span class="req">*</span></label>
+                    <input type="text" id="p-timeline" name="timeline" required placeholder="e.g. Mumbai Marathon, Jan 2027">
+                </div>
+                <div class="form-group">
+                    <label for="p-experience">Running Experience</label>
+                    <input type="text" id="p-experience" name="experience" placeholder="e.g. Ran a 10K in 58 mins last year">
+                </div>
+            </div>
+
+            <div class="form-row two-col">
+                <div class="form-group">
+                    <label for="p-tracker">Do you use a fitness tracker? <span class="req">*</span></label>
+                    <select id="p-tracker" name="fitness_tracker" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="Garmin">Garmin</option>
+                        <option value="Apple Watch">Apple Watch</option>
+                        <option value="COROS">COROS</option>
+                        <option value="Fitbit">Fitbit</option>
+                        <option value="Samsung Galaxy Watch">Samsung Galaxy Watch</option>
+                        <option value="Suunto">Suunto</option>
+                        <option value="Other">Other</option>
+                        <option value="None">I don't use one</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="p-strava">Strava / Garmin Connect Profile Link</label>
+                    <input type="url" id="p-strava" name="tracker_profile" placeholder="https://www.strava.com/athletes/...">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="p-notes">Anything else we should know?</label>
+                    <textarea id="p-notes" name="notes" rows="3" placeholder="Injuries, lifestyle constraints, specific goals, preferred communication style..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span class="btn-text">Request Personalized Coaching</span>
+                    <span class="btn-loading" style="display:none;">Submitting...</span>
+                </button>
+            </div>
+        </form>
+        <div class="form-success" id="success-personalized" style="display:none;">
+            <div class="success-icon">&#10003;</div>
+            <h3>Welcome Aboard!</h3>
+            <p>We'll review your profile and reach out within 24 hours to schedule your initial consultation. Get ready to level up!</p>
+        </div>
+    </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
     <div class="footer-inner">
@@ -162,5 +547,85 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+// ─── Modal logic ────────────────────────────────────────────────────────────────
+function openModal(tier) {
+    const overlay = document.getElementById('modal-' + tier);
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(tier) {
+    const overlay = document.getElementById('modal-' + tier);
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close on overlay click
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => {
+        if (e.target === overlay) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
+
+// Close on Escape key
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(o => {
+            o.classList.remove('active');
+        });
+        document.body.style.overflow = '';
+    }
+});
+
+// ─── Form submission ────────────────────────────────────────────────────────────
+async function handleSubmit(event, tier) {
+    event.preventDefault();
+
+    const form = document.getElementById('form-' + tier);
+    const btn  = form.querySelector('button[type="submit"]');
+    const btnText = btn.querySelector('.btn-text');
+    const btnLoad = btn.querySelector('.btn-loading');
+
+    // Collect form data
+    const formData = new FormData(form);
+    const payload  = Object.fromEntries(formData.entries());
+    payload.submitted_at = new Date().toISOString();
+
+    // Show loading state
+    btnText.style.display = 'none';
+    btnLoad.style.display = 'inline';
+    btn.disabled = true;
+
+    try {
+        const res = await fetch('/api/coaching-signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || data.error) {
+            throw new Error(data.error || 'Something went wrong');
+        }
+
+        // Show success
+        form.style.display = 'none';
+        document.getElementById('success-' + tier).style.display = 'block';
+
+    } catch (err) {
+        alert('Oops! ' + err.message + '\nPlease try again or email us at letustalkrunning@gmail.com');
+        btnText.style.display = 'inline';
+        btnLoad.style.display = 'none';
+        btn.disabled = false;
+    }
+
+    return false;
+}
+</script>
 </body>
 </html>
