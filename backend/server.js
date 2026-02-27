@@ -362,9 +362,9 @@ async function fetchTownscript() {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en-US,en;q=0.9',
   };
-  const url = 'https://www.townscript.com/in/india/running?page=15';
+  const url = 'https://www.townscript.com/in/india/running?page=40';
   const MAX_RETRIES = 2;
-  const TIMEOUT = 30000; // 30s (up from 20s)
+  const TIMEOUT = 30000; // 30s — page=40 typically responds in 5-10s
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
