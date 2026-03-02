@@ -246,6 +246,16 @@
     height: 72px;
 }
 
+/* Initials avatar — used when no photo is available */
+.testimonial-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: #64748b;
+}
+
 /* ===== MODAL ===== */
 .modal-overlay {
     position: fixed;
