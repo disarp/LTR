@@ -35,43 +35,54 @@
 
         <!-- FILTERS -->
         <div class="calendar-filters">
-            <span class="filter-label">City:</span>
-            <div class="city-dropdown" id="city-dropdown">
-                <button class="city-dropdown-btn" id="city-dropdown-btn">
-                    All Cities <span class="city-chevron">▾</span>
-                </button>
-                <div class="city-dropdown-panel" id="city-dropdown-panel">
-                    <label class="city-checkbox-item">
-                        <input type="checkbox" id="city-check-all" checked> All Cities
-                    </label>
-                    <div class="city-divider"></div>
-                    <div id="city-checkbox-list"></div>
+            <!-- Row 1 — dropdown selectors -->
+            <div class="filter-row-dropdowns">
+                <div class="filter-group">
+                    <span class="filter-label">City</span>
+                    <div class="city-dropdown" id="city-dropdown">
+                        <button class="city-dropdown-btn" id="city-dropdown-btn">
+                            All Cities <span class="city-chevron">▾</span>
+                        </button>
+                        <div class="city-dropdown-panel" id="city-dropdown-panel">
+                            <label class="city-checkbox-item">
+                                <input type="checkbox" id="city-check-all" checked> All Cities
+                            </label>
+                            <div class="city-divider"></div>
+                            <div id="city-checkbox-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label">When</span>
+                    <div class="city-dropdown" id="timerange-dropdown">
+                        <button class="city-dropdown-btn" id="timerange-dropdown-btn">
+                            All Dates <span class="city-chevron">▾</span>
+                        </button>
+                        <div class="city-dropdown-panel" id="timerange-dropdown-panel">
+                            <label class="city-checkbox-item">
+                                <input type="checkbox" id="timerange-check-all" checked> All Dates
+                            </label>
+                            <div class="city-divider"></div>
+                            <label class="city-checkbox-item"><input type="checkbox" value="2w"> Next 2 weeks</label>
+                            <label class="city-checkbox-item"><input type="checkbox" value="2-4w"> 2 – 4 weeks</label>
+                            <label class="city-checkbox-item"><input type="checkbox" value="4-8w"> 4 – 8 weeks</label>
+                            <label class="city-checkbox-item"><input type="checkbox" value="8-12w"> 8 – 12 weeks</label>
+                            <label class="city-checkbox-item"><input type="checkbox" value="12w+"> 12+ weeks</label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <span class="filter-label" style="margin-left:1rem;">Distance:</span>
-            <button class="filter-chip active" data-group="distance" data-value="all">All</button>
-            <button class="filter-chip" data-group="distance" data-value="5k">5K</button>
-            <button class="filter-chip" data-group="distance" data-value="10k">10K</button>
-            <button class="filter-chip" data-group="distance" data-value="half">Half Marathon</button>
-            <button class="filter-chip" data-group="distance" data-value="marathon">Full Marathon</button>
-            <button class="filter-chip" data-group="distance" data-value="ultra">Ultra</button>
-
-            <div class="city-dropdown" id="timerange-dropdown" style="margin-left:auto;">
-                <button class="city-dropdown-btn" id="timerange-dropdown-btn">
-                    All Dates <span class="city-chevron">▾</span>
-                </button>
-                <div class="city-dropdown-panel" id="timerange-dropdown-panel" style="right:0;left:auto;">
-                    <label class="city-checkbox-item">
-                        <input type="checkbox" id="timerange-check-all" checked> All Dates
-                    </label>
-                    <div class="city-divider"></div>
-                    <label class="city-checkbox-item"><input type="checkbox" value="2w"> Next 2 weeks</label>
-                    <label class="city-checkbox-item"><input type="checkbox" value="2-4w"> 2 – 4 weeks</label>
-                    <label class="city-checkbox-item"><input type="checkbox" value="4-8w"> 4 – 8 weeks</label>
-                    <label class="city-checkbox-item"><input type="checkbox" value="8-12w"> 8 – 12 weeks</label>
-                    <label class="city-checkbox-item"><input type="checkbox" value="12w+"> 12+ weeks</label>
-                </div>
+            <!-- Row 2 — distance pills -->
+            <div class="filter-row-chips">
+                <span class="filter-label">Distance</span>
+                <button class="filter-chip active" data-group="distance" data-value="all">All</button>
+                <button class="filter-chip" data-group="distance" data-value="5k">5K</button>
+                <button class="filter-chip" data-group="distance" data-value="10k">10K</button>
+                <button class="filter-chip" data-group="distance" data-value="half">Half Marathon</button>
+                <button class="filter-chip" data-group="distance" data-value="marathon">Full Marathon</button>
+                <button class="filter-chip" data-group="distance" data-value="ultra">Ultra</button>
             </div>
         </div>
 
@@ -157,22 +168,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Time-range dropdown — open/close on button click
+    // ── Dropdown toggle helper (opening one closes the other) ──
+    function closeDropdown(id) {
+        document.getElementById(id + '-panel').classList.remove('open');
+        document.getElementById(id + '-btn').classList.remove('open');
+    }
+    function toggleDropdown(id) {
+        const panel = document.getElementById(id + '-panel');
+        const btn   = document.getElementById(id + '-btn');
+        const opening = !panel.classList.contains('open');
+        // close both first
+        closeDropdown('city-dropdown');
+        closeDropdown('timerange-dropdown');
+        // then open the one we clicked (if it was closed)
+        if (opening) {
+            panel.classList.add('open');
+            btn.classList.add('open');
+        }
+    }
+
+    document.getElementById('city-dropdown-btn').addEventListener('click', e => {
+        e.stopPropagation();
+        toggleDropdown('city-dropdown');
+    });
     document.getElementById('timerange-dropdown-btn').addEventListener('click', e => {
         e.stopPropagation();
-        const panel = document.getElementById('timerange-dropdown-panel');
-        const btn   = document.getElementById('timerange-dropdown-btn');
-        const isOpen = panel.classList.contains('open');
-        panel.classList.toggle('open', !isOpen);
-        btn.classList.toggle('open', !isOpen);
+        toggleDropdown('timerange-dropdown');
     });
 
-    // Close time-range dropdown when clicking outside
-    document.addEventListener('click', e => {
-        if (!document.getElementById('timerange-dropdown').contains(e.target)) {
-            document.getElementById('timerange-dropdown-panel').classList.remove('open');
-            document.getElementById('timerange-dropdown-btn').classList.remove('open');
-        }
+    // Close all dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        closeDropdown('city-dropdown');
+        closeDropdown('timerange-dropdown');
     });
 
     // "All Dates" checkbox
@@ -184,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateTimerangeBtn();
             renderEvents();
         } else {
-            this.checked = true; // can't uncheck "All Dates" directly
+            this.checked = true;
         }
     });
 
@@ -200,24 +227,6 @@ document.addEventListener('DOMContentLoaded', () => {
             updateTimerangeBtn();
             renderEvents();
         });
-    });
-
-    // City dropdown — open/close on button click
-    document.getElementById('city-dropdown-btn').addEventListener('click', e => {
-        e.stopPropagation();
-        const panel = document.getElementById('city-dropdown-panel');
-        const btn   = document.getElementById('city-dropdown-btn');
-        const isOpen = panel.classList.contains('open');
-        panel.classList.toggle('open', !isOpen);
-        btn.classList.toggle('open', !isOpen);
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', e => {
-        if (!document.getElementById('city-dropdown').contains(e.target)) {
-            document.getElementById('city-dropdown-panel').classList.remove('open');
-            document.getElementById('city-dropdown-btn').classList.remove('open');
-        }
     });
 
     // "All Cities" checkbox

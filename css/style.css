@@ -587,12 +587,30 @@ img { max-width: 100%; }
 /* ===== RACE CALENDAR ===== */
 .calendar-filters {
     display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1rem;
     margin-bottom: 2.5rem;
-    align-items: center;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border);
+}
+
+.filter-row-dropdowns {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-row-chips {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .filter-chip {
