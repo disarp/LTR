@@ -57,20 +57,13 @@
             <button class="filter-chip" data-group="distance" data-value="marathon">Full Marathon</button>
             <button class="filter-chip" data-group="distance" data-value="ultra">Ultra</button>
 
-            <select class="filter-select" id="month-select" style="margin-left:auto;">
-                <option value="all">All Months</option>
-                <option value="1">January</option>
-                <option value="2">February</option>
-                <option value="3">March</option>
-                <option value="4">April</option>
-                <option value="5">May</option>
-                <option value="6">June</option>
-                <option value="7">July</option>
-                <option value="8">August</option>
-                <option value="9">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
+            <select class="filter-select" id="timerange-select" style="margin-left:auto;">
+                <option value="all">All Dates</option>
+                <option value="2w">Next 2 weeks</option>
+                <option value="2-4w">2 – 4 weeks</option>
+                <option value="4-8w">4 – 8 weeks</option>
+                <option value="8-12w">8 – 12 weeks</option>
+                <option value="12w+">12+ weeks</option>
             </select>
         </div>
 
@@ -138,7 +131,7 @@
 // ─── State ────────────────────────────────────────────────────────────────────
 let allEvents    = [];
 let selectedCities = new Set(); // empty = all cities
-let filters      = { distance: 'all', month: 'all' };
+let filters      = { distance: 'all', timeRange: 'all' };
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
@@ -155,9 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Month select
-    document.getElementById('month-select').addEventListener('change', e => {
-        filters.month = e.target.value;
+    // Time-range select
+    document.getElementById('timerange-select').addEventListener('change', e => {
+        filters.timeRange = e.target.value;
         renderEvents();
     });
 
@@ -328,10 +321,16 @@ function clientFilter(events) {
             if (!match) return false;
         }
 
-        // Month
-        if (filters.month !== 'all') {
-            const m = new Date(e.startDate).getMonth() + 1;
-            if (m !== parseInt(filters.month)) return false;
+        // Time range
+        if (filters.timeRange !== 'all') {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const days = Math.floor((new Date(e.startDate) - today) / 86400000);
+            if (filters.timeRange === '2w'   && days > 14)           return false;
+            if (filters.timeRange === '2-4w' && (days <= 14 || days > 28)) return false;
+            if (filters.timeRange === '4-8w' && (days <= 28 || days > 56)) return false;
+            if (filters.timeRange === '8-12w'&& (days <= 56 || days > 84)) return false;
+            if (filters.timeRange === '12w+' && days <= 84)           return false;
         }
 
         return true;
