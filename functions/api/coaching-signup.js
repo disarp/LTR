@@ -21,9 +21,23 @@ export async function onRequestPost(context) {
   try {
     const data = await context.request.json();
 
-    // Validate required fields
-    if (!data.name || !data.email || !data.phone || !data.plan_tier) {
-      return jsonResponse({ error: 'Missing required fields: name, email, phone, plan_tier' }, 400);
+    // Validate required fields (tier-specific)
+    if (!data.plan_tier) {
+      return jsonResponse({ error: 'Missing required field: plan_tier' }, 400);
+    }
+
+    if (data.plan_tier === 'beginner') {
+      if (!data.email) {
+        return jsonResponse({ error: 'Missing required field: email' }, 400);
+      }
+    } else {
+      // intermediate & personalized require name + phone
+      const missing = [];
+      if (!data.name)  missing.push('name');
+      if (!data.phone) missing.push('phone');
+      if (missing.length > 0) {
+        return jsonResponse({ error: `Missing required fields: ${missing.join(', ')}` }, 400);
+      }
     }
 
     if (!data.submitted_at) data.submitted_at = new Date().toISOString();
@@ -100,14 +114,14 @@ async function sendCoachNotification(apiKey, from, to, data) {
     body: JSON.stringify({
       from,
       to: [to],
-      subject: `New ${data.plan_tier.toUpperCase()} coaching signup: ${data.name}`,
+      subject: `New ${data.plan_tier.toUpperCase()} coaching signup: ${data.name || data.email}`,
       html: `<h2>New Coaching Sign-Up</h2><table style="border-collapse:collapse;">${rows}</table>`,
     }),
   });
 }
 
 async function sendBeginnerPlanEmail(apiKey, from, data) {
-  const firstName = data.name.split(' ')[0];
+  const firstName = data.name ? data.name.split(' ')[0] : 'Runner';
   const dist = data.plan_distance;
 
   // Try to fetch the PDF from /plans/ on the same origin
