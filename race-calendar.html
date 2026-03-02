@@ -24,7 +24,7 @@
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-    <div class="eyebrow">Live Data · Auto-Updated</div>
+    <div class="eyebrow">Updated Daily · Auto-Refreshed</div>
     <h1>Race Calendar</h1>
     <p>Upcoming running events across India — sourced live from indiarunning.com, bhaagoindia.com, townscript.com, mysamay.in, citywoofer.com &amp; BookMyShow.</p>
 </section>
@@ -151,13 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
         renderEvents();
     });
 
-    // Refresh button
+    // Refresh button — re-reads the cached JSON
     document.getElementById('refresh-btn').addEventListener('click', async () => {
         const btn = document.getElementById('refresh-btn');
         btn.classList.add('spinning');
         btn.disabled = true;
         try {
-            await fetch('/api/refresh', { method: 'POST' });
             await loadEvents();
         } catch (_) {}
         btn.classList.remove('spinning');
@@ -165,10 +164,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ─── Load events from API ─────────────────────────────────────────────────────
+// ─── Load events from static JSON ─────────────────────────────────────────────
 async function loadEvents() {
     try {
-        const res  = await fetch('/api/events?_t=' + Date.now(), { cache: 'no-cache' });
+        const res  = await fetch('/data/races.json?_t=' + Date.now(), { cache: 'no-cache' });
         const data = await res.json();
 
         if (data.error) throw new Error(data.error);
@@ -179,7 +178,7 @@ async function loadEvents() {
 
     } catch (err) {
         console.error('loadEvents error:', err);
-        showError('Could not load events. Make sure the backend server is running.');
+        showError('Could not load events. Please try again later.');
     }
 }
 
