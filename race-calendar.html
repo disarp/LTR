@@ -57,14 +57,22 @@
             <button class="filter-chip" data-group="distance" data-value="marathon">Full Marathon</button>
             <button class="filter-chip" data-group="distance" data-value="ultra">Ultra</button>
 
-            <select class="filter-select" id="timerange-select" style="margin-left:auto;">
-                <option value="all">All Dates</option>
-                <option value="2w">Next 2 weeks</option>
-                <option value="2-4w">2 – 4 weeks</option>
-                <option value="4-8w">4 – 8 weeks</option>
-                <option value="8-12w">8 – 12 weeks</option>
-                <option value="12w+">12+ weeks</option>
-            </select>
+            <div class="city-dropdown" id="timerange-dropdown" style="margin-left:auto;">
+                <button class="city-dropdown-btn" id="timerange-dropdown-btn">
+                    All Dates <span class="city-chevron">▾</span>
+                </button>
+                <div class="city-dropdown-panel" id="timerange-dropdown-panel" style="right:0;left:auto;">
+                    <label class="city-checkbox-item">
+                        <input type="checkbox" id="timerange-check-all" checked> All Dates
+                    </label>
+                    <div class="city-divider"></div>
+                    <label class="city-checkbox-item"><input type="checkbox" value="2w"> Next 2 weeks</label>
+                    <label class="city-checkbox-item"><input type="checkbox" value="2-4w"> 2 – 4 weeks</label>
+                    <label class="city-checkbox-item"><input type="checkbox" value="4-8w"> 4 – 8 weeks</label>
+                    <label class="city-checkbox-item"><input type="checkbox" value="8-12w"> 8 – 12 weeks</label>
+                    <label class="city-checkbox-item"><input type="checkbox" value="12w+"> 12+ weeks</label>
+                </div>
+            </div>
         </div>
 
         <!-- STATUS BAR -->
@@ -129,9 +137,10 @@
 <script src="js/main.js"></script>
 <script>
 // ─── State ────────────────────────────────────────────────────────────────────
-let allEvents    = [];
-let selectedCities = new Set(); // empty = all cities
-let filters      = { distance: 'all', timeRange: 'all' };
+let allEvents       = [];
+let selectedCities  = new Set(); // empty = all cities
+let selectedTimeRanges = new Set(); // empty = all dates
+let filters         = { distance: 'all' };
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
@@ -148,10 +157,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Time-range select
-    document.getElementById('timerange-select').addEventListener('change', e => {
-        filters.timeRange = e.target.value;
-        renderEvents();
+    // Time-range dropdown — open/close on button click
+    document.getElementById('timerange-dropdown-btn').addEventListener('click', e => {
+        e.stopPropagation();
+        const panel = document.getElementById('timerange-dropdown-panel');
+        const btn   = document.getElementById('timerange-dropdown-btn');
+        const isOpen = panel.classList.contains('open');
+        panel.classList.toggle('open', !isOpen);
+        btn.classList.toggle('open', !isOpen);
+    });
+
+    // Close time-range dropdown when clicking outside
+    document.addEventListener('click', e => {
+        if (!document.getElementById('timerange-dropdown').contains(e.target)) {
+            document.getElementById('timerange-dropdown-panel').classList.remove('open');
+            document.getElementById('timerange-dropdown-btn').classList.remove('open');
+        }
+    });
+
+    // "All Dates" checkbox
+    document.getElementById('timerange-check-all').addEventListener('change', function() {
+        if (this.checked) {
+            selectedTimeRanges.clear();
+            document.querySelectorAll('#timerange-dropdown-panel input[type="checkbox"]:not(#timerange-check-all)')
+                    .forEach(cb => { cb.checked = false; });
+            updateTimerangeBtn();
+            renderEvents();
+        } else {
+            this.checked = true; // can't uncheck "All Dates" directly
+        }
+    });
+
+    // Individual time-range checkboxes
+    document.querySelectorAll('#timerange-dropdown-panel input[type="checkbox"]:not(#timerange-check-all)')
+            .forEach(cb => {
+        cb.addEventListener('change', () => {
+            if (cb.checked) {
+                selectedTimeRanges.add(cb.value);
+            } else {
+                selectedTimeRanges.delete(cb.value);
+            }
+            updateTimerangeBtn();
+            renderEvents();
+        });
     });
 
     // City dropdown — open/close on button click
@@ -208,6 +256,32 @@ function updateCityBtn() {
         const label = selectedCities.size === 1
             ? [...selectedCities][0]
             : `${selectedCities.size} Cities`;
+        btn.innerHTML = `${label} <span class="city-chevron">▾</span>`;
+        btn.classList.add('has-selection');
+        allCheck.checked = false;
+    }
+}
+
+// ─── Time-range dropdown helpers ─────────────────────────────────────────────
+const timeRangeLabels = {
+    '2w':    'Next 2 weeks',
+    '2-4w':  '2 – 4 weeks',
+    '4-8w':  '4 – 8 weeks',
+    '8-12w': '8 – 12 weeks',
+    '12w+':  '12+ weeks',
+};
+
+function updateTimerangeBtn() {
+    const btn      = document.getElementById('timerange-dropdown-btn');
+    const allCheck = document.getElementById('timerange-check-all');
+    if (selectedTimeRanges.size === 0) {
+        btn.innerHTML = 'All Dates <span class="city-chevron">▾</span>';
+        btn.classList.remove('has-selection');
+        allCheck.checked = true;
+    } else {
+        const label = selectedTimeRanges.size === 1
+            ? timeRangeLabels[[...selectedTimeRanges][0]]
+            : `${selectedTimeRanges.size} Ranges`;
         btn.innerHTML = `${label} <span class="city-chevron">▾</span>`;
         btn.classList.add('has-selection');
         allCheck.checked = false;
@@ -321,16 +395,18 @@ function clientFilter(events) {
             if (!match) return false;
         }
 
-        // Time range
-        if (filters.timeRange !== 'all') {
+        // Time range (multi-select — empty set means all dates, OR logic across selections)
+        if (selectedTimeRanges.size > 0) {
             const today = new Date();
             today.setHours(0, 0, 0, 0);
             const days = Math.floor((new Date(e.startDate) - today) / 86400000);
-            if (filters.timeRange === '2w'   && days > 14)           return false;
-            if (filters.timeRange === '2-4w' && (days <= 14 || days > 28)) return false;
-            if (filters.timeRange === '4-8w' && (days <= 28 || days > 56)) return false;
-            if (filters.timeRange === '8-12w'&& (days <= 56 || days > 84)) return false;
-            if (filters.timeRange === '12w+' && days <= 84)           return false;
+            const inRange = r =>
+                (r === '2w'    && days >= 0 && days <= 14)  ||
+                (r === '2-4w'  && days > 14 && days <= 28)  ||
+                (r === '4-8w'  && days > 28 && days <= 56)  ||
+                (r === '8-12w' && days > 56 && days <= 84)  ||
+                (r === '12w+'  && days > 84);
+            if (![...selectedTimeRanges].some(inRange)) return false;
         }
 
         return true;
