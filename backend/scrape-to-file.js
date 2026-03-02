@@ -274,9 +274,11 @@ async function fetchTownscript() {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en-US,en;q=0.9',
   };
-  const url = 'https://www.townscript.com/in/india/running?page=40';
+  // page=10 gives ~100 real events and responds reliably in 5-8s.
+  // page=40 was returning 2MB and timing out intermittently (8-30s).
+  const url = 'https://www.townscript.com/in/india/running?page=10';
   const MAX_RETRIES = 2;
-  const TIMEOUT = 30000;
+  const TIMEOUT = 20000;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
@@ -294,7 +296,7 @@ async function fetchTownscript() {
           for (const item of items) {
             if (item['@type'] !== 'Event') continue;
             const norm = normaliseTownscript(item);
-            if (norm.startDate) events.push(norm);
+            if (norm && norm.startDate) events.push(norm);
           }
         } catch (_) {}
       }
@@ -315,8 +317,15 @@ async function fetchTownscript() {
   return [];
 }
 
+// Returns null for virtual/courier events that aren't real races
+function isVirtualEvent(name) {
+  const n = name.toLowerCase();
+  return n.includes('virtual') || n.includes('by courier') || n.includes('get medal') || n.includes('get trophy') || n.includes('get t-shirt');
+}
+
 function normaliseTownscript(e) {
   const name = e.name || '';
+  if (isVirtualEvent(name)) return null;
   const startDate = e.startDate ? normDate(new Date(e.startDate).toISOString()) : null;
   const endDate   = e.endDate   ? normDate(new Date(e.endDate).toISOString())   : startDate;
   const distances = inferDistances(name);
