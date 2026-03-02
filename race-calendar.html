@@ -35,9 +35,9 @@
 
         <!-- FILTERS -->
         <div class="calendar-filters">
-            <span class="filter-label">Region:</span>
-            <button class="filter-chip active" data-group="region" data-value="all">All</button>
-            <button class="filter-chip" data-group="region" data-value="india">India</button>
+            <span class="filter-label">City:</span>
+            <button class="filter-chip active" data-group="city" data-value="all">All</button>
+            <span id="city-filter-chips" style="display:contents;"></span>
 
             <span class="filter-label" style="margin-left:1rem;">Distance:</span>
             <button class="filter-chip active" data-group="distance" data-value="all">All</button>
@@ -127,22 +127,20 @@
 <script>
 // ─── State ────────────────────────────────────────────────────────────────────
 let allEvents = [];
-let filters   = { region: 'all', distance: 'all', month: 'all' };
+let filters   = { city: 'all', distance: 'all', month: 'all' };
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
     loadEvents();
 
-    // Filter chip clicks
-    document.querySelectorAll('.filter-chip').forEach(chip => {
-        chip.addEventListener('click', () => {
-            const group = chip.dataset.group;
-            document.querySelectorAll(`.filter-chip[data-group="${group}"]`)
-                    .forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            filters[group] = chip.dataset.value;
-            renderEvents();
-        });
+    // Distance chip clicks (static chips)
+    document.querySelectorAll('.filter-chip[data-group="distance"]').forEach(chip => {
+        chip.addEventListener('click', () => handleChipClick(chip));
+    });
+
+    // All-cities chip
+    document.querySelector('.filter-chip[data-group="city"]').addEventListener('click', function() {
+        handleChipClick(this);
     });
 
     // Month select
@@ -164,6 +162,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// ─── Shared chip click handler ────────────────────────────────────────────────
+function handleChipClick(chip) {
+    const group = chip.dataset.group;
+    document.querySelectorAll(`.filter-chip[data-group="${group}"]`)
+            .forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    filters[group] = chip.dataset.value;
+    renderEvents();
+}
+
+// ─── City normalisation — merge duplicates/variants ───────────────────────────
+function normaliseCity(raw) {
+    if (!raw) return null;
+    const c = raw.trim();
+    if (/^india$/i.test(c))                        return null; // no specific city
+    if (/new delhi|delhi.*ncr/i.test(c))           return 'Delhi';
+    if (/^mumbai/i.test(c) && !/navi/i.test(c))   return 'Mumbai';
+    if (/^pune/i.test(c))                          return 'Pune';
+    if (/bengaluru|bangalore/i.test(c))            return 'Bengaluru';
+    // Extract just the city name if a venue is prepended (e.g. "Stadium, City")
+    const commaSplit = c.split(',');
+    const last = commaSplit[commaSplit.length - 1].trim();
+    // Title-case
+    return last.replace(/\b\w/g, l => l.toUpperCase());
+}
+
+// ─── Build city chips dynamically from loaded event data ──────────────────────
+function buildCityFilters(events) {
+    const counts = {};
+    events.forEach(e => {
+        const city = normaliseCity(e.city);
+        if (city) counts[city] = (counts[city] || 0) + 1;
+    });
+
+    // Sort by count descending, then alphabetically
+    const cities = Object.entries(counts)
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .map(([city]) => city);
+
+    const container = document.getElementById('city-filter-chips');
+    container.innerHTML = ''; // clear on reload
+    cities.forEach(city => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-chip';
+        btn.dataset.group = 'city';
+        btn.dataset.value = city;
+        btn.textContent = city;
+        btn.addEventListener('click', () => handleChipClick(btn));
+        container.appendChild(btn);
+    });
+}
+
 // ─── Load events from static JSON ─────────────────────────────────────────────
 async function loadEvents() {
     try {
@@ -173,6 +223,7 @@ async function loadEvents() {
         if (data.error) throw new Error(data.error);
 
         allEvents = data.events || [];
+        buildCityFilters(allEvents);
         updateStatusBar(data.total, data.fetchedAt, data.stale);
         renderEvents();
 
@@ -195,7 +246,7 @@ function renderEvents() {
             <div class="empty-state">
                 <span class="empty-icon">🔍</span>
                 <h3>No events match your filters</h3>
-                <p>Try selecting a different distance, region, or month.</p>
+                <p>Try selecting a different city, distance, or month.</p>
             </div>`;
         return;
     }
@@ -206,9 +257,11 @@ function renderEvents() {
 // ─── Client-side filtering ────────────────────────────────────────────────────
 function clientFilter(events) {
     return events.filter(e => {
-        // Region
-        if (filters.region === 'india'  && e.region !== 'India') return false;
-        if (filters.region === 'global' && e.region === 'India')  return false;
+        // City
+        if (filters.city !== 'all') {
+            const evCity = normaliseCity(e.city) || '';
+            if (evCity !== filters.city) return false;
+        }
 
         // Distance
         if (filters.distance !== 'all') {
