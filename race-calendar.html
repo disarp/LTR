@@ -36,8 +36,18 @@
         <!-- FILTERS -->
         <div class="calendar-filters">
             <span class="filter-label">City:</span>
-            <button class="filter-chip active" data-group="city" data-value="all">All</button>
-            <span id="city-filter-chips" style="display:contents;"></span>
+            <div class="city-dropdown" id="city-dropdown">
+                <button class="city-dropdown-btn" id="city-dropdown-btn">
+                    All Cities <span class="city-chevron">▾</span>
+                </button>
+                <div class="city-dropdown-panel" id="city-dropdown-panel">
+                    <label class="city-checkbox-item">
+                        <input type="checkbox" id="city-check-all" checked> All Cities
+                    </label>
+                    <div class="city-divider"></div>
+                    <div id="city-checkbox-list"></div>
+                </div>
+            </div>
 
             <span class="filter-label" style="margin-left:1rem;">Distance:</span>
             <button class="filter-chip active" data-group="distance" data-value="all">All</button>
@@ -126,21 +136,23 @@
 <script src="js/main.js"></script>
 <script>
 // ─── State ────────────────────────────────────────────────────────────────────
-let allEvents = [];
-let filters   = { city: 'all', distance: 'all', month: 'all' };
+let allEvents    = [];
+let selectedCities = new Set(); // empty = all cities
+let filters      = { distance: 'all', month: 'all' };
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
     loadEvents();
 
-    // Distance chip clicks (static chips)
+    // Distance chip clicks
     document.querySelectorAll('.filter-chip[data-group="distance"]').forEach(chip => {
-        chip.addEventListener('click', () => handleChipClick(chip));
-    });
-
-    // All-cities chip
-    document.querySelector('.filter-chip[data-group="city"]').addEventListener('click', function() {
-        handleChipClick(this);
+        chip.addEventListener('click', () => {
+            document.querySelectorAll('.filter-chip[data-group="distance"]')
+                    .forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            filters.distance = chip.dataset.value;
+            renderEvents();
+        });
     });
 
     // Month select
@@ -149,46 +161,81 @@ document.addEventListener('DOMContentLoaded', () => {
         renderEvents();
     });
 
-    // Refresh button — re-reads the cached JSON
+    // City dropdown — open/close on button click
+    document.getElementById('city-dropdown-btn').addEventListener('click', e => {
+        e.stopPropagation();
+        const panel = document.getElementById('city-dropdown-panel');
+        const btn   = document.getElementById('city-dropdown-btn');
+        const isOpen = panel.classList.contains('open');
+        panel.classList.toggle('open', !isOpen);
+        btn.classList.toggle('open', !isOpen);
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', e => {
+        if (!document.getElementById('city-dropdown').contains(e.target)) {
+            document.getElementById('city-dropdown-panel').classList.remove('open');
+            document.getElementById('city-dropdown-btn').classList.remove('open');
+        }
+    });
+
+    // "All Cities" checkbox
+    document.getElementById('city-check-all').addEventListener('change', function() {
+        if (this.checked) {
+            selectedCities.clear();
+            document.querySelectorAll('#city-checkbox-list input[type="checkbox"]')
+                    .forEach(cb => { cb.checked = false; });
+            updateCityBtn();
+            renderEvents();
+        } else {
+            this.checked = true; // can't uncheck "All" directly — must pick a city
+        }
+    });
+
+    // Refresh button
     document.getElementById('refresh-btn').addEventListener('click', async () => {
         const btn = document.getElementById('refresh-btn');
         btn.classList.add('spinning');
         btn.disabled = true;
-        try {
-            await loadEvents();
-        } catch (_) {}
+        try { await loadEvents(); } catch (_) {}
         btn.classList.remove('spinning');
         btn.disabled = false;
     });
 });
 
-// ─── Shared chip click handler ────────────────────────────────────────────────
-function handleChipClick(chip) {
-    const group = chip.dataset.group;
-    document.querySelectorAll(`.filter-chip[data-group="${group}"]`)
-            .forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    filters[group] = chip.dataset.value;
-    renderEvents();
+// ─── City dropdown helpers ────────────────────────────────────────────────────
+function updateCityBtn() {
+    const btn = document.getElementById('city-dropdown-btn');
+    const allCheck = document.getElementById('city-check-all');
+    if (selectedCities.size === 0) {
+        btn.innerHTML = 'All Cities <span class="city-chevron">▾</span>';
+        btn.classList.remove('has-selection');
+        allCheck.checked = true;
+    } else {
+        const label = selectedCities.size === 1
+            ? [...selectedCities][0]
+            : `${selectedCities.size} Cities`;
+        btn.innerHTML = `${label} <span class="city-chevron">▾</span>`;
+        btn.classList.add('has-selection');
+        allCheck.checked = false;
+    }
 }
 
 // ─── City normalisation — merge duplicates/variants ───────────────────────────
 function normaliseCity(raw) {
     if (!raw) return null;
     const c = raw.trim();
-    if (/^india$/i.test(c))                        return null; // no specific city
+    if (/^india$/i.test(c))                        return null;
     if (/new delhi|delhi.*ncr/i.test(c))           return 'Delhi';
     if (/^mumbai/i.test(c) && !/navi/i.test(c))   return 'Mumbai';
     if (/^pune/i.test(c))                          return 'Pune';
     if (/bengaluru|bangalore/i.test(c))            return 'Bengaluru';
-    // Extract just the city name if a venue is prepended (e.g. "Stadium, City")
     const commaSplit = c.split(',');
     const last = commaSplit[commaSplit.length - 1].trim();
-    // Title-case
     return last.replace(/\b\w/g, l => l.toUpperCase());
 }
 
-// ─── Build city chips dynamically from loaded event data ──────────────────────
+// ─── Build city checkboxes from event data ────────────────────────────────────
 function buildCityFilters(events) {
     const counts = {};
     events.forEach(e => {
@@ -196,22 +243,34 @@ function buildCityFilters(events) {
         if (city) counts[city] = (counts[city] || 0) + 1;
     });
 
-    // Sort by count descending, then alphabetically
     const cities = Object.entries(counts)
         .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-        .map(([city]) => city);
+        .map(([city, count]) => ({ city, count }));
 
-    const container = document.getElementById('city-filter-chips');
-    container.innerHTML = ''; // clear on reload
-    cities.forEach(city => {
-        const btn = document.createElement('button');
-        btn.className = 'filter-chip';
-        btn.dataset.group = 'city';
-        btn.dataset.value = city;
-        btn.textContent = city;
-        btn.addEventListener('click', () => handleChipClick(btn));
-        container.appendChild(btn);
+    const list = document.getElementById('city-checkbox-list');
+    list.innerHTML = '';
+    cities.forEach(({ city, count }) => {
+        const label = document.createElement('label');
+        label.className = 'city-checkbox-item';
+        label.innerHTML = `
+            <input type="checkbox" value="${city}">
+            ${city} <span style="margin-left:auto;font-size:0.75rem;color:var(--text-muted);">${count}</span>`;
+        const cb = label.querySelector('input');
+        cb.addEventListener('change', () => {
+            if (cb.checked) {
+                selectedCities.add(city);
+            } else {
+                selectedCities.delete(city);
+            }
+            updateCityBtn();
+            renderEvents();
+        });
+        list.appendChild(label);
     });
+
+    // Reset selection state on reload
+    selectedCities.clear();
+    updateCityBtn();
 }
 
 // ─── Load events from static JSON ─────────────────────────────────────────────
@@ -257,10 +316,10 @@ function renderEvents() {
 // ─── Client-side filtering ────────────────────────────────────────────────────
 function clientFilter(events) {
     return events.filter(e => {
-        // City
-        if (filters.city !== 'all') {
+        // City (multi-select — empty set means all)
+        if (selectedCities.size > 0) {
             const evCity = normaliseCity(e.city) || '';
-            if (evCity !== filters.city) return false;
+            if (!selectedCities.has(evCity)) return false;
         }
 
         // Distance
