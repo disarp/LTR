@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Race Calendar — Let's Talk Running</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
@@ -43,7 +43,7 @@
                         <button class="city-dropdown-btn" id="city-dropdown-btn">
                             All Cities <span class="city-chevron">▾</span>
                         </button>
-                        <div class="city-dropdown-panel" id="city-dropdown-panel">
+                        <div class="city-dropdown-panel" id="city-dropdown-panel" style="display:none">
                             <label class="city-checkbox-item">
                                 <input type="checkbox" id="city-check-all" checked> All Cities
                             </label>
@@ -59,7 +59,7 @@
                         <button class="city-dropdown-btn" id="timerange-dropdown-btn">
                             All Dates <span class="city-chevron">▾</span>
                         </button>
-                        <div class="city-dropdown-panel" id="timerange-dropdown-panel">
+                        <div class="city-dropdown-panel" id="timerange-dropdown-panel" style="display:none">
                             <label class="city-checkbox-item">
                                 <input type="checkbox" id="timerange-check-all" checked> All Dates
                             </label>
@@ -170,19 +170,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Dropdown toggle helper (opening one closes the other) ──
     function closeDropdown(id) {
-        document.getElementById(id + '-panel').classList.remove('open');
+        document.getElementById(id + '-panel').style.display = 'none';
         document.getElementById(id + '-btn').classList.remove('open');
     }
     function toggleDropdown(id) {
         const panel = document.getElementById(id + '-panel');
         const btn   = document.getElementById(id + '-btn');
-        const opening = !panel.classList.contains('open');
+        const isOpen = panel.style.display === 'block';
         // close both first
         closeDropdown('city-dropdown');
         closeDropdown('timerange-dropdown');
         // then open the one we clicked (if it was closed)
-        if (opening) {
-            panel.classList.add('open');
+        if (!isOpen) {
+            panel.style.display = 'block';
             btn.classList.add('open');
         }
     }
@@ -195,6 +195,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
         toggleDropdown('timerange-dropdown');
     });
+
+    // Prevent clicks inside panels from closing them
+    document.getElementById('city-dropdown-panel').addEventListener('click', e => e.stopPropagation());
+    document.getElementById('timerange-dropdown-panel').addEventListener('click', e => e.stopPropagation());
 
     // Close all dropdowns when clicking outside
     document.addEventListener('click', () => {
