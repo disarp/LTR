@@ -556,6 +556,34 @@ img { max-width: 100%; }
     line-height: 1.65;
 }
 
+.team-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    margin: 0 auto 1.25rem;
+    display: block;
+    box-shadow: 0 0 0 4px rgba(232,93,4,0.15);
+}
+
+.team-strava {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fc4c02;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+}
+
+.team-strava:hover {
+    opacity: 0.75;
+}
+
 /* ===== RACE CALENDAR ===== */
 .calendar-filters {
     display: flex;
