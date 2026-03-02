@@ -557,11 +557,11 @@ img { max-width: 100%; }
 }
 
 .team-photo {
-    width: 96px;
-    height: 96px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center center;
     margin: 0 auto 1.25rem;
     display: block;
     box-shadow: 0 0 0 4px rgba(232,93,4,0.15);
