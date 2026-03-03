@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coaching Plans — Let's Talk Running</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/coaching.css?v=2">
+    <link rel="stylesheet" href="/css/coaching.css?v=3">
 </head>
 <body>
 
@@ -143,69 +143,91 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="section section-alt">
+<section class="section section-alt" style="overflow: hidden;">
     <div class="container">
         <div class="section-heading">
             <span class="section-label">Runner Stories</span>
             <h2>What Our Runners Say</h2>
             <p>Real runners, real results. Here's what coaching has meant to them.</p>
         </div>
-        <div class="testimonials-grid">
+        <div class="testimonial-carousel">
+            <!-- Left arrow -->
+            <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous testimonial">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 16 7 10 13 4"></polyline></svg>
+            </button>
 
-            <div class="testimonial-card">
-                <div class="testimonial-top">
-                    <img src="/images/testimonials/Divya.jpeg" alt="Divya" class="testimonial-photo">
-                    <div>
-                        <div class="testimonial-name">Divya</div>
-                        <div class="testimonial-detail">Beginner Runner to Full Marathon Finisher</div>
+            <!-- Viewport -->
+            <div class="carousel-viewport">
+                <div class="carousel-track">
+
+                    <div class="testimonial-card carousel-slide">
+                        <div class="testimonial-top">
+                            <img src="/images/testimonials/Divya.jpeg" alt="Divya" class="testimonial-photo">
+                            <div>
+                                <div class="testimonial-name">Divya</div>
+                                <div class="testimonial-detail">Beginner Runner to Full Marathon Finisher</div>
+                            </div>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            &ldquo;I trained with LTR for three years — two marathon cycles and some shorter races in between. After COVID, I felt stuck. My pace wasn't improving, and I had lost motivation. They helped me get back on track and train for races, which I didn't even think I wanted to do.&rdquo;
+                        </blockquote>
+                        <blockquote class="testimonial-quote" style="margin-top: 0.75rem;">
+                            &ldquo;The daily plans were clear, easy to follow, and research-based. We had monthly check-ins that kept me accountable and helped adjust things when needed. Before races, they shared proper race strategies, so I knew exactly how to pace myself. The WhatsApp group support was constant — I could ask questions, share doubts, or just feel encouraged on hard days.&rdquo;
+                        </blockquote>
+                        <blockquote class="testimonial-quote" style="margin-top: 0.75rem;">
+                            &ldquo;The nutrition advice worked for my lifestyle, and I felt strong through training. They always knew what was missing in my diet and recovery cycle based on what I shared. With their guidance, I completed my first marathon in under five hours — and more importantly, I enjoyed the whole journey.&rdquo;
+                        </blockquote>
                     </div>
+
+                    <div class="testimonial-card carousel-slide">
+                        <div class="testimonial-top">
+                            <img src="/images/testimonials/Aarshi.jpeg" alt="Aarshi" class="testimonial-photo">
+                            <div>
+                                <div class="testimonial-name">Aarshi</div>
+                                <div class="testimonial-detail">First 5K Runner</div>
+                            </div>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            &ldquo;I wanted to do a trek, and the fitness requirement was a 5K in 35 minutes as the bare minimum. From not being able to run 1K, 5K felt impossible at first. Utterly impossible.&rdquo;
+                        </blockquote>
+                        <blockquote class="testimonial-quote" style="margin-top: 0.75rem;">
+                            &ldquo;Then I met Prasid. Being a gazillionth-time marathon runner, he was so kind and patient guiding me through. I felt so overwhelmed and frankly a total noob in comparison — but he never saw it like that, and made sure I stopped seeing it that way too. And I did, when I got there.&rdquo;
+                        </blockquote>
+                        <blockquote class="testimonial-quote" style="margin-top: 0.75rem;">
+                            &ldquo;From starting small to continuous sets, pushing me just right. We went slow but steady — some unseen breaks, many imperfections — but consistency, patience, and a ton of cribbing, stretching, proper diet, sleep, and what not later, I finally made it to 5K. Prasid was the coach who made me feel like it was possible, and it actually happened! Couldn't be happier, couldn't have got a better coach. 😊&rdquo;
+                        </blockquote>
+                    </div>
+
+                    <div class="testimonial-card carousel-slide">
+                        <div class="testimonial-top">
+                            <div class="testimonial-photo testimonial-initials">S</div>
+                            <div>
+                                <div class="testimonial-name">Sriram</div>
+                                <div class="testimonial-detail">Triathlete</div>
+                            </div>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            &ldquo;Coming from a triathlon background, I always knew that running was my weakest leg. After Ironman Goa last year, it became clear that if I wanted to meaningfully improve overall performance, I needed focused, structured run training rather than just accumulating mileage. Working with Prasid over the past three months has been transformative. His approach is precise, data-driven, and intelligently periodized and every session has intent, and every week builds toward a clear objective. The training was tailored to my schedule and race goals, with constant feedback and thoughtful adjustments based on performance and recovery.&rdquo;
+                        </blockquote>
+                        <blockquote class="testimonial-quote" style="margin-top: 0.75rem;">
+                            &ldquo;The results speak for themselves. I delivered a strong performance at the Olympic triathlon in Chennai in early January, and most recently clocked a 1:48 at the Delhi Half Marathon, cutting down my previous personal best of 2 hours by a significant margin. More than the numbers, what has changed is my confidence on the run leg. I now start races knowing I have done the work, and that the preparation is both deliberate and sustainable. If you are serious about improving your run performance within a structured, accountable system, I would strongly recommend working with Prasid.&rdquo;
+                        </blockquote>
+                    </div>
+
                 </div>
-                <blockquote class="testimonial-quote">
-                    &ldquo;I trained with LTR for three years — two marathon cycles and some shorter races in between. After COVID, I felt stuck. My pace wasn't improving, and I had lost motivation. They helped me get back on track and train for races, which I didn't even think I wanted to do.&rdquo;
-                </blockquote>
-                <blockquote class="testimonial-quote" style="margin-top: 0.75rem;">
-                    &ldquo;The daily plans were clear, easy to follow, and research-based. We had monthly check-ins that kept me accountable and helped adjust things when needed. Before races, they shared proper race strategies, so I knew exactly how to pace myself. The WhatsApp group support was constant — I could ask questions, share doubts, or just feel encouraged on hard days.&rdquo;
-                </blockquote>
-                <blockquote class="testimonial-quote" style="margin-top: 0.75rem;">
-                    &ldquo;The nutrition advice worked for my lifestyle, and I felt strong through training. They always knew what was missing in my diet and recovery cycle based on what I shared. With their guidance, I completed my first marathon in under five hours — and more importantly, I enjoyed the whole journey.&rdquo;
-                </blockquote>
             </div>
 
-            <div class="testimonial-card">
-                <div class="testimonial-top">
-                    <img src="/images/testimonials/Aarshi.jpeg" alt="Aarshi" class="testimonial-photo">
-                    <div>
-                        <div class="testimonial-name">Aarshi</div>
-                        <div class="testimonial-detail">First 5K Runner</div>
-                    </div>
-                </div>
-                <blockquote class="testimonial-quote">
-                    &ldquo;I wanted to do a trek, and the fitness requirement was a 5K in 35 minutes as the bare minimum. From not being able to run 1K, 5K felt impossible at first. Utterly impossible.&rdquo;
-                </blockquote>
-                <blockquote class="testimonial-quote" style="margin-top: 0.75rem;">
-                    &ldquo;Then I met Prasid. Being a gazillionth-time marathon runner, he was so kind and patient guiding me through. I felt so overwhelmed and frankly a total noob in comparison — but he never saw it like that, and made sure I stopped seeing it that way too. And I did, when I got there.&rdquo;
-                </blockquote>
-                <blockquote class="testimonial-quote" style="margin-top: 0.75rem;">
-                    &ldquo;From starting small to continuous sets, pushing me just right. We went slow but steady — some unseen breaks, many imperfections — but consistency, patience, and a ton of cribbing, stretching, proper diet, sleep, and what not later, I finally made it to 5K. Prasid was the coach who made me feel like it was possible, and it actually happened! Couldn't be happier, couldn't have got a better coach. 😊&rdquo;
-                </blockquote>
-            </div>
+            <!-- Right arrow -->
+            <button class="carousel-arrow carousel-arrow--next" aria-label="Next testimonial">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 4 13 10 7 16"></polyline></svg>
+            </button>
 
-            <div class="testimonial-card">
-                <div class="testimonial-top">
-                    <div class="testimonial-photo testimonial-initials">S</div>
-                    <div>
-                        <div class="testimonial-name">Sriram</div>
-                        <div class="testimonial-detail">Triathlete</div>
-                    </div>
-                </div>
-                <blockquote class="testimonial-quote">
-                    &ldquo;Coming from a triathlon background, I always knew that running was my weakest leg. After Ironman Goa last year, it became clear that if I wanted to meaningfully improve overall performance, I needed focused, structured run training rather than just accumulating mileage. Working with Prasid over the past three months has been transformative. His approach is precise, data-driven, and intelligently periodized and every session has intent, and every week builds toward a clear objective. The training was tailored to my schedule and race goals, with constant feedback and thoughtful adjustments based on performance and recovery.&rdquo;
-                </blockquote>
-                <blockquote class="testimonial-quote" style="margin-top: 0.75rem;">
-                    &ldquo;The results speak for themselves. I delivered a strong performance at the Olympic triathlon in Chennai in early January, and most recently clocked a 1:48 at the Delhi Half Marathon, cutting down my previous personal best of 2 hours by a significant margin. More than the numbers, what has changed is my confidence on the run leg. I now start races knowing I have done the work, and that the preparation is both deliberate and sustainable. If you are serious about improving your run performance within a structured, accountable system, I would strongly recommend working with Prasid.&rdquo;
-                </blockquote>
+            <!-- Navigation dots -->
+            <div class="carousel-dots">
+                <button class="carousel-dot active" data-index="0" aria-label="Go to testimonial 1"></button>
+                <button class="carousel-dot" data-index="1" aria-label="Go to testimonial 2"></button>
+                <button class="carousel-dot" data-index="2" aria-label="Go to testimonial 3"></button>
             </div>
-
         </div>
     </div>
 </section>
@@ -534,6 +556,114 @@ async function handleSubmit(event, tier) {
 
     return false;
 }
+
+// ─── Testimonial Carousel ──────────────────────────────────────────────────────
+(function () {
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const prevBtn = document.querySelector('.carousel-arrow--prev');
+    const nextBtn = document.querySelector('.carousel-arrow--next');
+    const carousel = document.querySelector('.testimonial-carousel');
+
+    if (!track || slides.length === 0) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoplayInterval = null;
+    const AUTOPLAY_DELAY = 6000;
+
+    function goToSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentIndex = index;
+        var slideWidth = slides[0].offsetWidth;
+        track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
+        dots.forEach(function (dot, i) {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+        goToSlide(currentIndex - 1);
+        resetAutoplay();
+    });
+
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+        goToSlide(currentIndex + 1);
+        resetAutoplay();
+    });
+
+    dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+            goToSlide(parseInt(dot.dataset.index, 10));
+            resetAutoplay();
+        });
+    });
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayInterval = setInterval(function () {
+            goToSlide(currentIndex + 1);
+        }, AUTOPLAY_DELAY);
+    }
+
+    function stopAutoplay() {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+    }
+
+    function resetAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+
+    // Touch/swipe support
+    var touchStartX = 0;
+    var SWIPE_THRESHOLD = 50;
+
+    carousel.addEventListener('touchstart', function (e) {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoplay();
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', function (e) {
+        var diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > SWIPE_THRESHOLD) {
+            goToSlide(diff > 0 ? currentIndex + 1 : currentIndex - 1);
+        }
+        startAutoplay();
+    }, { passive: true });
+
+    // Keyboard accessibility
+    carousel.setAttribute('tabindex', '0');
+    carousel.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { goToSlide(currentIndex - 1); resetAutoplay(); }
+        if (e.key === 'ArrowRight') { goToSlide(currentIndex + 1); resetAutoplay(); }
+    });
+
+    // Pause when tab not visible
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stopAutoplay(); else startAutoplay();
+    });
+
+    // Recalculate on resize
+    window.addEventListener('resize', function () {
+        track.style.transition = 'none';
+        goToSlide(currentIndex);
+        setTimeout(function () {
+            track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        }, 50);
+    });
+
+    goToSlide(0);
+    startAutoplay();
+})();
 </script>
 </body>
 </html>
