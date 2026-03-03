@@ -323,7 +323,7 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="i-phone">Phone <span class="req">*</span></label>
-                    <input type="tel" id="i-phone" name="phone" required placeholder="+91 98765 43210">
+                    <input type="tel" id="i-phone" name="phone" required placeholder="+91 98765 43210" pattern="[\d\s\+\-]+" title="Please enter a valid phone number (digits only)">
                 </div>
             </div>
 
@@ -385,7 +385,7 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="p-phone">Phone / WhatsApp <span class="req">*</span></label>
-                    <input type="tel" id="p-phone" name="phone" required placeholder="+91 98765 43210">
+                    <input type="tel" id="p-phone" name="phone" required placeholder="+91 98765 43210" pattern="[\d\s\+\-]+" title="Please enter a valid phone number (digits only)">
                 </div>
             </div>
 
@@ -489,6 +489,14 @@ async function handleSubmit(event, tier) {
     const btn  = form.querySelector('button[type="submit"]');
     const btnText = btn.querySelector('.btn-text');
     const btnLoad = btn.querySelector('.btn-loading');
+
+    // Validate phone number (digits, spaces, +, - only)
+    const phoneInput = form.querySelector('input[name="phone"]');
+    if (phoneInput && !/^[\d\s\+\-]+$/.test(phoneInput.value.trim())) {
+        alert('Please enter a valid phone number (digits only, no letters).');
+        phoneInput.focus();
+        return false;
+    }
 
     // Collect form data
     const formData = new FormData(form);
