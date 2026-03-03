@@ -1,0 +1,13 @@
+[
+  {
+    "plan_tier": "beginner",
+    "name": "Test Runner",
+    "email": "test@example.com",
+    "phone": "+91 98765 43210",
+    "gender": "Male",
+    "age": "32",
+    "location": "Mumbai",
+    "plan_distance": "10K",
+    "submitted_at": "2026-02-27T06:21:11.314Z"
+  }
+]
