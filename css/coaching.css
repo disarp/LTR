@@ -314,6 +314,13 @@
     line-height: 1.4;
 }
 
+.testimonial-bio {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+    line-height: 1.4;
+}
+
 .testimonial-quote {
     font-size: 0.925rem;
     color: var(--text-muted);
@@ -602,11 +609,23 @@
     .testimonial-photo-col {
         flex: none;
         flex-direction: row;
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 0.25rem 1rem;
         text-align: left;
+        align-items: center;
     }
     .testimonial-photo {
         width: 72px;
         height: 72px;
+    }
+    .testimonial-name {
+        font-size: 1rem;
+    }
+    .testimonial-detail {
+        margin-top: 0;
+    }
+    .testimonial-bio {
+        flex-basis: 100%;
+        margin-top: 0.15rem;
     }
 }
