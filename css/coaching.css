@@ -219,6 +219,10 @@
     padding-top: 0.25rem;
 }
 
+.testimonial-info {
+    display: contents;
+}
+
 .testimonial-text-col {
     flex: 1;
     min-width: 0;
@@ -609,23 +613,25 @@
     .testimonial-photo-col {
         flex: none;
         flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.25rem 1rem;
+        gap: 1rem;
         text-align: left;
         align-items: center;
     }
     .testimonial-photo {
         width: 72px;
         height: 72px;
+        margin-bottom: 0;
+    }
+    .testimonial-info {
+        display: block;
     }
     .testimonial-name {
         font-size: 1rem;
     }
     .testimonial-detail {
-        margin-top: 0;
+        margin-top: 0.1rem;
     }
     .testimonial-bio {
-        flex-basis: 100%;
-        margin-top: 0.15rem;
+        margin-top: 0.25rem;
     }
 }
