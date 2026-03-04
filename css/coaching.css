@@ -138,7 +138,7 @@
 }
 
 .step-arrow {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0.5;
@@ -601,6 +601,7 @@
         margin: 0 auto;
     }
     .step-arrow {
+        display: flex;
         transform: rotate(90deg);
         padding-bottom: 0;
     }
