@@ -590,7 +590,9 @@
         padding: 0;
     }
     .carousel-arrow {
-        display: none;
+        display: flex;
+        width: 32px;
+        height: 32px;
     }
     .testimonial-card {
         flex-direction: column;
