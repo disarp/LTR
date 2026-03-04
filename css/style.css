@@ -1198,9 +1198,7 @@ footer {
     .event-actions {
         flex-basis: 100%;
         margin-top: 0.25rem;
-    }
-    .event-actions .btn {
-        width: 100%;
-        text-align: center;
+        display: flex;
+        justify-content: center;
     }
 }
