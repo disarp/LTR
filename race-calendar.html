@@ -27,9 +27,8 @@
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-    <div class="eyebrow">Updated Daily · Auto-Refreshed</div>
     <h1>Race Calendar</h1>
-    <p>Upcoming running events across India — sourced live from indiarunning.com, bhaagoindia.com, townscript.com, mysamay.in, citywoofer.com &amp; BookMyShow.</p>
+    <p>Upcoming on-ground running events in India</p>
 </section>
 
 <!-- CALENDAR -->
@@ -77,25 +76,12 @@
                 </div>
             </div>
 
-            <!-- Row 2 — distance pills -->
-            <div class="filter-row-chips">
-                <span class="filter-label">Distance</span>
-                <button class="filter-chip active" data-group="distance" data-value="all">All</button>
-                <button class="filter-chip" data-group="distance" data-value="5k">5K</button>
-                <button class="filter-chip" data-group="distance" data-value="10k">10K</button>
-                <button class="filter-chip" data-group="distance" data-value="half">Half Marathon</button>
-                <button class="filter-chip" data-group="distance" data-value="marathon">Full Marathon</button>
-                <button class="filter-chip" data-group="distance" data-value="ultra">Ultra</button>
-            </div>
         </div>
 
         <!-- STATUS BAR -->
         <div class="calendar-status">
             <span id="api-status"><span class="status-dot"></span>Loading events…</span>
             <span id="filtered-count" style="color:var(--text-muted);"></span>
-            <button class="btn-refresh" id="refresh-btn">
-                <span class="refresh-icon">↻</span> Refresh
-            </button>
         </div>
 
         <!-- EVENT LIST (populated by JS) -->

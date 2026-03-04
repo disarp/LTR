@@ -131,9 +131,18 @@
 
 /* ===== STEPS / HOW IT WORKS ===== */
 .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.step-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    padding-bottom: 1.5rem;
 }
 
 .step-card {
@@ -587,9 +596,13 @@
     }
 
     .steps-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         max-width: 380px;
         margin: 0 auto;
+    }
+    .step-arrow {
+        transform: rotate(90deg);
+        padding-bottom: 0;
     }
 
     .carousel-arrow {
