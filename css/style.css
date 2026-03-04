@@ -1181,4 +1181,26 @@ footer {
     .footer-top { grid-template-columns: 1fr; }
     .grid-2 { grid-template-columns: 1fr; }
     .plan-grid { grid-template-columns: 1fr; }
+
+    /* Race calendar — mobile layout */
+    .event-card {
+        flex-wrap: wrap;
+    }
+    .event-title {
+        white-space: normal;
+    }
+    .event-source {
+        display: none;
+    }
+    .event-distances {
+        display: none;
+    }
+    .event-actions {
+        flex-basis: 100%;
+        margin-top: 0.25rem;
+    }
+    .event-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
 }
