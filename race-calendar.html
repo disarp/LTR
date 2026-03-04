@@ -453,10 +453,6 @@ function eventCard(ev) {
         `<span class="tag tag-primary" style="font-size:0.72rem;">${esc(d)}</span>`
     ).join('');
 
-    const priceHtml = ev.price
-        ? `<span class="event-price">· ${esc(ev.price)}</span>`
-        : '';
-
     return `
     <div class="event-card">
         <div class="event-date">
@@ -469,7 +465,6 @@ function eventCard(ev) {
             <div class="event-meta">
                 <span class="event-location">📍 ${esc(location)}</span>
                 <div class="event-distances">${distTags}</div>
-                ${priceHtml}
                 <span class="event-source">via ${esc(ev.source)}</span>
             </div>
         </div>
