@@ -274,11 +274,10 @@ async function fetchTownscript() {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en-US,en;q=0.9',
   };
-  // page=10 gives ~100 real events and responds reliably in 5-8s.
-  // page=40 was returning 2MB and timing out intermittently (8-30s).
-  const url = 'https://www.townscript.com/in/india/running?page=10';
+  // page=40 for comprehensive coverage — runs unattended at 3 AM via GitHub Actions
+  const url = 'https://www.townscript.com/in/india/running?page=40';
   const MAX_RETRIES = 2;
-  const TIMEOUT = 20000;
+  const TIMEOUT = 60000;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
