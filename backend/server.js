@@ -154,7 +154,7 @@ app.post('/api/coaching-signup', async (req, res) => {
 // Email helper (uses Resend API)
 async function sendCoachingEmail(data) {
   const RESEND_KEY = process.env.RESEND_API_KEY;
-  const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev';
+  const FROM_EMAIL = process.env.FROM_EMAIL || 'laxmi@letstalkrunning.com';
   const COACH_EMAIL = process.env.COACH_EMAIL || 'letustalkrunning@gmail.com';
 
   // 1. Send notification to coach
