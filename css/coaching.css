@@ -621,6 +621,66 @@
         min-width: 100%;
         max-width: none;
         box-sizing: border-box;
+        background: var(--primary);
+        border-color: var(--primary);
+    }
+
+    .pricing-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .pricing-card.featured {
+        border-color: var(--primary);
+        box-shadow: none;
+    }
+
+    .pricing-tier {
+        color: white;
+    }
+
+    .pricing-price {
+        color: white;
+    }
+
+    .pricing-desc {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .pricing-divider {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .pricing-features li {
+        color: white;
+    }
+
+    .pricing-features li.feature-na {
+        color: rgba(255, 255, 255, 0.4);
+        opacity: 1;
+    }
+
+    .pricing-features .check {
+        color: white;
+    }
+
+    .pricing-features .cross {
+        color: rgba(255, 255, 255, 0.35);
+    }
+
+    .pricing-cta {
+        background: white;
+        color: var(--primary);
+        border-color: white;
+    }
+
+    .pricing-cta:hover {
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    .pricing-badge {
+        background: white;
+        color: var(--primary);
     }
 
     /* Arrows — same style as testimonial carousel */
