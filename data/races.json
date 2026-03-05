@@ -1,35 +1,23 @@
 {
   "events": [
     {
-      "id": "ts-humanity-10k-run-312143",
-      "title": "Humanity 10k Run",
-      "city": "Greater Noida",
-      "state": "",
-      "startDate": "2026-03-04",
-      "endDate": "2026-04-01",
+      "id": "ir-9213",
+      "title": "Kanyathon 2026",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "startDate": "2026-03-07",
+      "endDate": "2026-03-08",
       "distances": [
-        "10K"
+        "3K",
+        "5k",
+        "10k"
       ],
-      "price": "₹399",
-      "rating": null,
-      "organizer": "Manav Pragati Sewa Sansthan",
-      "url": "https://www.townscript.com/e/humanity-10k-run-312143",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-safeathon-2026-233123",
-      "title": "Safe-A-Thon 2026",
-      "city": "Sree Kanteerava Stadium, Bengaluru",
-      "state": "",
-      "startDate": "2026-03-06",
-      "endDate": "2026-03-07",
-      "distances": [],
-      "price": "Free",
-      "rating": null,
-      "organizer": "Cycool Sports LLP",
-      "url": "https://www.townscript.com/e/safeathon-2026-233123",
-      "source": "townscript.com",
+      "registrationDeadline": "2026-03-06",
+      "price": "₹650",
+      "rating": 5,
+      "organizer": "IFIM",
+      "url": "https://www.indiarunning.com/events/kanyathon_2026_43689",
+      "source": "indiarunning.com",
       "region": "India"
     },
     {
@@ -55,54 +43,17 @@
       "region": "India"
     },
     {
-      "id": "ir-9213",
-      "title": "Kanyathon 2026",
-      "city": "Bengaluru",
-      "state": "Karnataka",
-      "startDate": "2026-03-07",
-      "endDate": "2026-03-08",
-      "distances": [
-        "3K",
-        "5k",
-        "10k"
-      ],
-      "registrationDeadline": "2026-03-06",
-      "price": "₹650",
-      "rating": 5,
-      "organizer": "IFIM",
-      "url": "https://www.indiarunning.com/events/kanyathon_2026_43689",
-      "source": "indiarunning.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-pune-twin-city-marathon-2026-run-for-amritkal-022303",
-      "title": "Pune Twin City Marathon 2026 - Run For Amritkal",
-      "city": "Pune City",
-      "state": "",
-      "startDate": "2026-03-07",
-      "endDate": "2026-03-08",
-      "distances": [
-        "Marathon"
-      ],
-      "price": "Free",
-      "rating": null,
-      "organizer": "Crew Commune by Yash Raikar",
-      "url": "https://www.townscript.com/e/pune-twin-city-marathon-2026-run-for-amritkal-022303",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-werun2026",
-      "title": "WE Run - Woman Empowerment Run 2026",
-      "city": "Pune",
+      "id": "ts-tuffman-24-hours-stadium-run-new-delhi-2026-8th-edition",
+      "title": "Tuffman 24 Hours Stadium Run New Delhi 2026 (8th Edition)",
+      "city": "New Delhi",
       "state": "",
       "startDate": "2026-03-07",
       "endDate": "2026-03-08",
       "distances": [],
-      "price": "₹395.56",
+      "price": "₹2210",
       "rating": null,
-      "organizer": "PCMC Athletics",
-      "url": "https://www.townscript.com/e/werun2026",
+      "organizer": "Tuffman INDIA",
+      "url": "https://www.townscript.com/e/tuffman-24-hours-stadium-run-new-delhi-2026-8th-edition",
       "source": "townscript.com",
       "region": "India"
     },
@@ -122,9 +73,9 @@
       "region": "India"
     },
     {
-      "id": "ts-copy-of-copy-of-fit-india-trophy-run-your-place-your-time-444",
+      "id": "ts-fit-india-trophy-run-your-place-your-time-",
       "title": "Fit India Trophy Run - Your Place Your Time",
-      "city": "Thane",
+      "city": "Bengaluru",
       "state": "",
       "startDate": "2026-03-07",
       "endDate": "2026-03-08",
@@ -132,7 +83,22 @@
       "price": "₹490",
       "rating": null,
       "organizer": "Omega Events",
-      "url": "https://www.townscript.com/e/copy-of-copy-of-fit-india-trophy-run-your-place-your-time-444",
+      "url": "https://www.townscript.com/e/fit-india-trophy-run-your-place-your-time-",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-mementotrophy-challenge",
+      "title": "Memento Trophy Challenge - Your Photo, Name & Distance",
+      "city": "India",
+      "state": "",
+      "startDate": "2026-03-07",
+      "endDate": "2026-03-08",
+      "distances": [],
+      "price": "₹475",
+      "rating": null,
+      "organizer": "Omega Events",
+      "url": "https://www.townscript.com/e/mementotrophy-challenge",
       "source": "townscript.com",
       "region": "India"
     },
@@ -148,36 +114,6 @@
       "rating": null,
       "organizer": "Omega Events",
       "url": "https://www.townscript.com/e/run-for-the-ocean-get-ocean-theme-medal-121434",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts--memento-challenge",
-      "title": "Memento Trophy Challenge - Your Photo, Name & Distance",
-      "city": "India",
-      "state": "",
-      "startDate": "2026-03-07",
-      "endDate": "2026-03-08",
-      "distances": [],
-      "price": "₹475",
-      "rating": null,
-      "organizer": "Omega Events",
-      "url": "https://www.townscript.com/e/-memento-challenge",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-tuffman-24-hours-stadium-run-new-delhi-2026-8th-edition",
-      "title": "Tuffman 24 Hours Stadium Run New Delhi 2026 (8th Edition)",
-      "city": "New Delhi",
-      "state": "",
-      "startDate": "2026-03-07",
-      "endDate": "2026-03-08",
-      "distances": [],
-      "price": "₹2210",
-      "rating": null,
-      "organizer": "Tuffman INDIA",
-      "url": "https://www.townscript.com/e/tuffman-24-hours-stadium-run-new-delhi-2026-8th-edition",
       "source": "townscript.com",
       "region": "India"
     },
@@ -260,36 +196,6 @@
       "region": "India"
     },
     {
-      "id": "ts-the-saree-run-pune-2026-430233",
-      "title": "The Saree Run Pune 2026",
-      "city": "Pune",
-      "state": "",
-      "startDate": "2026-03-08",
-      "endDate": "2026-03-08",
-      "distances": [],
-      "price": "Free",
-      "rating": null,
-      "organizer": "JJACTIVE PRIVATE LIMITED",
-      "url": "https://www.townscript.com/e/the-saree-run-pune-2026-430233",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-active-noida-womens-day-run-4th-edition-011141",
-      "title": "Women's Day Run - 4th Edition",
-      "city": "India",
-      "state": "",
-      "startDate": "2026-03-08",
-      "endDate": "2026-03-08",
-      "distances": [],
-      "price": "₹478.8",
-      "rating": null,
-      "organizer": "Kanchan",
-      "url": "https://www.townscript.com/e/active-noida-womens-day-run-4th-edition-011141",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
       "id": "ts-the-24th-annual-ttec-wellness-walk-2026-000414",
       "title": "The 24th Annual TTEC Wellness Walk 2026",
       "city": "Ahmedabad",
@@ -305,6 +211,21 @@
       "region": "India"
     },
     {
+      "id": "ts-the-saree-run-pune-2026-430233",
+      "title": "The Saree Run Pune 2026",
+      "city": "Pune",
+      "state": "",
+      "startDate": "2026-03-08",
+      "endDate": "2026-03-08",
+      "distances": [],
+      "price": "Free",
+      "rating": null,
+      "organizer": "JJACTIVE PRIVATE LIMITED",
+      "url": "https://www.townscript.com/e/the-saree-run-pune-2026-430233",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
       "id": "ts-practice-run1-for-tcsw10k-bengaluru-2026-121032",
       "title": "PRACTICE RUN-1 for TCSW10K Bengaluru 2026",
       "city": "Bengaluru",
@@ -316,6 +237,36 @@
       "rating": null,
       "organizer": "JJACTIVE PRIVATE LIMITED",
       "url": "https://www.townscript.com/e/practice-run1-for-tcsw10k-bengaluru-2026-121032",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-run-for-the-ocean-get-ocean-theme-medal-413410",
+      "title": "Run for the Ocean - Get Ocean Theme Medal",
+      "city": "Bengaluru",
+      "state": "",
+      "startDate": "2026-03-08",
+      "endDate": "2026-03-08",
+      "distances": [],
+      "price": "₹429",
+      "rating": null,
+      "organizer": "Omega Events",
+      "url": "https://www.townscript.com/e/run-for-the-ocean-get-ocean-theme-medal-413410",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-active-noida-womens-day-run-4th-edition-011141",
+      "title": "Women's Day Run - 4th Edition",
+      "city": "India",
+      "state": "",
+      "startDate": "2026-03-08",
+      "endDate": "2026-03-08",
+      "distances": [],
+      "price": "₹478.8",
+      "rating": null,
+      "organizer": "Kanchan",
+      "url": "https://www.townscript.com/e/active-noida-womens-day-run-4th-edition-011141",
       "source": "townscript.com",
       "region": "India"
     },
@@ -337,21 +288,6 @@
       "region": "India"
     },
     {
-      "id": "ts-run-for-the-ocean-get-ocean-theme-medal-413410",
-      "title": "Run for the Ocean - Get Ocean Theme Medal",
-      "city": "Bengaluru",
-      "state": "",
-      "startDate": "2026-03-08",
-      "endDate": "2026-03-08",
-      "distances": [],
-      "price": "₹429",
-      "rating": null,
-      "organizer": "Omega Events",
-      "url": "https://www.townscript.com/e/run-for-the-ocean-get-ocean-theme-medal-413410",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
       "id": "ts-young-champs-fun-run-mar-2026-334412",
       "title": "Young Champs Fun Run Mar 2026",
       "city": "Chennai",
@@ -363,38 +299,6 @@
       "rating": null,
       "organizer": "Kalam sports academy ",
       "url": "https://www.townscript.com/e/young-champs-fun-run-mar-2026-334412",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-go-girls-half-marathon-beach-side-night-run-440401",
-      "title": "Go Girls Half Marathon Beach Side Night Run",
-      "city": "Daman",
-      "state": "",
-      "startDate": "2026-03-08",
-      "endDate": "2026-03-08",
-      "distances": [
-        "Half Marathon"
-      ],
-      "price": "Free",
-      "rating": null,
-      "organizer": "Script India",
-      "url": "https://www.townscript.com/e/go-girls-half-marathon-beach-side-night-run-440401",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-world-womens-day-run-2026-411321",
-      "title": "WORLD WOMEN’S DAY RUN 2026",
-      "city": "Bengaluru",
-      "state": "",
-      "startDate": "2026-03-08",
-      "endDate": "2026-03-08",
-      "distances": [],
-      "price": "₹700",
-      "rating": null,
-      "organizer": "Balaji Ramkumar",
-      "url": "https://www.townscript.com/e/world-womens-day-run-2026-411321",
       "source": "townscript.com",
       "region": "India"
     },
@@ -414,6 +318,36 @@
       "region": "India"
     },
     {
+      "id": "cw-minspace-eco-run-season-2---mumbai",
+      "title": "MINDSPACE ECO RUN SEASON 2 - MUMBAI",
+      "city": "",
+      "state": "",
+      "startDate": "2026-03-08",
+      "endDate": "2026-03-08",
+      "distances": [],
+      "price": "₹600 - ₹1000",
+      "rating": null,
+      "organizer": "",
+      "url": "https://www.citywoofer.com/e/minspace-eco-run-season-2---mumbai",
+      "source": "citywoofer.com",
+      "region": "India"
+    },
+    {
+      "id": "cw-world-womens-day-run-2026",
+      "title": "WORLD WOMEN’S DAY RUN 2026",
+      "city": "",
+      "state": "",
+      "startDate": "2026-03-08",
+      "endDate": "2026-03-08",
+      "distances": [],
+      "price": "₹700 - ₹1100",
+      "rating": null,
+      "organizer": "",
+      "url": "https://www.citywoofer.com/e/world-womens-day-run-2026",
+      "source": "citywoofer.com",
+      "region": "India"
+    },
+    {
       "id": "cw-sbi-green-marathon-season-6-hyderabad",
       "title": "SBI GREEN MARATHON SEASON 6-Hyderabad",
       "city": "",
@@ -427,21 +361,6 @@
       "rating": null,
       "organizer": "",
       "url": "https://www.citywoofer.com/e/sbi-green-marathon-season-6-hyderabad",
-      "source": "citywoofer.com",
-      "region": "India"
-    },
-    {
-      "id": "cw-minspace-eco-run-season-2---mumbai",
-      "title": "MINDSPACE ECO RUN SEASON 2 - MUMBAI",
-      "city": "",
-      "state": "",
-      "startDate": "2026-03-08",
-      "endDate": "2026-03-08",
-      "distances": [],
-      "price": "₹600 - ₹1000",
-      "rating": null,
-      "organizer": "",
-      "url": "https://www.citywoofer.com/e/minspace-eco-run-season-2---mumbai",
       "source": "citywoofer.com",
       "region": "India"
     },
@@ -498,6 +417,75 @@
       "region": "India"
     },
     {
+      "id": "ts-spit-x-spjimr-half-marathon-2026-132223",
+      "title": "S.P.I.T. x SPJIMR Half Marathon 2026",
+      "city": "Mumbai",
+      "state": "",
+      "startDate": "2026-03-14",
+      "endDate": "2026-03-15",
+      "distances": [
+        "Half Marathon"
+      ],
+      "price": "₹499",
+      "rating": null,
+      "organizer": "Organising Committee, S.P.I.T x SPJIMR Half Marathon",
+      "url": "https://www.townscript.com/e/spit-x-spjimr-half-marathon-2026-132223",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-redtape10kchandigarh",
+      "title": "REDTAPE 10K RUN CHANDIGARH",
+      "city": "Chandigarh",
+      "state": "",
+      "startDate": "2026-03-14",
+      "endDate": "2026-03-15",
+      "distances": [
+        "10K"
+      ],
+      "price": "₹299",
+      "rating": null,
+      "organizer": "RedTape 10K Run",
+      "url": "https://www.townscript.com/e/redtape10kchandigarh",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-ict-marathon-2k26-231442",
+      "title": "ICT Marathon 2026",
+      "city": "Mumbai 400019",
+      "state": "",
+      "startDate": "2026-03-14",
+      "endDate": "2026-03-15",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹399",
+      "rating": null,
+      "organizer": "ICT Marathon 2025",
+      "url": "https://www.townscript.com/e/ict-marathon-2k26-231442",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-kalimpong-10k-5k-run-102400",
+      "title": "KALIMPONG 10K & 5K RUN",
+      "city": "Kalimpong",
+      "state": "",
+      "startDate": "2026-03-14",
+      "endDate": "2026-03-15",
+      "distances": [
+        "5K",
+        "10K"
+      ],
+      "price": "₹499",
+      "rating": null,
+      "organizer": "KALIMPONG UNITED RUNNERS",
+      "url": "https://www.townscript.com/e/kalimpong-10k-5k-run-102400",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
       "id": "ts-wonder-cement-jaipur-soldierathon",
       "title": "Wonder Cement Jaipur Soldierathon, 15th March, Sunday, 2026",
       "city": "Jaipur",
@@ -513,19 +501,49 @@
       "region": "India"
     },
     {
-      "id": "ts-spit-x-spjimr-half-marathon-2026-132223",
-      "title": "SPIT x SPJIMR Half Marathon 2026 - Feature",
-      "city": "Mumbai",
+      "id": "ts-vorrad-60-241223",
+      "title": "Vorrad 6.0",
+      "city": "Benaulim",
+      "state": "",
+      "startDate": "2026-03-14",
+      "endDate": "2026-03-15",
+      "distances": [],
+      "price": "₹950",
+      "rating": null,
+      "organizer": "PROPEDALERZ CYCLING CLUB",
+      "url": "https://www.townscript.com/e/vorrad-60-241223",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-aravali-trail-run-4th",
+      "title": "Aravali Trail Run (4th Edition)",
+      "city": "New Delhi",
+      "state": "",
+      "startDate": "2026-03-14",
+      "endDate": "2026-03-15",
+      "distances": [],
+      "price": "₹349.3",
+      "rating": null,
+      "organizer": "FTC Foundation",
+      "url": "https://www.townscript.com/e/aravali-trail-run-4th",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-ddnUltraRun1",
+      "title": "Dehradun Ultra Run 2026 (3rd Edition)",
+      "city": "Dehradun",
       "state": "",
       "startDate": "2026-03-14",
       "endDate": "2026-03-15",
       "distances": [
-        "Half Marathon"
+        "Ultra"
       ],
-      "price": "₹499",
+      "price": "₹700",
       "rating": null,
-      "organizer": "Organising Committee, S.P.I.T x SPJIMR Half Marathon",
-      "url": "https://www.townscript.com/e/spit-x-spjimr-half-marathon-2026-132223",
+      "organizer": "Ritik Chauhan",
+      "url": "https://www.townscript.com/e/ddnUltraRun1",
       "source": "townscript.com",
       "region": "India"
     },
@@ -558,87 +576,6 @@
       "rating": null,
       "organizer": "NCR MARATHON",
       "url": "https://www.townscript.com/e/-lucknow-heritage-half-marathon-201220",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-ict-marathon-2k26-231442",
-      "title": "ICT Marathon 2026",
-      "city": "Mumbai 400019",
-      "state": "",
-      "startDate": "2026-03-14",
-      "endDate": "2026-03-15",
-      "distances": [
-        "Marathon"
-      ],
-      "price": "₹399",
-      "rating": null,
-      "organizer": "ICT Marathon 2025",
-      "url": "https://www.townscript.com/e/ict-marathon-2k26-231442",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-vorrad-60-241223",
-      "title": "Vorrad 6.0",
-      "city": "Benaulim",
-      "state": "",
-      "startDate": "2026-03-14",
-      "endDate": "2026-03-15",
-      "distances": [],
-      "price": "₹950",
-      "rating": null,
-      "organizer": "PROPEDALERZ CYCLING CLUB",
-      "url": "https://www.townscript.com/e/vorrad-60-241223",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-ddnUltraRun1",
-      "title": "Dehradun Ultra Run 2026 (3rd Edition)",
-      "city": "Dehradun",
-      "state": "",
-      "startDate": "2026-03-14",
-      "endDate": "2026-03-15",
-      "distances": [
-        "Ultra"
-      ],
-      "price": "₹700",
-      "rating": null,
-      "organizer": "Ritik Chauhan",
-      "url": "https://www.townscript.com/e/ddnUltraRun1",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-aravali-trail-run-4th",
-      "title": "Aravali Trail Run (4th Edition)",
-      "city": "New Delhi",
-      "state": "",
-      "startDate": "2026-03-14",
-      "endDate": "2026-03-15",
-      "distances": [],
-      "price": "₹349.3",
-      "rating": null,
-      "organizer": "FTC Foundation",
-      "url": "https://www.townscript.com/e/aravali-trail-run-4th",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-redtape10kchandigarh",
-      "title": "REDTAPE 10K RUN CHANDIGARH",
-      "city": "Chandigarh",
-      "state": "",
-      "startDate": "2026-03-14",
-      "endDate": "2026-03-15",
-      "distances": [
-        "10K"
-      ],
-      "price": "₹299",
-      "rating": null,
-      "organizer": "RedTape 10K Run",
-      "url": "https://www.townscript.com/e/redtape10kchandigarh",
       "source": "townscript.com",
       "region": "India"
     },
@@ -708,17 +645,17 @@
       "region": "India"
     },
     {
-      "id": "ts-run-for-good-2026-433340",
-      "title": "Run For Good 2026",
-      "city": "New Delhi",
+      "id": "ts-gati-fitness-run-for-sustainability-112232",
+      "title": "GATI - Fitness Run For Sustainability",
+      "city": "Gurugram",
       "state": "",
       "startDate": "2026-03-15",
       "endDate": "2026-03-15",
       "distances": [],
-      "price": "₹750",
+      "price": "₹399.2",
       "rating": null,
-      "organizer": "Artkonnect Management Pvt Ltd",
-      "url": "https://www.townscript.com/e/run-for-good-2026-433340",
+      "organizer": "EVENTS RRPS",
+      "url": "https://www.townscript.com/e/gati-fitness-run-for-sustainability-112232",
       "source": "townscript.com",
       "region": "India"
     },
@@ -740,51 +677,17 @@
       "region": "India"
     },
     {
-      "id": "ts-pune-nitrrothon-marathon-033103",
-      "title": "Pune Nitrrothon - Marathon ",
-      "city": "Pune",
-      "state": "",
-      "startDate": "2026-03-15",
-      "endDate": "2026-03-15",
-      "distances": [
-        "Marathon"
-      ],
-      "price": "₹699",
-      "rating": null,
-      "organizer": "Nitrro Fitness",
-      "url": "https://www.townscript.com/e/pune-nitrrothon-marathon-033103",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-lachen-high-altitude-marathon-112204",
-      "title": "Lachen High Altitude Marathon",
-      "city": "Lachen",
-      "state": "",
-      "startDate": "2026-03-15",
-      "endDate": "2026-03-15",
-      "distances": [
-        "Marathon"
-      ],
-      "price": "₹500",
-      "rating": null,
-      "organizer": "SPORTIVE",
-      "url": "https://www.townscript.com/e/lachen-high-altitude-marathon-112204",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-the-great-ghaziabad-run-edition-3rd-200310",
-      "title": "The Great Ghaziabad Run - Edition 3rd",
-      "city": "Ghaziabad",
+      "id": "ts-run-for-good-2026-433340",
+      "title": "Run For Good 2026",
+      "city": "New Delhi",
       "state": "",
       "startDate": "2026-03-15",
       "endDate": "2026-03-15",
       "distances": [],
-      "price": "₹629.3",
+      "price": "₹750",
       "rating": null,
-      "organizer": "Pikusports Entertainment Private Limited",
-      "url": "https://www.townscript.com/e/the-great-ghaziabad-run-edition-3rd-200310",
+      "organizer": "Artkonnect Management Pvt Ltd",
+      "url": "https://www.townscript.com/e/run-for-good-2026-433340",
       "source": "townscript.com",
       "region": "India"
     },
@@ -819,17 +722,19 @@
       "region": "India"
     },
     {
-      "id": "ts-gati-fitness-run-for-sustainability-112232",
-      "title": "GATI - Fitness Run For Sustainability",
-      "city": "Gurugram",
+      "id": "ts-pune-nitrrothon-marathon-033103",
+      "title": "Pune Nitrrothon - Marathon ",
+      "city": "Pune",
       "state": "",
       "startDate": "2026-03-15",
       "endDate": "2026-03-15",
-      "distances": [],
-      "price": "₹399.2",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹699",
       "rating": null,
-      "organizer": "EVENTS RRPS",
-      "url": "https://www.townscript.com/e/gati-fitness-run-for-sustainability-112232",
+      "organizer": "Nitrro Fitness",
+      "url": "https://www.townscript.com/e/pune-nitrrothon-marathon-033103",
       "source": "townscript.com",
       "region": "India"
     },
@@ -851,20 +756,18 @@
       "region": "India"
     },
     {
-      "id": "cw-redtape-10k-run-chandigarh",
-      "title": "RedTape 10K Run Chandigarh",
-      "city": "",
+      "id": "ts-the-great-ghaziabad-run-edition-3rd-200310",
+      "title": "The Great Ghaziabad Run - Edition 3rd",
+      "city": "Ghaziabad",
       "state": "",
       "startDate": "2026-03-15",
       "endDate": "2026-03-15",
-      "distances": [
-        "10K"
-      ],
-      "price": "₹299 - ₹499",
+      "distances": [],
+      "price": "₹629.3",
       "rating": null,
-      "organizer": "",
-      "url": "https://www.citywoofer.com/e/redtape-10k-run-chandigarh",
-      "source": "citywoofer.com",
+      "organizer": "Pikusports Entertainment Private Limited",
+      "url": "https://www.townscript.com/e/the-great-ghaziabad-run-edition-3rd-200310",
+      "source": "townscript.com",
       "region": "India"
     },
     {
@@ -894,6 +797,23 @@
       "rating": null,
       "organizer": "",
       "url": "https://www.citywoofer.com/e/pink-sakhi-run-5th-edition",
+      "source": "citywoofer.com",
+      "region": "India"
+    },
+    {
+      "id": "cw-redtape-10k-run-chandigarh",
+      "title": "RedTape 10K Run Chandigarh",
+      "city": "",
+      "state": "",
+      "startDate": "2026-03-15",
+      "endDate": "2026-03-15",
+      "distances": [
+        "10K"
+      ],
+      "price": "₹299 - ₹499",
+      "rating": null,
+      "organizer": "",
+      "url": "https://www.citywoofer.com/e/redtape-10k-run-chandigarh",
       "source": "citywoofer.com",
       "region": "India"
     },
@@ -943,26 +863,26 @@
       ],
       "registrationDeadline": "2026-03-14",
       "price": "₹350",
-      "rating": 5,
+      "rating": 4.7,
       "organizer": "Fitpage (Main Account)",
       "url": "https://www.indiarunning.com/events/sakalnashik10krun-37082",
       "source": "indiarunning.com",
       "region": "India"
     },
     {
-      "id": "ts-bsg-half-marathon-042321",
-      "title": "BSG Half Marathon",
-      "city": "New Delhi",
+      "id": "ts-sbi-green-marathon-season-6-pune-010124",
+      "title": "SBI Green Marathon Season 6 Pune",
+      "city": "Pune",
       "state": "",
       "startDate": "2026-03-21",
       "endDate": "2026-03-22",
       "distances": [
-        "Half Marathon"
+        "Marathon"
       ],
-      "price": "₹960",
+      "price": "₹500",
       "rating": null,
-      "organizer": "Perfect Fitness Solutions Pvt Ltd",
-      "url": "https://www.townscript.com/e/bsg-half-marathon-042321",
+      "organizer": "ENIL",
+      "url": "https://www.townscript.com/e/sbi-green-marathon-season-6-pune-010124",
       "source": "townscript.com",
       "region": "India"
     },
@@ -984,23 +904,6 @@
       "region": "India"
     },
     {
-      "id": "ts-sbi-green-marathon-season-6-pune-010124",
-      "title": "SBI Green Marathon Season 6 Pune",
-      "city": "Pune",
-      "state": "",
-      "startDate": "2026-03-21",
-      "endDate": "2026-03-22",
-      "distances": [
-        "Marathon"
-      ],
-      "price": "₹500",
-      "rating": null,
-      "organizer": "ENIL",
-      "url": "https://www.townscript.com/e/sbi-green-marathon-season-6-pune-010124",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
       "id": "ts-pharmathon-30-2026-403324",
       "title": "Pharmathon 3.0 2026",
       "city": "Pune",
@@ -1012,6 +915,23 @@
       "rating": null,
       "organizer": "IPA Pune branch",
       "url": "https://www.townscript.com/e/pharmathon-30-2026-403324",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-shaheedeazam-bhagat-singh-national-marathon-2026",
+      "title": "SHAHEED-E-AZAM BHAGAT SINGH NATIONAL MARATHON 2026",
+      "city": "Mahilpur",
+      "state": "",
+      "startDate": "2026-03-21",
+      "endDate": "2026-03-22",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹299",
+      "rating": null,
+      "organizer": "Chhaya Sharma",
+      "url": "https://www.townscript.com/e/shaheedeazam-bhagat-singh-national-marathon-2026",
       "source": "townscript.com",
       "region": "India"
     },
@@ -1033,19 +953,19 @@
       "region": "India"
     },
     {
-      "id": "ts-shaheedeazam-bhagat-singh-national-marathon-2026",
-      "title": "SHAHEED-E-AZAM BHAGAT SINGH NATIONAL MARATHON 2026",
-      "city": "Mahilpur",
+      "id": "ts-bsg-half-marathon-042321",
+      "title": "BSG Half Marathon",
+      "city": "New Delhi",
       "state": "",
       "startDate": "2026-03-21",
       "endDate": "2026-03-22",
       "distances": [
-        "Marathon"
+        "Half Marathon"
       ],
-      "price": "₹299",
+      "price": "₹960",
       "rating": null,
-      "organizer": "Chhaya Sharma",
-      "url": "https://www.townscript.com/e/shaheedeazam-bhagat-singh-national-marathon-2026",
+      "organizer": "Perfect Fitness Solutions Pvt Ltd",
+      "url": "https://www.townscript.com/e/bsg-half-marathon-042321",
       "source": "townscript.com",
       "region": "India"
     },
@@ -1084,6 +1004,38 @@
       "region": "India"
     },
     {
+      "id": "ts-sindhi-marathon-2026-by-sindhi-mela-samiti-334304",
+      "title": "Umang Sindhi Marathon 2026 - By Sindhi Mela Samiti",
+      "city": "Bhopal",
+      "state": "",
+      "startDate": "2026-03-21",
+      "endDate": "2026-03-22",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹176",
+      "rating": null,
+      "organizer": "Shining Event And Sports Management",
+      "url": "https://www.townscript.com/e/sindhi-marathon-2026-by-sindhi-mela-samiti-334304",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-midday-flamingo-neon-run-431143",
+      "title": "Mid-day Flamingo Neon Run",
+      "city": "Navi Mumbai",
+      "state": "",
+      "startDate": "2026-03-21",
+      "endDate": "2026-03-21",
+      "distances": [],
+      "price": "₹1199",
+      "rating": null,
+      "organizer": "K.A.Sports and Events",
+      "url": "https://www.townscript.com/e/midday-flamingo-neon-run-431143",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
       "id": "ts-tuffman-gurugram-half-marathon-6th-edition",
       "title": "Tuffman Gurugram Half Marathon (6th Edition)",
       "city": "Gurugram",
@@ -1097,6 +1049,38 @@
       "rating": null,
       "organizer": "Tuffman India",
       "url": "https://www.townscript.com/e/tuffman-gurugram-half-marathon-6th-edition",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-jalna-runners-marathon-422144",
+      "title": "Jalna Runners Marathon",
+      "city": "Jalna",
+      "state": "",
+      "startDate": "2026-03-22",
+      "endDate": "2026-03-22",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹450",
+      "rating": null,
+      "organizer": "FAB Runners Jalna,(Anadi Bahuuddeshiya Sevabhavi Sanstha)",
+      "url": "https://www.townscript.com/e/jalna-runners-marathon-422144",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-neerathon-30-034313",
+      "title": "Neerathon 3.0",
+      "city": "Pune",
+      "state": "",
+      "startDate": "2026-03-22",
+      "endDate": "2026-03-22",
+      "distances": [],
+      "price": "₹399",
+      "rating": null,
+      "organizer": "ExploreiT",
+      "url": "https://www.townscript.com/e/neerathon-30-034313",
       "source": "townscript.com",
       "region": "India"
     },
@@ -1119,38 +1103,6 @@
       "region": "India"
     },
     {
-      "id": "ts-neerathon-30-034313",
-      "title": "Neerathon 3.0",
-      "city": "Pune",
-      "state": "",
-      "startDate": "2026-03-22",
-      "endDate": "2026-03-22",
-      "distances": [],
-      "price": "₹399",
-      "rating": null,
-      "organizer": "ExploreiT",
-      "url": "https://www.townscript.com/e/neerathon-30-034313",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-jalna-runners-marathon-422144",
-      "title": "Jalna Runners Marathon",
-      "city": "Jalna",
-      "state": "",
-      "startDate": "2026-03-22",
-      "endDate": "2026-03-22",
-      "distances": [
-        "Marathon"
-      ],
-      "price": "₹400",
-      "rating": null,
-      "organizer": "FAB Runners Jalna,(Anadi Bahuuddeshiya Sevabhavi Sanstha)",
-      "url": "https://www.townscript.com/e/jalna-runners-marathon-422144",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
       "id": "ts-mehta-midday-aarey-run-302210",
       "title": "Mehta Mid-day Aarey Run",
       "city": "Mumbai",
@@ -1163,6 +1115,40 @@
       "organizer": "K.A.Sports and Events",
       "url": "https://www.townscript.com/e/mehta-midday-aarey-run-302210",
       "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "cw-shaheed-e-azam-bhagat-singh-national-marathon",
+      "title": "Shaheed-E-Azam Bhagat Singh National Marathon",
+      "city": "",
+      "state": "",
+      "startDate": "2026-03-22",
+      "endDate": "2026-03-22",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹299",
+      "rating": null,
+      "organizer": "",
+      "url": "https://www.citywoofer.com/e/shaheed-e-azam-bhagat-singh-national-marathon",
+      "source": "citywoofer.com",
+      "region": "India"
+    },
+    {
+      "id": "cw-sbi-green-marathon-season-6-pune",
+      "title": "SBI GREEN MARATHON SEASON 6-Pune",
+      "city": "",
+      "state": "",
+      "startDate": "2026-03-22",
+      "endDate": "2026-03-22",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹500 - ₹1000",
+      "rating": null,
+      "organizer": "",
+      "url": "https://www.citywoofer.com/e/sbi-green-marathon-season-6-pune",
+      "source": "citywoofer.com",
       "region": "India"
     },
     {
@@ -1196,40 +1182,6 @@
       "region": "India"
     },
     {
-      "id": "cw-sbi-green-marathon-season-6-pune",
-      "title": "SBI GREEN MARATHON SEASON 6-Pune",
-      "city": "",
-      "state": "",
-      "startDate": "2026-03-22",
-      "endDate": "2026-03-22",
-      "distances": [
-        "Marathon"
-      ],
-      "price": "₹500 - ₹1000",
-      "rating": null,
-      "organizer": "",
-      "url": "https://www.citywoofer.com/e/sbi-green-marathon-season-6-pune",
-      "source": "citywoofer.com",
-      "region": "India"
-    },
-    {
-      "id": "cw-shaheed-e-azam-bhagat-singh-national-marathon",
-      "title": "Shaheed-E-Azam Bhagat Singh National Marathon",
-      "city": "",
-      "state": "",
-      "startDate": "2026-03-22",
-      "endDate": "2026-03-22",
-      "distances": [
-        "Marathon"
-      ],
-      "price": "₹299",
-      "rating": null,
-      "organizer": "",
-      "url": "https://www.citywoofer.com/e/shaheed-e-azam-bhagat-singh-national-marathon",
-      "source": "citywoofer.com",
-      "region": "India"
-    },
-    {
       "id": "cw-run-for-your-own-moga-marathon-2026",
       "title": "Run For Your Own Moga Marathon - 2026",
       "city": "",
@@ -1244,51 +1196,6 @@
       "organizer": "",
       "url": "https://www.citywoofer.com/e/run-for-your-own-moga-marathon-2026",
       "source": "citywoofer.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-ram-astra-run-noida-200344",
-      "title": "RAM ASTRA RUN - NOIDA",
-      "city": "Noida",
-      "state": "",
-      "startDate": "2026-03-25",
-      "endDate": "2026-03-26",
-      "distances": [],
-      "price": "₹180",
-      "rating": null,
-      "organizer": "TR - TKS MARATHON - INDIA",
-      "url": "https://www.townscript.com/e/ram-astra-run-noida-200344",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-ram-astra-run-ahmedabad-112320",
-      "title": "RAM ASTRA RUN - AHMEDABAD",
-      "city": "Ahmedabad",
-      "state": "",
-      "startDate": "2026-03-25",
-      "endDate": "2026-03-26",
-      "distances": [],
-      "price": "₹180",
-      "rating": null,
-      "organizer": "TR - TKS MARATHON - INDIA",
-      "url": "https://www.townscript.com/e/ram-astra-run-ahmedabad-112320",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-ram-astra-run-india-340201",
-      "title": "RAM ASTRA RUN - INDIA",
-      "city": "Visakhapatnam",
-      "state": "",
-      "startDate": "2026-03-25",
-      "endDate": "2026-03-26",
-      "distances": [],
-      "price": "₹180",
-      "rating": null,
-      "organizer": "TR - TKS MARATHON - INDIA",
-      "url": "https://www.townscript.com/e/ram-astra-run-india-340201",
-      "source": "townscript.com",
       "region": "India"
     },
     {
@@ -1337,6 +1244,36 @@
       "region": "India"
     },
     {
+      "id": "ts-ram-astra-run-noida-200344",
+      "title": "RAM ASTRA RUN - NOIDA",
+      "city": "Noida",
+      "state": "",
+      "startDate": "2026-03-25",
+      "endDate": "2026-03-26",
+      "distances": [],
+      "price": "₹180",
+      "rating": null,
+      "organizer": "TR - TKS MARATHON - INDIA",
+      "url": "https://www.townscript.com/e/ram-astra-run-noida-200344",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-ram-astra-run-ahmedabad-112320",
+      "title": "RAM ASTRA RUN - AHMEDABAD",
+      "city": "Ahmedabad",
+      "state": "",
+      "startDate": "2026-03-25",
+      "endDate": "2026-03-26",
+      "distances": [],
+      "price": "₹180",
+      "rating": null,
+      "organizer": "TR - TKS MARATHON - INDIA",
+      "url": "https://www.townscript.com/e/ram-astra-run-ahmedabad-112320",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
       "id": "ts-ram-astra-run-chennai-442230",
       "title": "RAM ASTRA RUN - CHENNAI",
       "city": "Chennai",
@@ -1367,6 +1304,21 @@
       "region": "India"
     },
     {
+      "id": "ts-ram-astra-run-india-340201",
+      "title": "RAM ASTRA RUN - VIZAG",
+      "city": "Visakhapatnam",
+      "state": "",
+      "startDate": "2026-03-25",
+      "endDate": "2026-03-26",
+      "distances": [],
+      "price": "₹180",
+      "rating": null,
+      "organizer": "TR - TKS MARATHON - INDIA",
+      "url": "https://www.townscript.com/e/ram-astra-run-india-340201",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
       "id": "ts-ram-astra-run-mumbai-312102",
       "title": "RAM ASTRA RUN - MUMBAI",
       "city": "Mumbai",
@@ -1382,19 +1334,32 @@
       "region": "India"
     },
     {
-      "id": "ts-narnaul-half-marathon-30-320410",
-      "title": "Narnaul Half Marathon 3.0",
-      "city": "Narnaul",
+      "id": "ts-salvation-run-333141",
+      "title": "Salvation Run  ",
+      "city": "Bengaluru",
+      "state": "",
+      "startDate": "2026-03-28",
+      "endDate": "2026-03-28",
+      "distances": [],
+      "price": "₹899",
+      "rating": null,
+      "organizer": "Salvation Run Club",
+      "url": "https://www.townscript.com/e/salvation-run-333141",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-trisoul-stadium-run-132234",
+      "title": "TriSoul Stadium Run",
+      "city": "Bhopal",
       "state": "",
       "startDate": "2026-03-28",
       "endDate": "2026-03-29",
-      "distances": [
-        "Half Marathon"
-      ],
-      "price": "₹400",
+      "distances": [],
+      "price": "₹699",
       "rating": null,
-      "organizer": "Aikyam Rise Club, Neerpur Rajput",
-      "url": "https://www.townscript.com/e/narnaul-half-marathon-30-320410",
+      "organizer": "Shining Event And Sports Management",
+      "url": "https://www.townscript.com/e/trisoul-stadium-run-132234",
       "source": "townscript.com",
       "region": "India"
     },
@@ -1465,53 +1430,6 @@
       "region": "India"
     },
     {
-      "id": "ts-times-internet-half-marathon-delhi-edition-222322",
-      "title": "Times Internet Delhi Half Marathon",
-      "city": "Delhi",
-      "state": "",
-      "startDate": "2026-03-28",
-      "endDate": "2026-03-29",
-      "distances": [
-        "Half Marathon"
-      ],
-      "price": "₹999.2",
-      "rating": null,
-      "organizer": "Times Internet Limited",
-      "url": "https://www.townscript.com/e/times-internet-half-marathon-delhi-edition-222322",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-salvation-run-333141",
-      "title": "Salvation Run  ",
-      "city": "Bengaluru",
-      "state": "",
-      "startDate": "2026-03-28",
-      "endDate": "2026-03-28",
-      "distances": [],
-      "price": "₹899",
-      "rating": null,
-      "organizer": "Salvation Run Club",
-      "url": "https://www.townscript.com/e/salvation-run-333141",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-trisoul-stadium-run-132234",
-      "title": "TriSoul Stadium Run",
-      "city": "Bhopal",
-      "state": "",
-      "startDate": "2026-03-28",
-      "endDate": "2026-03-29",
-      "distances": [],
-      "price": "₹699",
-      "rating": null,
-      "organizer": "Shining Event And Sports Management",
-      "url": "https://www.townscript.com/e/trisoul-stadium-run-132234",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
       "id": "ts-shaheed-run-5-104410",
       "title": "SHAHEED RUN 5.0",
       "city": "Dehradun",
@@ -1548,6 +1466,36 @@
       "region": "India"
     },
     {
+      "id": "ts-sarakki-lake-run-431323",
+      "title": "Sarakki Lake Run",
+      "city": "Bengaluru",
+      "state": "",
+      "startDate": "2026-03-29",
+      "endDate": "2026-03-29",
+      "distances": [],
+      "price": "₹254.15",
+      "rating": null,
+      "organizer": "BeAthlit",
+      "url": "https://www.townscript.com/e/sarakki-lake-run-431323",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-copy-of-cdr-little-champs-and-moms-run-2025-401344",
+      "title": "CDR Little Champs and Mom's Run 2026",
+      "city": "Chandigarh",
+      "state": "",
+      "startDate": "2026-03-29",
+      "endDate": "2026-03-29",
+      "distances": [],
+      "price": "₹420",
+      "rating": null,
+      "organizer": "Chandigarh Distance Runners",
+      "url": "https://www.townscript.com/e/copy-of-cdr-little-champs-and-moms-run-2025-401344",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
       "id": "ts-clean-city-indore-5km-run-222433",
       "title": "Clean City Indore 5km Run ",
       "city": "Indore ",
@@ -1580,36 +1528,6 @@
       "region": "India"
     },
     {
-      "id": "ts-sarakki-lake-run-431323",
-      "title": "Sarakki Lake Run",
-      "city": "Bengaluru",
-      "state": "",
-      "startDate": "2026-03-29",
-      "endDate": "2026-03-29",
-      "distances": [],
-      "price": "₹254.15",
-      "rating": null,
-      "organizer": "BeAthlit",
-      "url": "https://www.townscript.com/e/sarakki-lake-run-431323",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-copy-of-cdr-little-champs-and-moms-run-2025-401344",
-      "title": "CDR Little Champs and Mom's Run 2026",
-      "city": "Chandigarh",
-      "state": "",
-      "startDate": "2026-03-29",
-      "endDate": "2026-03-29",
-      "distances": [],
-      "price": "₹420",
-      "rating": null,
-      "organizer": "Chandigarh Distance Runners",
-      "url": "https://www.townscript.com/e/copy-of-cdr-little-champs-and-moms-run-2025-401344",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
       "id": "cw-khammam-10k-run-2026",
       "title": "Khammam 10K Run 2026",
       "city": "",
@@ -1623,23 +1541,6 @@
       "rating": null,
       "organizer": "",
       "url": "https://www.citywoofer.com/e/khammam-10k-run-2026",
-      "source": "citywoofer.com",
-      "region": "India"
-    },
-    {
-      "id": "cw-a-fresh-year-a-fitter-you-delhi-half-marathon",
-      "title": "A Fresh Year, A Fitter You: Delhi Half Marathon",
-      "city": "",
-      "state": "",
-      "startDate": "2026-03-29",
-      "endDate": "2026-03-29",
-      "distances": [
-        "Half Marathon"
-      ],
-      "price": "₹999 - ₹2499",
-      "rating": null,
-      "organizer": "",
-      "url": "https://www.citywoofer.com/e/a-fresh-year-a-fitter-you-delhi-half-marathon",
       "source": "citywoofer.com",
       "region": "India"
     },
@@ -1678,19 +1579,17 @@
       "region": "India"
     },
     {
-      "id": "ts-world-health-day-IronWings-marathon-gurgaon-404444",
-      "title": "Ironwings marathon Gurgaon",
-      "city": "Gurugram",
+      "id": "ts-raftaar-de-soorme-season-20-023442",
+      "title": "RAFTAAR DE SOORME - SEASON 2.0",
+      "city": "Jalandhar",
       "state": "",
       "startDate": "2026-04-04",
       "endDate": "2026-04-05",
-      "distances": [
-        "Marathon"
-      ],
-      "price": "₹449.1",
+      "distances": [],
+      "price": "₹250",
       "rating": null,
-      "organizer": "Aaditya Agrawal",
-      "url": "https://www.townscript.com/e/world-health-day-IronWings-marathon-gurgaon-404444",
+      "organizer": "National Eye Care & Lasik Hub",
+      "url": "https://www.townscript.com/e/raftaar-de-soorme-season-20-023442",
       "source": "townscript.com",
       "region": "India"
     },
@@ -1712,17 +1611,19 @@
       "region": "India"
     },
     {
-      "id": "ts-raftaar-de-soorme-season-20-023442",
-      "title": "RAFTAAR DE SOORME - SEASON 2.0",
-      "city": "Jalandhar",
+      "id": "ts-world-health-day-IronWings-marathon-gurgaon-404444",
+      "title": "Ironwings marathon Gurgaon",
+      "city": "Gurugram",
       "state": "",
       "startDate": "2026-04-04",
       "endDate": "2026-04-05",
-      "distances": [],
-      "price": "₹250",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹449.1",
       "rating": null,
-      "organizer": "National Eye Care & Lasik Hub",
-      "url": "https://www.townscript.com/e/raftaar-de-soorme-season-20-023442",
+      "organizer": "Aaditya Agrawal",
+      "url": "https://www.townscript.com/e/world-health-day-IronWings-marathon-gurgaon-404444",
       "source": "townscript.com",
       "region": "India"
     },
@@ -1799,17 +1700,19 @@
       "region": "India"
     },
     {
-      "id": "ts-asics-ekiden-141231",
-      "title": "ASICS EKIDEN INDIA RUN",
-      "city": "Gurugram",
+      "id": "ts-Graphic-Era-Bhimtal-2026-Hill-marathon-030415",
+      "title": "Graphic Era Hill Marathon 2.0",
+      "city": "Bhimtal",
       "state": "",
       "startDate": "2026-04-05",
       "endDate": "2026-04-05",
-      "distances": [],
-      "price": "₹750",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹200",
       "rating": null,
-      "organizer": "Arsh Munjal",
-      "url": "https://www.townscript.com/e/asics-ekiden-141231",
+      "organizer": "Run2live",
+      "url": "https://www.townscript.com/e/Graphic-Era-Bhimtal-2026-Hill-marathon-030415",
       "source": "townscript.com",
       "region": "India"
     },
@@ -1831,19 +1734,17 @@
       "region": "India"
     },
     {
-      "id": "ts-Graphic-Era-Bhimtal-2026-Hill-marathon-030415",
-      "title": "Graphic Era Hill Marathon 2.0",
-      "city": "Bhimtal",
+      "id": "ts-asics-ekiden-141231",
+      "title": "ASICS EKIDEN INDIA RUN",
+      "city": "Gurugram",
       "state": "",
       "startDate": "2026-04-05",
       "endDate": "2026-04-05",
-      "distances": [
-        "Marathon"
-      ],
-      "price": "₹200",
+      "distances": [],
+      "price": "₹750",
       "rating": null,
-      "organizer": "Run2live",
-      "url": "https://www.townscript.com/e/Graphic-Era-Bhimtal-2026-Hill-marathon-030415",
+      "organizer": "Arsh Munjal",
+      "url": "https://www.townscript.com/e/asics-ekiden-141231",
       "source": "townscript.com",
       "region": "India"
     },
@@ -1916,6 +1817,21 @@
       "region": "India"
     },
     {
+      "id": "ts-the-ghaziabad-heritage-run-2026-412134",
+      "title": "The Ghaziabad Heritage Run 2026",
+      "city": "Ghaziabad",
+      "state": "",
+      "startDate": "2026-04-11",
+      "endDate": "2026-04-11",
+      "distances": [],
+      "price": "₹400",
+      "rating": null,
+      "organizer": "Marathon Sports Hub",
+      "url": "https://www.townscript.com/e/the-ghaziabad-heritage-run-2026-412134",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
       "id": "ts-bhujalvayu-half-marathon-3rd-edition-131044",
       "title": "Bhujalvayu Half Marathon 3rd Edition",
       "city": "Delhi",
@@ -1933,21 +1849,6 @@
       "region": "India"
     },
     {
-      "id": "ts-the-ghaziabad-heritage-run-2026-412134",
-      "title": "The Ghaziabad Heritage Run 2026",
-      "city": "Ghaziabad",
-      "state": "",
-      "startDate": "2026-04-11",
-      "endDate": "2026-04-11",
-      "distances": [],
-      "price": "₹400",
-      "rating": null,
-      "organizer": "Marathon Sports Hub",
-      "url": "https://www.townscript.com/e/the-ghaziabad-heritage-run-2026-412134",
-      "source": "townscript.com",
-      "region": "India"
-    },
-    {
       "id": "ts-delhi-stride-half-marathon-2-edition-303442",
       "title": "DELHI STRIDE HALF MARATHON 2 Edition - 2026",
       "city": "Delhi",
@@ -1957,7 +1858,7 @@
       "distances": [
         "Half Marathon"
       ],
-      "price": "₹499.5",
+      "price": "₹699.3",
       "rating": null,
       "organizer": "KonfCraz Creation",
       "url": "https://www.townscript.com/e/delhi-stride-half-marathon-2-edition-303442",
@@ -1992,23 +1893,6 @@
       "organizer": "Others",
       "url": "https://bhaagoindia.com/organiser/863",
       "source": "bhaagoindia.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-mukteshwar-ultra-by-ultrawarrior-2026-331030",
-      "title": "MUKTESHWAR ULTRA 3RD EDITION  BY - ULTRAWARRIOR ",
-      "city": "Mukteshwar",
-      "state": "",
-      "startDate": "2026-04-12",
-      "endDate": "2026-04-12",
-      "distances": [
-        "Ultra"
-      ],
-      "price": "₹1980",
-      "rating": null,
-      "organizer": "RunGreen Foundation",
-      "url": "https://www.townscript.com/e/mukteshwar-ultra-by-ultrawarrior-2026-331030",
-      "source": "townscript.com",
       "region": "India"
     },
     {
@@ -2074,6 +1958,23 @@
       "region": "India"
     },
     {
+      "id": "ts-mukteshwar-ultra-by-ultrawarrior-2026-331030",
+      "title": "MUKTESHWAR ULTRA 3RD EDITION  BY - ULTRAWARRIOR ",
+      "city": "Mukteshwar",
+      "state": "",
+      "startDate": "2026-04-12",
+      "endDate": "2026-04-12",
+      "distances": [
+        "Ultra"
+      ],
+      "price": "₹1980",
+      "rating": null,
+      "organizer": "RunGreen Foundation",
+      "url": "https://www.townscript.com/e/mukteshwar-ultra-by-ultrawarrior-2026-331030",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
       "id": "cw-bhujalvayu-half-marathon-3rd-edition",
       "title": "Bhujalvayu Half Marathon 3rd Edition",
       "city": "",
@@ -2088,21 +1989,6 @@
       "organizer": "",
       "url": "https://www.citywoofer.com/e/bhujalvayu-half-marathon-3rd-edition",
       "source": "citywoofer.com",
-      "region": "India"
-    },
-    {
-      "id": "ts-jaquar-ipa-neerathon-delhi-2025-343143",
-      "title": "3rd Jaquar IPA Neerathon Delhi",
-      "city": "New Delhi",
-      "state": "",
-      "startDate": "2026-04-18",
-      "endDate": "2026-04-19",
-      "distances": [],
-      "price": "₹455",
-      "rating": null,
-      "organizer": "Coach Ravinder",
-      "url": "https://www.townscript.com/e/jaquar-ipa-neerathon-delhi-2025-343143",
-      "source": "townscript.com",
       "region": "India"
     },
     {
@@ -2123,17 +2009,17 @@
       "region": "India"
     },
     {
-      "id": "ts-khyaal-run-delhi-chapter-013043",
-      "title": "KHYAAL RUN- DELHI CHAPTER",
-      "city": "Delhi",
+      "id": "ts-jaquar-ipa-neerathon-delhi-2025-343143",
+      "title": "3rd Jaquar IPA Neerathon Delhi",
+      "city": "New Delhi",
       "state": "",
       "startDate": "2026-04-18",
       "endDate": "2026-04-19",
       "distances": [],
-      "price": "₹399.6",
+      "price": "₹455",
       "rating": null,
-      "organizer": "Dare2Gear",
-      "url": "https://www.townscript.com/e/khyaal-run-delhi-chapter-013043",
+      "organizer": "Coach Ravinder",
+      "url": "https://www.townscript.com/e/jaquar-ipa-neerathon-delhi-2025-343143",
       "source": "townscript.com",
       "region": "India"
     },
@@ -2149,6 +2035,21 @@
       "rating": null,
       "organizer": "R.E.M. - Running and Entertainment Media",
       "url": "https://www.townscript.com/e/lalgarh-jattan-military-station-half-marathon-232234",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
+      "id": "ts-khyaal-run-delhi-chapter-013043",
+      "title": "KHYAAL RUN- DELHI CHAPTER",
+      "city": "Delhi",
+      "state": "",
+      "startDate": "2026-04-18",
+      "endDate": "2026-04-19",
+      "distances": [],
+      "price": "₹399.6",
+      "rating": null,
+      "organizer": "Dare2Gear",
+      "url": "https://www.townscript.com/e/khyaal-run-delhi-chapter-013043",
       "source": "townscript.com",
       "region": "India"
     },
@@ -2311,6 +2212,23 @@
       "region": "India"
     },
     {
+      "id": "ts-konqr-half-marathon2026-141414",
+      "title": "KONQR HALF MARATHON-2026",
+      "city": "New Delhi",
+      "state": "",
+      "startDate": "2026-05-02",
+      "endDate": "2026-05-03",
+      "distances": [
+        "Half Marathon"
+      ],
+      "price": "₹599",
+      "rating": null,
+      "organizer": "KONQR HALF MARATHON",
+      "url": "https://www.townscript.com/e/konqr-half-marathon2026-141414",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
       "id": "cw-delhi-legends-half-marathon-2026",
       "title": "DELHI LEGENDS HALF MARATHON 2026",
       "city": "",
@@ -2373,8 +2291,8 @@
       "startDate": "2026-05-10",
       "endDate": "2026-05-09",
       "distances": [
-        "Running",
         "Custom",
+        "Running",
         "3K",
         "21.1K"
       ],
@@ -2383,6 +2301,26 @@
       "rating": null,
       "organizer": "Universal Runners Marathon ",
       "url": "https://www.indiarunning.com/events/7th_edition_gurugram_grand_half_marathon_2026_36780",
+      "source": "indiarunning.com",
+      "region": "India"
+    },
+    {
+      "id": "ir-9450",
+      "title": "SHIMLA MASHOBRA MARATHON 2026",
+      "city": "Shimla",
+      "state": "Himachal Pradesh",
+      "startDate": "2026-05-10",
+      "endDate": "2026-05-09",
+      "distances": [
+        "10k",
+        "HM",
+        "M"
+      ],
+      "registrationDeadline": "2026-05-03",
+      "price": "₹1100",
+      "rating": null,
+      "organizer": "RUN AND THRIVE FITNESS PVT LIMITED",
+      "url": "https://www.indiarunning.com/events/shimlamashobramarathon2026-43698",
       "source": "indiarunning.com",
       "region": "India"
     },
@@ -2418,26 +2356,6 @@
       "organizer": "Runs & Miles Organisation",
       "url": "https://www.townscript.com/e/runs-miles-half-marathon-1st-edition-run-for-health-wellness-201310",
       "source": "townscript.com",
-      "region": "India"
-    },
-    {
-      "id": "ir-9351",
-      "title": "ONE RUN 2026 -NEPAL",
-      "city": "LALITPUR",
-      "state": "Gandaki Province",
-      "startDate": "2026-05-23",
-      "endDate": "2026-05-22",
-      "distances": [
-        "5k",
-        "10k",
-        "21.1K"
-      ],
-      "registrationDeadline": null,
-      "price": "₹1000",
-      "rating": null,
-      "organizer": "Fitpage (Main Account)",
-      "url": "https://www.indiarunning.com/events/one_run_2026_nepal_21223",
-      "source": "indiarunning.com",
       "region": "India"
     },
     {
@@ -2796,6 +2714,21 @@
       "region": "India"
     },
     {
+      "id": "ts-k2s-katraj-to-sinhgad-monsoon-adventure-race-30-013110",
+      "title": "K2S KATRAJ TO SINHGAD MONSOON ADVENTURE RACE 3.0",
+      "city": "Pune",
+      "state": "",
+      "startDate": "2026-08-08",
+      "endDate": "2026-08-08",
+      "distances": [],
+      "price": "₹350",
+      "rating": null,
+      "organizer": "Lyfefit",
+      "url": "https://www.townscript.com/e/k2s-katraj-to-sinhgad-monsoon-adventure-race-30-013110",
+      "source": "townscript.com",
+      "region": "India"
+    },
+    {
       "id": "ts-bengaluru-endurance-run-2026",
       "title": "Bengaluru Endurance Run 2026",
       "city": "Bengaluru",
@@ -3046,24 +2979,9 @@
       "url": "https://www.citywoofer.com/e/mehsanamarathon-edition-2",
       "source": "citywoofer.com",
       "region": "India"
-    },
-    {
-      "id": "ts-summit-run-lurntsu-circuit-2026",
-      "title": "SUMMIT RUN Lurntsu Circuit (Uttarakhand)",
-      "city": "Jaunpur Range",
-      "state": "",
-      "startDate": "2026-12-04",
-      "endDate": "2026-12-05",
-      "distances": [],
-      "price": "₹2680",
-      "rating": null,
-      "organizer": "Boots & Crampons",
-      "url": "https://www.townscript.com/e/summit-run-lurntsu-circuit-2026",
-      "source": "townscript.com",
-      "region": "India"
     }
   ],
-  "total": 186,
-  "fetchedAt": "2026-03-04T21:58:56.916Z",
+  "total": 181,
+  "fetchedAt": "2026-03-05T21:59:07.313Z",
   "cached": false
 }
