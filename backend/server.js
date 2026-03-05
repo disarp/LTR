@@ -2,7 +2,7 @@
  * Let's Talk Running — Backend Server
  *
  * Serves the static website AND provides /api/events with live Indian running
- * event data scraped from indiarunning.com, bhaagoindia.com, and townscript.com.
+ * event data scraped from indiarunning.com, townscript.com, mysamay.in, and citywoofer.com.
  *
  * Data is cached in-memory for 6 hours to avoid hammering source sites.
  */
@@ -223,9 +223,9 @@ async function sendCoachingEmail(data) {
 
 // ─── Fetch & merge all sources ────────────────────────────────────────────────
 async function fetchAllEvents() {
-  const [r1, r2, r3, r4, r5] = await Promise.allSettled([
+  const [r1, r3, r4, r5] = await Promise.allSettled([
     fetchIndiaRunning(),
-    fetchBhaagoIndia(),
+    // fetchBhaagoIndia(),  // removed — unreliable source
     fetchTownscript(),
     fetchMySamay(),
     fetchCityWoofer(),
@@ -234,9 +234,6 @@ async function fetchAllEvents() {
   let events = [];
   if (r1.status === 'fulfilled') { console.log(`✓ indiarunning.com — ${r1.value.length} events`); events.push(...r1.value); }
   else                           { console.warn(`✗ indiarunning.com — ${r1.reason?.message}`); }
-
-  if (r2.status === 'fulfilled') { console.log(`✓ bhaagoindia.com  — ${r2.value.length} events`); events.push(...r2.value); }
-  else                           { console.warn(`✗ bhaagoindia.com  — ${r2.reason?.message}`); }
 
   if (r3.status === 'fulfilled') { console.log(`✓ townscript.com   — ${r3.value.length} events`); events.push(...r3.value); }
   else                           { console.warn(`✗ townscript.com   — ${r3.reason?.message}`); }
