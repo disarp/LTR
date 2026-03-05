@@ -96,8 +96,17 @@ app.post('/api/coaching-signup', async (req, res) => {
     const data = req.body;
 
     // Validate required fields
-    if (!data.name || !data.email || !data.phone || !data.plan_tier) {
-      return res.status(400).json({ error: 'Missing required fields: name, email, phone, plan_tier' });
+    if (!data.plan_tier) {
+      return res.status(400).json({ error: 'Missing required field: plan_tier' });
+    }
+    if (data.plan_tier === 'beginner') {
+      if (!data.email) {
+        return res.status(400).json({ error: 'Missing required field: email' });
+      }
+    } else {
+      if (!data.name || !data.phone) {
+        return res.status(400).json({ error: 'Missing required fields: name, phone' });
+      }
     }
 
     // Add timestamp if not present
