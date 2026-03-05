@@ -36,79 +36,100 @@
 <!-- PRICING TIERS -->
 <section class="section section-alt">
     <div class="container">
-        <div class="pricing-grid">
+        <div class="pricing-carousel">
+            <!-- Left arrow (mobile only) -->
+            <button class="pricing-arrow pricing-arrow--prev" aria-label="Previous plan">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 16 7 10 13 4"></polyline></svg>
+            </button>
 
-            <!-- BEGINNER -->
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <div class="pricing-icon">🌱</div>
-                    <div class="pricing-tier">Beginner</div>
-                    <div class="pricing-price">Free</div>
-                    <div class="pricing-desc">Standardized training plans for first-time runners and those returning after a break.</div>
+            <div class="pricing-viewport">
+                <div class="pricing-grid">
+
+                    <!-- BEGINNER -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <div class="pricing-icon">🌱</div>
+                            <div class="pricing-tier">Beginner</div>
+                            <div class="pricing-price">Free</div>
+                            <div class="pricing-desc">Standardized training plans for first-time runners and those returning after a break.</div>
+                        </div>
+                        <div class="pricing-divider"></div>
+                        <ul class="pricing-features">
+                            <li><span class="check">&#10003;</span> Structured 5K, 10K, or 21K training plan PDF</li>
+                            <li><span class="check">&#10003;</span> Week-by-week schedule with pacing guidance</li>
+                            <li><span class="check">&#10003;</span> Warm-up and cool-down routines</li>
+                            <li><span class="check">&#10003;</span> Emailed instantly to your inbox</li>
+                            <li class="feature-na"><span class="cross">&#10007;</span> Personalized plan adjustments</li>
+                            <li class="feature-na"><span class="cross">&#10007;</span> Coach access</li>
+                            <li class="feature-na"><span class="cross">&#10007;</span> WhatsApp support</li>
+                            <li class="feature-na"><span class="cross">&#10007;</span> Consultancy sessions</li>
+                        </ul>
+                        <button class="btn btn-outline pricing-cta" onclick="openModal('beginner')">
+                            Download Free Plan
+                        </button>
+                    </div>
+
+                    <!-- INTERMEDIATE -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <div class="pricing-icon">🏅</div>
+                            <div class="pricing-tier">Customized Plans</div>
+                            <div class="pricing-price">&#8377;900</div>
+                            <div class="pricing-desc">A customized 8&ndash;12 week plan built after a one-on-one consultancy session.</div>
+                        </div>
+                        <div class="pricing-divider"></div>
+                        <ul class="pricing-features">
+                            <li><span class="check">&#10003;</span> One-on-one consultancy session to assess your starting point</li>
+                            <li><span class="check">&#10003;</span> Customized 8&ndash;12 week training plan</li>
+                            <li><span class="check">&#10003;</span> Goal-specific pacing and periodization</li>
+                            <li><span class="check">&#10003;</span> Strength training recommendations</li>
+                            <li><span class="check">&#10003;</span> Email support on the plan</li>
+                            <li class="feature-na"><span class="cross">&#10007;</span> Weekly WhatsApp support</li>
+                            <li class="feature-na"><span class="cross">&#10007;</span> Automated fitness tracker syncing</li>
+                            <li class="feature-na"><span class="cross">&#10007;</span> Priority coach access</li>
+                        </ul>
+                        <button class="btn btn-primary pricing-cta" onclick="openModal('intermediate')">
+                            Sign Up for Consultation
+                        </button>
+                    </div>
+
+                    <!-- PERSONALIZED -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <div class="pricing-icon">🏆</div>
+                            <div class="pricing-tier">Personalized Coaching</div>
+                            <div class="pricing-price">&#8377;3,000 / month</div>
+                            <div class="pricing-desc">End-to-end coaching with weekly support, plan adjustments, and data-driven insights.</div>
+                        </div>
+                        <div class="pricing-divider"></div>
+                        <ul class="pricing-features">
+                            <li><span class="check">&#10003;</span> Everything in Customized Plans, plus:</li>
+                            <li><span class="check">&#10003;</span> Weekly WhatsApp support and check-ins</li>
+                            <li><span class="check">&#10003;</span> Weekly plan reviews and data-based changes</li>
+                            <li><span class="check">&#10003;</span> Automated fitness tracker syncing of workouts</li>
+                            <li><span class="check">&#10003;</span> Race-day strategy and pacing plan</li>
+                            <li><span class="check">&#10003;</span> Priority coach access on WhatsApp</li>
+                            <li><span class="check">&#10003;</span> Nutrition guidance</li>
+                        </ul>
+                        <button class="btn btn-outline pricing-cta" onclick="openModal('personalized')">
+                            Sign Up for Consultation
+                        </button>
+                    </div>
+
                 </div>
-                <div class="pricing-divider"></div>
-                <ul class="pricing-features">
-                    <li><span class="check">&#10003;</span> Structured 5K, 10K, or 21K training plan PDF</li>
-                    <li><span class="check">&#10003;</span> Week-by-week schedule with pacing guidance</li>
-                    <li><span class="check">&#10003;</span> Warm-up and cool-down routines</li>
-                    <li><span class="check">&#10003;</span> Emailed instantly to your inbox</li>
-                    <li class="feature-na"><span class="cross">&#10007;</span> Personalized plan adjustments</li>
-                    <li class="feature-na"><span class="cross">&#10007;</span> Coach access</li>
-                    <li class="feature-na"><span class="cross">&#10007;</span> WhatsApp support</li>
-                    <li class="feature-na"><span class="cross">&#10007;</span> Consultancy sessions</li>
-                </ul>
-                <button class="btn btn-outline pricing-cta" onclick="openModal('beginner')">
-                    Download Free Plan
-                </button>
             </div>
 
-            <!-- INTERMEDIATE -->
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <div class="pricing-icon">🏅</div>
-                    <div class="pricing-tier">Customized Plans</div>
-                    <div class="pricing-price">&#8377;900</div>
-                    <div class="pricing-desc">A customized 8&ndash;12 week plan built after a one-on-one consultancy session.</div>
-                </div>
-                <div class="pricing-divider"></div>
-                <ul class="pricing-features">
-                    <li><span class="check">&#10003;</span> One-on-one consultancy session to assess your starting point</li>
-                    <li><span class="check">&#10003;</span> Customized 8&ndash;12 week training plan</li>
-                    <li><span class="check">&#10003;</span> Goal-specific pacing and periodization</li>
-                    <li><span class="check">&#10003;</span> Strength training recommendations</li>
-                    <li><span class="check">&#10003;</span> Email support on the plan</li>
-                    <li class="feature-na"><span class="cross">&#10007;</span> Weekly WhatsApp support</li>
-                    <li class="feature-na"><span class="cross">&#10007;</span> Automated fitness tracker syncing</li>
-                    <li class="feature-na"><span class="cross">&#10007;</span> Priority coach access</li>
-                </ul>
-                <button class="btn btn-primary pricing-cta" onclick="openModal('intermediate')">
-                    Sign Up for Consultation
-                </button>
-            </div>
+            <!-- Right arrow (mobile only) -->
+            <button class="pricing-arrow pricing-arrow--next" aria-label="Next plan">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 4 13 10 7 16"></polyline></svg>
+            </button>
 
-            <!-- PERSONALIZED -->
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <div class="pricing-icon">🏆</div>
-                    <div class="pricing-tier">Personalized Coaching</div>
-                    <div class="pricing-price">&#8377;3,000 / month</div>
-                    <div class="pricing-desc">End-to-end coaching with weekly support, plan adjustments, and data-driven insights.</div>
-                </div>
-                <div class="pricing-divider"></div>
-                <ul class="pricing-features">
-                    <li><span class="check">&#10003;</span> Everything in Customized Plans, plus:</li>
-                    <li><span class="check">&#10003;</span> Weekly WhatsApp support and check-ins</li>
-                    <li><span class="check">&#10003;</span> Weekly plan reviews and data-based changes</li>
-                    <li><span class="check">&#10003;</span> Automated fitness tracker syncing of workouts</li>
-                    <li><span class="check">&#10003;</span> Race-day strategy and pacing plan</li>
-                    <li><span class="check">&#10003;</span> Priority coach access on WhatsApp</li>
-                    <li><span class="check">&#10003;</span> Nutrition guidance</li>
-                </ul>
-                <button class="btn btn-outline pricing-cta" onclick="openModal('personalized')">
-                    Sign Up for Consultation
-                </button>
+            <!-- Dots (mobile only) -->
+            <div class="pricing-dots">
+                <button class="pricing-dot active" data-index="0" aria-label="Beginner plan"></button>
+                <button class="pricing-dot" data-index="1" aria-label="Customized plan"></button>
+                <button class="pricing-dot" data-index="2" aria-label="Personalized plan"></button>
             </div>
-
         </div>
     </div>
 </section>
@@ -572,6 +593,77 @@ async function handleSubmit(event, tier) {
 
     return false;
 }
+
+// ─── Pricing Carousel (mobile only) ──────────────────────────────────────────
+(function () {
+    var track = document.querySelector('.pricing-grid');
+    var cards = document.querySelectorAll('.pricing-card');
+    var dots = document.querySelectorAll('.pricing-dot');
+    var prevBtn = document.querySelector('.pricing-arrow--prev');
+    var nextBtn = document.querySelector('.pricing-arrow--next');
+
+    if (!track || cards.length === 0) return;
+
+    var currentIndex = 0;
+    var totalSlides = cards.length;
+
+    function isMobile() {
+        return window.innerWidth <= 900;
+    }
+
+    function goToSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentIndex = index;
+        if (isMobile()) {
+            var slideWidth = cards[0].offsetWidth;
+            track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
+        }
+        dots.forEach(function (dot, i) {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { goToSlide(currentIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goToSlide(currentIndex + 1); });
+
+    dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+            goToSlide(parseInt(dot.dataset.index, 10));
+        });
+    });
+
+    // Touch/swipe support
+    var touchStartX = 0;
+    var SWIPE_THRESHOLD = 50;
+    var carousel = document.querySelector('.pricing-carousel');
+
+    if (carousel) {
+        carousel.addEventListener('touchstart', function (e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', function (e) {
+            var diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > SWIPE_THRESHOLD && isMobile()) {
+                goToSlide(diff > 0 ? currentIndex + 1 : currentIndex - 1);
+            }
+        }, { passive: true });
+    }
+
+    // Reset on resize
+    window.addEventListener('resize', function () {
+        if (!isMobile()) {
+            track.style.transform = '';
+        } else {
+            track.style.transition = 'none';
+            goToSlide(currentIndex);
+            setTimeout(function () {
+                track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            }, 50);
+        }
+    });
+})();
 
 // ─── Testimonial Carousel ──────────────────────────────────────────────────────
 (function () {
