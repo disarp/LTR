@@ -633,9 +633,9 @@
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        border: 1.5px solid var(--border);
-        background: white;
-        color: var(--secondary);
+        border: none;
+        background: var(--secondary);
+        color: white;
         align-items: center;
         justify-content: center;
         cursor: pointer;
@@ -644,13 +644,13 @@
     }
 
     .pricing-arrow:hover {
-        border-color: var(--primary);
-        color: var(--primary);
+        background: var(--primary);
+        color: white;
         box-shadow: 0 4px 16px rgba(232, 93, 4, 0.15);
     }
 
-    .pricing-arrow--prev { left: 0.75rem; }
-    .pricing-arrow--next { right: 0.75rem; }
+    .pricing-arrow--prev { left: -0.25rem; }
+    .pricing-arrow--next { right: -0.25rem; }
 
     .pricing-dots {
         display: flex;
