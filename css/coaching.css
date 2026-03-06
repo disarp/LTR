@@ -310,6 +310,16 @@
     margin-bottom: 0.75rem;
 }
 
+.testimonial-photo-wrap {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(232, 93, 4, 0.15);
+    flex-shrink: 0;
+    margin-bottom: 0.75rem;
+}
+
 .testimonial-name {
     font-size: 1.05rem;
     font-weight: 700;
@@ -742,6 +752,11 @@
         align-items: center;
     }
     .testimonial-photo {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 0;
+    }
+    .testimonial-photo-wrap {
         width: 72px;
         height: 72px;
         margin-bottom: 0;
