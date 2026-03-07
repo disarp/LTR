@@ -1,0 +1,895 @@
+{
+  "shoes": [
+    {
+      "name": "METASPEED RAY",
+      "category": "Unisex Running Shoes",
+      "price": "₹29,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1013a176_300_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "METASPEED SKY TOKYO",
+      "category": "Unisex Running Shoes",
+      "price": "₹24,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1013a162_300_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "METASPEED EDGE TOKYO",
+      "category": "Unisex Running Shoes",
+      "price": "₹24,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1013a163_300_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "MEGABLAST",
+      "category": "Unisex Running Shoes",
+      "price": "₹23,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1013a170_001_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 3
+    },
+    {
+      "name": "SUPERBLAST 2 EKIDEN",
+      "category": "Unisex Running Shoes",
+      "price": "₹21,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1013a185_300_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "SUPERBLAST 2",
+      "category": "Unisex Running Shoes",
+      "price": "₹21,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1013a142_401_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 3
+    },
+    {
+      "name": "GEL-NIMBUS 27 LITE-SHOW",
+      "category": "Men Running Shoes",
+      "price": "₹17,999",
+      "salePrice": "₹14,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c033_800_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-KINSEI MAX",
+      "category": "Men Running Shoes",
+      "price": "₹17,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b696_500_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-KAYANO 32 PLATINUM",
+      "category": "Men Running Shoes",
+      "price": "₹17,499",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c215_001_sl_lt.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-NIMBUS 28 PLATINUM",
+      "category": "Men Running Shoes",
+      "price": "₹17,499",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c214_001_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "SONICBLAST",
+      "category": "Men Running Shoes",
+      "price": "₹17,499",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c083_300_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 5
+    },
+    {
+      "name": "GLIDERIDE MAX 2",
+      "category": "Men Running Shoes",
+      "price": "₹17,499",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c156_001_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GLIDERIDE MAX",
+      "category": "Men Running Shoes",
+      "price": "₹17,499",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b891_402_sl_lt_glb_3.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 5
+    },
+    {
+      "name": "GEL-KAYANO 32 LITE-SHOW",
+      "category": "Men Running Shoes",
+      "price": "₹17,499",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c133_400_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-KAYANO 32 LUXE",
+      "category": "Men Running Shoes",
+      "price": "₹17,499",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c130_001_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-NIMBUS 27 LUXE",
+      "category": "Men Running Shoes",
+      "price": "₹17,499",
+      "salePrice": "₹13,999",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c030_001_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-KAYANO 32",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c052_004_sl_lt.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 16
+    },
+    {
+      "name": "GEL-KAYANO 32 WIDE",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c051_403_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GEL-NIMBUS 28",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c127_003_sl_lt.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 9
+    },
+    {
+      "name": "GEL-KAYANO 32 EXTRA WIDE",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c054_402_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GEL-NIMBUS 28 WIDE",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c144_400_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-NIMBUS 28 TR",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c216_300_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-NIMBUS 28 ATC",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c222_020_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-NIMBUS 27",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": "₹13,599",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b958_750_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 15
+    },
+    {
+      "name": "GEL-NIMBUS 27 KUMADORI",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": "₹13,599",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b958_400_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-KAYANO 32 ATC",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c132_100_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-KAYANO 32 TOKYO",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c140_500_sl_lt_glb_2.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-NIMBUS 27 WIDE",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": "₹13,599",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b956_500_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-NIMBUS 27 TOKYO",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": "₹13,599",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c120_500_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-NIMBUS 27 TR",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": "₹13,599",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c136_300_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-KAYANO 31 LUXE",
+      "category": "Men Running Shoes",
+      "price": "₹16,999",
+      "salePrice": "₹13,599",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c035_020_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "TRABUCO MAX 5",
+      "category": "Men Running Shoes",
+      "price": "₹15,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c164_020_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "MAGIC SPEED 5",
+      "category": "Unisex Running Shoes",
+      "price": "₹15,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1013a183_300_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-KAYANO 31",
+      "category": "Men Running Shoes",
+      "price": "₹15,999",
+      "salePrice": "₹12,799",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b867_021_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 13
+    },
+    {
+      "name": "NOVABLAST 5 PLATINUM",
+      "category": "Men Running Shoes",
+      "price": "₹14,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c193_001_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-JADEITE 3",
+      "category": "Men Running Shoes",
+      "price": "₹14,999",
+      "salePrice": "₹7,499",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c172_001_sl_lt.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 3
+    },
+    {
+      "name": "TRABUCO 14",
+      "category": "Men Running Shoes",
+      "price": "₹14,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c166_001_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GT-2000 14 LITE-SHOW",
+      "category": "Men Running Shoes",
+      "price": "₹14,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c128_400_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "MAGIC SPEED 4",
+      "category": "Men Running Shoes",
+      "price": "₹14,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b875_751_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "NOVABLAST 5 LITE-SHOW",
+      "category": "Men Running Shoes",
+      "price": "₹14,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c032_750_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "NOVABLAST 5 TCSW10K 2025 LIMITED EDITION",
+      "category": "Men Running Shoes",
+      "price": "₹14,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c121100_2.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "MAGIC SPEED 4 KUMADORI",
+      "category": "Men Running Shoes",
+      "price": "₹14,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b875_401_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "NOVABLAST 5",
+      "category": "Men Running Shoes",
+      "price": "₹13,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b974_406_sl_lt_2.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 8
+    },
+    {
+      "name": "NOVABLAST 5 EKIDEN",
+      "category": "Men Running Shoes",
+      "price": "₹13,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c224_300_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "NOVABLAST 5 TR",
+      "category": "Men Running Shoes",
+      "price": "₹13,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c217_300_sl_lt.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "NOVABLAST 5 ATC",
+      "category": "Men Running Shoes",
+      "price": "₹13,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c185_020_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GT-2000 14",
+      "category": "Men Running Shoes",
+      "price": "₹13,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c056_750_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 5
+    },
+    {
+      "name": "GT-2000 14 TR",
+      "category": "Men Running Shoes",
+      "price": "₹13,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c129_300_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "FUJISPEED 4",
+      "category": "Unisex Running Shoes",
+      "price": "₹13,999",
+      "salePrice": "₹6,999",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1013a179_300_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GT-2000 14 TOKYO",
+      "category": "Men Running Shoes",
+      "price": "₹13,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c141_500_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GT-2000 13 LITE-SHOW",
+      "category": "Men Running Shoes",
+      "price": "₹13,999",
+      "salePrice": "₹11,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c034_400_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "MAGIC SPEED 3",
+      "category": "Men Running Shoes",
+      "price": "₹13,999",
+      "salePrice": "₹11,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b703_401_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "NOVABLAST 4",
+      "category": "Men Running Shoes",
+      "price": "₹13,999",
+      "salePrice": "₹11,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b693_003_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-CUMULUS 27",
+      "category": "Men Running Shoes",
+      "price": "₹12,999",
+      "salePrice": "₹10,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b960_402_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 11
+    },
+    {
+      "name": "GEL-CUMULUS 28",
+      "category": "Men Running Shoes",
+      "price": "₹12,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c143_004_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 4
+    },
+    {
+      "name": "GEL-CIRRUS 2",
+      "category": "Men Running Shoes",
+      "price": "₹12,999",
+      "salePrice": "₹9,099",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c279_100_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "CUMULUS 27 LITE-SHOW",
+      "category": "Men Running Shoes",
+      "price": "₹12,999",
+      "salePrice": "₹10,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c104_800_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-CUMULUS 27 ATC",
+      "category": "Men Running Shoes",
+      "price": "₹12,999",
+      "salePrice": "₹10,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c135_100_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-CUMULUS 27 TOKYO",
+      "category": "Men Running Shoes",
+      "price": "₹12,999",
+      "salePrice": "₹10,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c186_500_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GT-2000 13",
+      "category": "Men Running Shoes",
+      "price": "₹12,999",
+      "salePrice": "₹10,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b861_400_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 11
+    },
+    {
+      "name": "GT-2000 12",
+      "category": "Men Running Shoes",
+      "price": "₹12,999",
+      "salePrice": "₹7,799",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b691_404_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GT-2000 13 TR",
+      "category": "Men Running Shoes",
+      "price": "₹12,999",
+      "salePrice": "₹10,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b954_300_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GT-2000 13 ATC",
+      "category": "Men Running Shoes",
+      "price": "₹12,999",
+      "salePrice": "₹10,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c026_020_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-CUMULUS 27 KUMADORI",
+      "category": "Men Running Shoes",
+      "price": "₹11,999",
+      "salePrice": "₹9,599",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b960_400_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "NOOSA TRI 16",
+      "category": "Men Running Shoes",
+      "price": "₹11,999",
+      "salePrice": "₹7,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b872_402_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-CUMULUS 26",
+      "category": "Men Running Shoes",
+      "price": "₹11,999",
+      "salePrice": "₹7,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b792_020_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "DYNABLAST 5",
+      "category": "Men Running Shoes",
+      "price": "₹10,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b983_003_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 7
+    },
+    {
+      "name": "TARTHER RP 3",
+      "category": "Men Running Shoes",
+      "price": "₹10,999",
+      "salePrice": "₹5,499",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b465_402_sr_rt_glb-base.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GT-1000 14",
+      "category": "Men Running Shoes",
+      "price": "₹9,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c077_101_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 8
+    },
+    {
+      "name": "GT-1000 14 TR",
+      "category": "Men Running Shoes",
+      "price": "₹9,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c131_300_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GT-1000 13",
+      "category": "Men Running Shoes",
+      "price": "₹9,999",
+      "salePrice": "₹7,999",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b858_400_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 9
+    },
+    {
+      "name": "GT-1000 13 TR",
+      "category": "Men Running Shoes",
+      "price": "₹9,999",
+      "salePrice": "₹7,999",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c043_300_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "DYNABLAST 4",
+      "category": "Men Running Shoes",
+      "price": "₹9,999",
+      "salePrice": "₹7,999",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b697_401_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-PULSE 16",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": "₹7,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b962_002_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 11
+    },
+    {
+      "name": "GEL-SONOMA 8",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b979_020_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "HYPER SPEED 5",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c084_300_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 3
+    },
+    {
+      "name": "GEL-PULSE 17",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c153_002_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 5
+    },
+    {
+      "name": "GEL-PULSE 17 TR",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c283_300_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "EZERIDE",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": "₹4,499",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b788.401_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 5
+    },
+    {
+      "name": "LYTERACER 5",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": "₹7,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b903_750_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-PULSE 15",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": "₹5,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b780_403_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "HYPER SPEED 4",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": "₹7,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b874_002_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "HYPER SPEED 4 PARIS",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": "₹7,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b874_750_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "HYPER SPEED 4 KUMADORI",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": "₹7,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b874_401_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "LYTERACER 4",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": "₹7,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b349_110_sr_rt_glb-base.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GEL-SONOMA 7 GTX",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": "₹7,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b593_005_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GT-1000 12",
+      "category": "Men Running Shoes",
+      "price": "₹8,999",
+      "salePrice": "₹5,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b631_404_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-EXCITE 11",
+      "category": "Men Running Shoes",
+      "price": "₹7,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c080_004_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 7
+    },
+    {
+      "name": "GEL-EXCITE 11 TR",
+      "category": "Men Running Shoes",
+      "price": "₹7,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c134_300_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "GEL-EXCITE 10",
+      "category": "Men Running Shoes",
+      "price": "₹7,499",
+      "salePrice": "₹5,999",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b600_405_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 8
+    },
+    {
+      "name": "VERSABLAST 4",
+      "category": "Men Running Shoes",
+      "price": "₹6,999",
+      "salePrice": "₹5,599",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b984_002_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 8
+    },
+    {
+      "name": "GEL - RUN ADAPT",
+      "category": "Men Running Shoes",
+      "price": "₹6,999",
+      "salePrice": "₹3,499",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550456942899_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GEL - EASE",
+      "category": "Men Running Shoes",
+      "price": "₹6,999",
+      "salePrice": "₹3,499",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550456943810_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GEL-EASE",
+      "category": "Men Running Shoes",
+      "price": "₹6,999",
+      "salePrice": "₹3,499",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550457384889_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 3
+    },
+    {
+      "name": "GEL-RUN ADAPT",
+      "category": "Men Running Shoes",
+      "price": "₹6,999",
+      "salePrice": "₹3,499",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550457384759_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "VERSABLAST 3",
+      "category": "Men Running Shoes",
+      "price": "₹6,999",
+      "salePrice": "₹5,599",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b692_404_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 9
+    },
+    {
+      "name": "GEL-VENTURE 10",
+      "category": "Men Running Shoes",
+      "price": "₹6,499",
+      "salePrice": "₹5,199",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b967_022_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 4
+    },
+    {
+      "name": "GEL-CONTEND 9",
+      "category": "Men Running Shoes",
+      "price": "₹5,999",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b881_006_sl_lt_glb-1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 13
+    },
+    {
+      "name": "GEL-XTEND",
+      "category": "Men Running Shoes",
+      "price": "₹5,999",
+      "salePrice": "₹2,999",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550457385022_4_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 3
+    },
+    {
+      "name": "GEL - XTEND",
+      "category": "Men Running Shoes",
+      "price": "₹5,999",
+      "salePrice": "₹2,999",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550456944107_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "GEL-CONTEND 8",
+      "category": "Men Running Shoes",
+      "price": "₹5,999",
+      "salePrice": "₹4,799",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b492_409_sl_lt_glb-8.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "PATRIOT 14",
+      "category": "Men Running Shoes",
+      "price": "₹5,499",
+      "salePrice": null,
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011c050_400_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "PATRIOT 13",
+      "category": "Men Running Shoes",
+      "price": "₹5,499",
+      "salePrice": "₹4,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b485_752_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 14
+    },
+    {
+      "name": "GEL-ZARACA 5 B",
+      "category": "Men Running Shoes",
+      "price": "₹5,499",
+      "salePrice": "₹2,749",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b137.100_4_1_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 3
+    },
+    {
+      "name": "GEL-33 RUN",
+      "category": "Men Running Shoes",
+      "price": "₹5,499",
+      "salePrice": "₹2,749",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550455902627_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 5
+    },
+    {
+      "name": "GEL-ASRO",
+      "category": "Men Running Shoes",
+      "price": "₹5,499",
+      "salePrice": "₹2,749",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550457100960_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 2
+    },
+    {
+      "name": "TRAIL SCOUT 3",
+      "category": "Men Running Shoes",
+      "price": "₹5,499",
+      "salePrice": "₹4,399",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b700_006_sl_lt_glb.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    },
+    {
+      "name": "JOLT 4",
+      "category": "Men Running Shoes",
+      "price": "₹4,999",
+      "salePrice": "₹3,999",
+      "url": "https://www.asics.co.in/media/catalog/product/1/0/1011b603_409_sl_lt_glb_1.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 7
+    },
+    {
+      "name": "GEL-GALAXY 8B",
+      "category": "Men Running Shoes",
+      "price": "₹4,999",
+      "salePrice": "₹2,499",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550457215336_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 5
+    },
+    {
+      "name": "GEL-CONTEND 5B",
+      "category": "Men Running Shoes",
+      "price": "₹4,999",
+      "salePrice": "₹2,999",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550455901224_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 6
+    },
+    {
+      "name": "GEL- CONTEND 5B",
+      "category": "Men Running Shoes",
+      "price": "₹4,699",
+      "salePrice": "₹2,819",
+      "url": "https://www.asics.co.in/media/catalog/product/4/5/4550153849323_4.jpg?optimize=high&bg-color=255%2C255%2C255&fit=cover&height=375&width=500&auto=webp&format=pjpg",
+      "colorways": 1
+    }
+  ],
+  "total": 354,
+  "uniqueModels": 111,
+  "fetchedAt": "2026-03-07T11:17:53.671Z"
+}

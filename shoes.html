@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running Shoes — Let's Talk Running</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <style>
+        /* ── Shoes-specific styles ─────────────────────────────── */
+        .shoes-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .shoe-card {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+        .shoe-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px rgba(232, 93, 4, 0.08);
+        }
+
+        .shoe-rank {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--bg-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .shoe-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .shoe-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--secondary);
+            margin-bottom: 0.2rem;
+        }
+        .shoe-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+        .shoe-category {
+            background: var(--bg-alt);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+        .shoe-colorways {
+            font-size: 0.75rem;
+        }
+
+        .shoe-price {
+            flex-shrink: 0;
+            text-align: right;
+            margin-right: 0.5rem;
+        }
+        .shoe-price .current {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--secondary);
+        }
+        .shoe-price .original {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-right: 0.35rem;
+        }
+        .shoe-price .sale-badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            margin-top: 0.15rem;
+        }
+
+        .shoe-actions {
+            flex-shrink: 0;
+        }
+
+        .shoes-status {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .shoes-filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .shoes-filter-row .filter-btn {
+            padding: 0.4rem 0.9rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            background: #fff;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.15s;
+            color: var(--text);
+        }
+        .shoes-filter-row .filter-btn:hover {
+            border-color: var(--primary);
+        }
+        .shoes-filter-row .filter-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+            .shoe-card {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                padding: 0.9rem 1rem;
+            }
+            .shoe-rank {
+                width: 30px;
+                height: 30px;
+                font-size: 0.75rem;
+            }
+            .shoe-info {
+                flex: 1 1 calc(100% - 50px);
+            }
+            .shoe-price {
+                text-align: left;
+                margin-right: 0;
+            }
+            .shoe-actions {
+                width: 100%;
+            }
+            .shoe-actions .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">
+        <span class="brand-icon">🏃</span>
+        Let's Talk<span class="brand-accent"> Running</span>
+    </a>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="coaching.html" class="nav-link">Coaching Plans</a></li>
+        <li><a href="race-calendar.html" class="nav-link">Race Calendar</a></li>
+    </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <h1>👟 Running Shoes</h1>
+    <p>Every running shoe currently available on ASICS India</p>
+</section>
+
+<!-- CONTENT -->
+<section class="section">
+    <div class="container">
+
+        <!-- FILTERS -->
+        <div class="shoes-filter-row" id="price-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="under5k">Under ₹5,000</button>
+            <button class="filter-btn" data-filter="5k-10k">₹5,000 – ₹10,000</button>
+            <button class="filter-btn" data-filter="10k-15k">₹10,000 – ₹15,000</button>
+            <button class="filter-btn" data-filter="15k-20k">₹15,000 – ₹20,000</button>
+            <button class="filter-btn" data-filter="above20k">₹20,000+</button>
+            <button class="filter-btn" data-filter="sale">🏷️ On Sale</button>
+        </div>
+
+        <!-- STATUS -->
+        <div class="shoes-status">
+            <span id="shoes-status">Loading shoes…</span>
+            <span id="shoes-count"></span>
+        </div>
+
+        <!-- SHOES LIST -->
+        <div id="shoes-container">
+            <!-- skeleton -->
+            <div class="skeleton-card">
+                <div class="skeleton-block" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"></div>
+                <div style="flex:1;">
+                    <div class="skeleton-block" style="height:16px;width:55%;margin-bottom:10px;"></div>
+                    <div class="skeleton-block" style="height:12px;width:35%;"></div>
+                </div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton-block" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"></div>
+                <div style="flex:1;">
+                    <div class="skeleton-block" style="height:16px;width:65%;margin-bottom:10px;"></div>
+                    <div class="skeleton-block" style="height:12px;width:40%;"></div>
+                </div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton-block" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"></div>
+                <div style="flex:1;">
+                    <div class="skeleton-block" style="height:16px;width:48%;margin-bottom:10px;"></div>
+                    <div class="skeleton-block" style="height:12px;width:30%;"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="brand">🏃 Let's Talk Running</div>
+                <p>A community platform for runners at every level — from first 5K to ultra finish lines.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="coaching.html">Coaching Plans</a></li>
+                    <li><a href="race-calendar.html">Race Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect with Us</h4>
+                <ul>
+                    <li><a href="https://www.instagram.com/letstalkrunning" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 0.4rem;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.1 4.1 0 0 1 1.523.99 4.1 4.1 0 0 1 .99 1.524c.163.46.349 1.26.403 2.43.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.403 2.43a4.1 4.1 0 0 1-.99 1.523 4.1 4.1 0 0 1-1.524.99c-.46.163-1.26.349-2.43.403-1.265.058-1.645.07-4.849.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.403a4.1 4.1 0 0 1-1.523-.99 4.1 4.1 0 0 1-.99-1.524c-.163-.46-.349-1.26-.403-2.43C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.403-2.43a4.1 4.1 0 0 1 .99-1.523A4.1 4.1 0 0 1 5.15 2.636c.46-.163 1.26-.349 2.43-.403C8.845 2.175 9.225 2.163 12 2.163M12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.903.333 4.14.63a5.876 5.876 0 0 0-2.126 1.384A5.876 5.876 0 0 0 .63 4.14C.333 4.903.13 5.775.072 7.053.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.058 1.277.261 2.149.558 2.912a5.876 5.876 0 0 0 1.384 2.126 5.876 5.876 0 0 0 2.126 1.384c.763.297 1.635.5 2.913.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.149-.261 2.912-.558a5.876 5.876 0 0 0 2.126-1.384 5.876 5.876 0 0 0 1.384-2.126c.297-.763.5-1.635.558-2.913C23.986 15.668 24 15.259 24 12s-.014-3.668-.072-4.948c-.058-1.277-.261-2.149-.558-2.912a5.876 5.876 0 0 0-1.384-2.126A5.876 5.876 0 0 0 19.86.63C19.097.333 18.225.13 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        Let's Talk Running
+                    </a></li>
+                    <li><a href="mailto:letustalkrunning@gmail.com">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 0.4rem;"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        letustalkrunning@gmail.com
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Let's Talk Running. All rights reserved.</div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// ─── State ───────────────────────────────────────────────────────────────────
+let allShoes     = [];
+let activeFilter = 'all';
+
+// ─── Boot ────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    loadShoes();
+
+    // Price filter chips
+    document.querySelectorAll('#price-filters .filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('#price-filters .filter-btn')
+                    .forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = btn.dataset.filter;
+            renderShoes();
+        });
+    });
+});
+
+// ─── Load shoes from static JSON ─────────────────────────────────────────────
+async function loadShoes() {
+    try {
+        const res  = await fetch('/data/shoes.json?_t=' + Date.now(), { cache: 'no-cache' });
+        const data = await res.json();
+
+        if (!data.shoes) throw new Error('Invalid data');
+
+        allShoes = data.shoes;
+        updateStatus(data.uniqueModels, data.fetchedAt);
+        renderShoes();
+
+    } catch (err) {
+        console.error('loadShoes error:', err);
+        document.getElementById('shoes-container').innerHTML = `
+            <div class="empty-state">
+                <span class="empty-icon">⚠️</span>
+                <h3>Could not load shoes</h3>
+                <p>Please try again later.</p>
+            </div>`;
+        document.getElementById('shoes-status').textContent = '⚠️ Load error';
+    }
+}
+
+// ─── Filter ──────────────────────────────────────────────────────────────────
+function filterShoes(shoes) {
+    return shoes.filter(s => {
+        const p = parseInt(s.price.replace(/[₹,]/g, ''));
+        switch (activeFilter) {
+            case 'under5k':  return p < 5000;
+            case '5k-10k':   return p >= 5000 && p < 10000;
+            case '10k-15k':  return p >= 10000 && p < 15000;
+            case '15k-20k':  return p >= 15000 && p < 20000;
+            case 'above20k': return p >= 20000;
+            case 'sale':     return !!s.salePrice;
+            default:         return true;
+        }
+    });
+}
+
+// ─── Render ──────────────────────────────────────────────────────────────────
+function renderShoes() {
+    const container = document.getElementById('shoes-container');
+    const list      = filterShoes(allShoes);
+
+    document.getElementById('shoes-count').textContent =
+        list.length > 0 ? `${list.length} model${list.length !== 1 ? 's' : ''} shown` : '';
+
+    if (list.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <span class="empty-icon">🔍</span>
+                <h3>No shoes match this filter</h3>
+                <p>Try a different price range.</p>
+            </div>`;
+        return;
+    }
+
+    container.innerHTML = `<div class="shoes-grid">${list.map((shoe, i) => shoeCard(shoe, i + 1)).join('')}</div>`;
+}
+
+// ─── Shoe card HTML ──────────────────────────────────────────────────────────
+function shoeCard(shoe, rank) {
+    const colorNote = shoe.colorways > 1
+        ? `<span class="shoe-colorways">${shoe.colorways} colorways</span>`
+        : '';
+
+    let priceHtml;
+    if (shoe.salePrice) {
+        const origPrice = parseInt(shoe.price.replace(/[₹,]/g, ''));
+        const salePrice = parseInt(shoe.salePrice.replace(/[₹,]/g, ''));
+        const pct = Math.round((1 - salePrice / origPrice) * 100);
+        priceHtml = `
+            <span class="original">${esc(shoe.price)}</span>
+            <span class="current">${esc(shoe.salePrice)}</span>
+            <br><span class="sale-badge">${pct}% off</span>`;
+    } else {
+        priceHtml = `<span class="current">${esc(shoe.price)}</span>`;
+    }
+
+    return `
+    <div class="shoe-card">
+        <div class="shoe-rank">${rank}</div>
+        <div class="shoe-info">
+            <div class="shoe-name">${esc(shoe.name)}</div>
+            <div class="shoe-meta">
+                <span class="shoe-category">${esc(shoe.category)}</span>
+                ${colorNote}
+            </div>
+        </div>
+        <div class="shoe-price">
+            ${priceHtml}
+        </div>
+        <div class="shoe-actions">
+            <a href="${esc(shoe.url)}" class="btn btn-outline" target="_blank" rel="noopener noreferrer"
+               style="padding:0.5rem 1rem;font-size:0.85rem;">
+                Buy →
+            </a>
+        </div>
+    </div>`;
+}
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+function esc(str) {
+    const d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
+}
+
+function updateStatus(total, fetchedAt) {
+    const time = fetchedAt ? new Date(fetchedAt).toLocaleString('en-IN') : '—';
+    document.getElementById('shoes-status').innerHTML =
+        `<span class="status-dot"></span> ${total} models loaded · Updated: ${time}`;
+}
+</script>
+</body>
+</html>
