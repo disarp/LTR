@@ -44,9 +44,8 @@ async function main() {
 
 // ─── Fetch & merge all sources ────────────────────────────────────────────────
 async function fetchAllEvents() {
-  const [r1, r2, r3, r4, r5] = await Promise.allSettled([
+  const [r1, r3, r4, r5] = await Promise.allSettled([
     fetchIndiaRunning(),
-    fetchBhaagoIndia(),
     fetchTownscript(),
     fetchMySamay(),
     fetchCityWoofer(),
@@ -55,9 +54,6 @@ async function fetchAllEvents() {
   let events = [];
   if (r1.status === 'fulfilled') { console.log(`✓ indiarunning.com — ${r1.value.length} events`); events.push(...r1.value); }
   else                           { console.warn(`✗ indiarunning.com — ${r1.reason?.message}`); }
-
-  if (r2.status === 'fulfilled') { console.log(`✓ bhaagoindia.com  — ${r2.value.length} events`); events.push(...r2.value); }
-  else                           { console.warn(`✗ bhaagoindia.com  — ${r2.reason?.message}`); }
 
   if (r3.status === 'fulfilled') { console.log(`✓ townscript.com   — ${r3.value.length} events`); events.push(...r3.value); }
   else                           { console.warn(`✗ townscript.com   — ${r3.reason?.message}`); }
@@ -154,120 +150,6 @@ function normaliseIR(e) {
     url:                  `https://www.indiarunning.com/events/${e.slug}`,
     source:               'indiarunning.com',
     region:               'India',
-  };
-}
-
-// ─── Scraper: bhaagoindia.com ─────────────────────────────────────────────────
-async function fetchBhaagoIndia() {
-  const BASE = 'https://bhaagoindia.com';
-
-  try {
-    const { data: listHtml } = await axios.get(`${BASE}/events/`, { headers: HEADERS, timeout: 15000 });
-
-    const slugMatches = [...listHtml.matchAll(/\/events\/([a-z0-9-]+-\d+)\//g)];
-    const slugs = [...new Set(slugMatches.map(m => m[1]))];
-
-    if (!slugs.length) {
-      console.warn('  bhaagoindia.com: no slugs found on listing page');
-      return [];
-    }
-
-    console.log(`  bhaagoindia.com: found ${slugs.length} event slugs`);
-
-    const events = [];
-
-    for (const slug of slugs) {
-      try {
-        const { data: html } = await axios.get(`${BASE}/events/${slug}/`, { headers: HEADERS, timeout: 10000 });
-
-        const ldBlocks = [...html.matchAll(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/g)];
-
-        for (const [, block] of ldBlocks) {
-          if (!block.includes('"Event"')) continue;
-
-          const fields = extractEventFields(block);
-          if (!fields?.name) continue;
-
-          const startDate = parseIndianDate(fields.startDate);
-          if (!startDate) continue;
-
-          events.push(normaliseBhaago({
-            slug,
-            name:      fields.name,
-            startDate,
-            endDate:   fields.endDate ? (parseIndianDate(fields.endDate) || startDate) : startDate,
-            city:      fields.city,
-            url:       fields.url || `${BASE}/events/${slug}/`,
-            organizer: fields.organizer,
-          }));
-          break;
-        }
-      } catch (err) {
-        console.warn(`  bhaagoindia.com [${slug}]: ${err.message}`);
-      }
-    }
-
-    return events;
-  } catch (err) {
-    console.warn(`  bhaagoindia.com listing: ${err.message}`);
-    return [];
-  }
-}
-
-function extractEventFields(ldJsonRaw) {
-  if (!ldJsonRaw.includes('"Event"')) return null;
-
-  function extractField(key) {
-    const rx = new RegExp(`"${key}"\\s*:\\s*"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"`, 's');
-    const m = ldJsonRaw.match(rx);
-    return m ? m[1].replace(/\\n/g, ' ').replace(/\\"/g, '"').trim() : null;
-  }
-
-  function extractNested(outerKey, innerKey) {
-    const outerRx = new RegExp(`"${outerKey}"\\s*:\\s*\\{([^}]{0,500})\\}`, 's');
-    const outerMatch = ldJsonRaw.match(outerRx);
-    if (!outerMatch) return null;
-    const innerRx = new RegExp(`"${innerKey}"\\s*:\\s*"([^"]+)"`);
-    const innerMatch = outerMatch[1].match(innerRx);
-    return innerMatch ? innerMatch[1] : null;
-  }
-
-  return {
-    name:      extractField('name'),
-    startDate: extractField('startDate'),
-    endDate:   extractField('endDate'),
-    url:       extractField('url'),
-    city:      extractNested('address', 'addressLocality')
-             || extractNested('location', 'name')
-             || extractField('addressLocality'),
-    organizer: extractNested('organizer', 'name'),
-  };
-}
-
-function parseIndianDate(s) {
-  if (!s) return null;
-  const clean = s.replace(/,?\s*\d{1,2}:\d{2}\s*(a|p)\.?m\.?/i, '')
-                  .replace(/,?\s*\d{1,2}\s*(a|p)\.?m\.?/i, '')
-                  .trim();
-  const d = new Date(clean + ' UTC');
-  return isNaN(d) ? null : d.toISOString().split('T')[0];
-}
-
-function normaliseBhaago(e) {
-  return {
-    id:        `bi-${e.slug}`,
-    title:     e.name || 'Unnamed Event',
-    city:      e.city || '',
-    state:     '',
-    startDate: e.startDate,
-    endDate:   e.endDate || e.startDate,
-    distances: [],
-    price:     null,
-    rating:    null,
-    organizer: e.organizer || '',
-    url:       e.url,
-    source:    'bhaagoindia.com',
-    region:    'India',
   };
 }
 
