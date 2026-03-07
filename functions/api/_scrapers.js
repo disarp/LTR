@@ -9,6 +9,7 @@
  */
 
 import { manualEvents } from './_manual-events.js';
+import { bmsEvents } from './_bms-events.js';
 
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
@@ -39,6 +40,9 @@ export async function fetchAllEvents() {
 
   // Manual events (BookMyShow, etc.)
   events.push(...loadManualEvents());
+
+  // BMS auto-scraped events (from weekly Firecrawl run)
+  events.push(...loadBmsEvents());
 
   // Deduplicate by normalised title + date
   const seen = new Set();
@@ -507,6 +511,26 @@ function loadManualEvents() {
     organizer: e.organizer || '',
     url:       e.url || '',
     source:    e.source || 'manual',
+    region:    'India',
+  }));
+}
+
+// ─── BMS auto-scraped events ─────────────────────────────────────────────────
+
+function loadBmsEvents() {
+  return (bmsEvents || []).map(e => ({
+    id:        e.id || `bms-${(e.title || '').replace(/[^a-z0-9]/gi, '-').slice(0, 40).toLowerCase()}`,
+    title:     e.title || 'Unnamed Event',
+    city:      e.city || '',
+    state:     e.state || '',
+    startDate: e.startDate || null,
+    endDate:   e.endDate || e.startDate || null,
+    distances: e.distances || [],
+    price:     e.price || null,
+    rating:    null,
+    organizer: e.organizer || '',
+    url:       e.url || '',
+    source:    'bookmyshow.com',
     region:    'India',
   }));
 }

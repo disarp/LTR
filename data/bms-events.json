@@ -1,0 +1,519 @@
+{
+  "events": [
+    {
+      "id": "bms-ET00484807",
+      "title": "Walk - Jog - RunInRed For Women's Health",
+      "city": "Bengaluru",
+      "state": "",
+      "startDate": "2026-03-08",
+      "endDate": "2026-03-08",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 100",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/walk-jog-runinred-for-women-s-health/ET00484807",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00483644",
+      "title": "Six Yard Run",
+      "city": "Bengaluru",
+      "state": "",
+      "startDate": "2026-03-08",
+      "endDate": "2026-03-08",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 499",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/six-yard-run/ET00483644",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00486632",
+      "title": "Miles & Smiles @ Agara Lake",
+      "city": "Bengaluru",
+      "state": "",
+      "startDate": "2026-03-15",
+      "endDate": "2026-03-15",
+      "distances": [
+        "5K"
+      ],
+      "price": "₹ 199 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/miles-smiles-agara-lake/ET00486632",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00479704",
+      "title": "THE SPIRIT RUN",
+      "city": "Bengaluru",
+      "state": "",
+      "startDate": "2026-04-19",
+      "endDate": "2026-04-19",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 249 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/the-spirit-run/ET00479704",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00475066",
+      "title": "HYROX ADDA",
+      "city": "Bengaluru",
+      "state": "",
+      "startDate": "2026-03-08",
+      "endDate": "2026-03-08",
+      "distances": [
+        "5K"
+      ],
+      "price": "₹ 890",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/hyrox-adda/ET00475066",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00490138",
+      "title": "Run to Educate Girl Child",
+      "city": "Bengaluru",
+      "state": "",
+      "startDate": "2026-05-31",
+      "endDate": "2026-05-31",
+      "distances": [
+        "5K"
+      ],
+      "price": "₹ 599 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/run-to-educate-girl-child/ET00490138",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00376522",
+      "title": "Fit Mumbai Marathon",
+      "city": "Mumbai",
+      "state": "",
+      "startDate": "2026-04-26",
+      "endDate": "2026-04-26",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 990 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/mumbai-10-km-run/ET00376522",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00456689",
+      "title": "Aamchi Mumbai Marathon",
+      "city": "Mumbai",
+      "state": "",
+      "startDate": "2026-06-07",
+      "endDate": "2026-06-07",
+      "distances": [
+        "5K",
+        "Marathon"
+      ],
+      "price": "₹ 990",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/bandra-half-marathon/ET00456689",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00461783",
+      "title": "Mumbai Green Marathon - Bandra West",
+      "city": "Mumbai",
+      "state": "",
+      "startDate": "2026-03-29",
+      "endDate": "2026-03-29",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 790 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/mumbai-fast-marathon-worli-sea-face/ET00461783",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00474975",
+      "title": "Mumbai Fast Marathon",
+      "city": "Mumbai",
+      "state": "",
+      "startDate": "2026-04-19",
+      "endDate": "2026-04-19",
+      "distances": [
+        "5K",
+        "Marathon"
+      ],
+      "price": "₹ 1090 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/chatrapati-shivaji-maharaj-marathon-bandra-west/ET00474975",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00456847",
+      "title": "Mumbai Half Marathon",
+      "city": "Mumbai",
+      "state": "",
+      "startDate": "2026-07-26",
+      "endDate": "2026-07-26",
+      "distances": [
+        "5K",
+        "Half Marathon"
+      ],
+      "price": "₹ 990",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/mumbai-half-marathon/ET00456847",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00486561",
+      "title": "ENTHUSIA MARATHON",
+      "city": "Mumbai",
+      "state": "",
+      "startDate": "2026-03-22",
+      "endDate": "2026-03-22",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 449 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/enthusia-marathon/ET00486561",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00466479",
+      "title": "Mumbai Monsoon Marathon",
+      "city": "Mumbai",
+      "state": "",
+      "startDate": "2026-07-05",
+      "endDate": "2026-07-05",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 990 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/aamchi-mumbai-marathon/ET00466479",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00483318",
+      "title": "Hitch Run: India's First Couple Obstacle Race",
+      "city": "Delhi NCR",
+      "state": "",
+      "startDate": "2026-04-05",
+      "endDate": "2026-04-05",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 2249",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/hitch-run-india-s-first-couple-obstacle-race/ET00483318",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00488970",
+      "title": "Run For Heart Marathon",
+      "city": "Delhi NCR",
+      "state": "",
+      "startDate": "2026-03-08",
+      "endDate": "2026-03-08",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 99 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/run-for-heart-marathon/ET00488970",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00483911",
+      "title": "DELHI HEROES HALF MARATHON 2026",
+      "city": "Delhi NCR",
+      "state": "",
+      "startDate": "2026-03-15",
+      "endDate": "2026-03-15",
+      "distances": [
+        "Half Marathon"
+      ],
+      "price": "₹ 599 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/delhi-heroes-half-marathon-2026/ET00483911",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00482076",
+      "title": "The Sistra Run - Gurugram",
+      "city": "Delhi NCR",
+      "state": "",
+      "startDate": "2026-03-29",
+      "endDate": "2026-03-29",
+      "distances": [
+        "5K"
+      ],
+      "price": "₹ 399 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/the-sistra-run-gurugram/ET00482076",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00475622",
+      "title": "BJV Half Marathon 3rd Edition",
+      "city": "Delhi NCR",
+      "state": "",
+      "startDate": "2026-04-12",
+      "endDate": "2026-04-12",
+      "distances": [
+        "Half Marathon"
+      ],
+      "price": "₹ 400 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/bjv-half-marathon-3rd-edition/ET00475622",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00488040",
+      "title": "DELHI LEGENDS HALF MARATHON 2026",
+      "city": "Delhi NCR",
+      "state": "",
+      "startDate": "2026-05-03",
+      "endDate": "2026-05-03",
+      "distances": [
+        "Half Marathon"
+      ],
+      "price": "₹ 599 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/delhi-legends-half-marathon-2026/ET00488040",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00449711",
+      "title": "SBI Green Marathon Season 6 Delhi",
+      "city": "Delhi NCR",
+      "state": "",
+      "startDate": "2026-03-15",
+      "endDate": "2026-03-15",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 700 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/sbi-green-marathon-season-6-delhi/ET00449711",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00474423",
+      "title": "Marathon Dedicated to Gautam Buddha Nagar Police",
+      "city": "Delhi NCR",
+      "state": "",
+      "startDate": "2026-03-29",
+      "endDate": "2026-03-29",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 599 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/marathon-dedicated-to-noida-police/ET00474423",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00487579",
+      "title": "Glow Run at Ramoji Film City",
+      "city": "Hyderabad",
+      "state": "",
+      "startDate": "2026-03-14",
+      "endDate": "2026-03-14",
+      "distances": [
+        "5K"
+      ],
+      "price": "₹ 699 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/glow-run-at-ramoji-film-city/ET00487579",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00458588",
+      "title": "ENABLETHON 2025 3rd Edition",
+      "city": "Hyderabad",
+      "state": "",
+      "startDate": "2026-04-05",
+      "endDate": "2026-04-05",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 599 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/enablethon-2025-3rd-edition/ET00458588",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00473942",
+      "title": "FRESHATHON SHINE INDIA HYDERABAD EDITION 2026",
+      "city": "Hyderabad",
+      "state": "",
+      "startDate": "2026-03-15",
+      "endDate": "2026-03-15",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 599 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/freshathon-shine-india-hyderabad-edition-2026/ET00473942",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00489298",
+      "title": "PUNE NITRROTHON - MARATHON 2026",
+      "city": "Pune",
+      "state": "",
+      "startDate": "2026-03-15",
+      "endDate": "2026-03-15",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 699 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/pune-nitrrothon-marathon-2026/ET00489298",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00449710",
+      "title": "SBI Green Marathon Season 6 Pune",
+      "city": "Pune",
+      "state": "",
+      "startDate": "2026-03-22",
+      "endDate": "2026-03-22",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 500 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/sbi-green-marathon-season-6-pune/ET00449710",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00487058",
+      "title": "Father's Day Marathon 2026 A Run of Respect",
+      "city": "Chennai",
+      "state": "",
+      "startDate": "2026-06-21",
+      "endDate": "2026-06-21",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 499 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/father-s-day-marathon-2026-a-run-of-respect/ET00487058",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00467403",
+      "title": "PINK SAKHI RUN",
+      "city": "Chennai",
+      "state": "",
+      "startDate": "2026-03-15",
+      "endDate": "2026-03-15",
+      "distances": [
+        "5K"
+      ],
+      "price": "₹ 600 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/pink-sakhi-run/ET00467403",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00489653",
+      "title": "SN RUN",
+      "city": "Chennai",
+      "state": "",
+      "startDate": "2026-03-22",
+      "endDate": "2026-03-22",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 499 onwards",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/sn-run/ET00489653",
+      "source": "bookmyshow.com",
+      "region": "India"
+    },
+    {
+      "id": "bms-ET00485001",
+      "title": "Chennai Kids Dream Run 4th Edition",
+      "city": "Chennai",
+      "state": "",
+      "startDate": "2026-03-21",
+      "endDate": "2026-03-21",
+      "distances": [
+        "Marathon"
+      ],
+      "price": "₹ 599",
+      "rating": null,
+      "organizer": "",
+      "url": "https://in.bookmyshow.com/sports/chennai-kids-dream-run-4th-edition/ET00485001",
+      "source": "bookmyshow.com",
+      "region": "India"
+    }
+  ],
+  "total": 30,
+  "fetchedAt": "2026-03-07T06:59:06.484Z"
+}

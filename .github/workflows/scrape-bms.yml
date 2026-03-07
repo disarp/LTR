@@ -1,0 +1,44 @@
+name: Weekly BMS Scraper
+
+on:
+  schedule:
+    # Every Monday at 3:30 AM IST = 22:00 UTC (Sunday)
+    - cron: '0 22 * * 0'
+  workflow_dispatch: # allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install backend dependencies
+        run: npm install
+        working-directory: backend
+
+      - name: Install Firecrawl SDK
+        run: npm install @mendable/firecrawl-js dotenv
+
+      - name: Run BMS scraper
+        env:
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+        run: node backend/scrape-bms.js
+
+      - name: Commit updated BMS events
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/bms-events.json functions/api/_bms-events.js
+          # Only commit if files actually changed
+          git diff --cached --quiet || git commit -m "chore: update BMS events [$(date -u '+%Y-%m-%d')]"
+          git push

@@ -72,6 +72,10 @@ async function fetchAllEvents() {
   const manual = loadManualEvents();
   if (manual.length) { console.log(`✓ manual-events    — ${manual.length} events`); events.push(...manual); }
 
+  // BMS auto-scraped events (from weekly Firecrawl run)
+  const bms = loadBmsEvents();
+  if (bms.length) { console.log(`✓ bookmyshow.com   — ${bms.length} events`); events.push(...bms); }
+
   // Deduplicate by normalised title + date
   const seen = new Set();
   events = events.filter(e => {
@@ -492,6 +496,18 @@ function loadManualEvents() {
       source:    e.source || 'manual',
       region:    'India',
     }));
+  } catch (_) {
+    return [];
+  }
+}
+
+// ─── BMS events (from weekly Firecrawl scrape) ──────────────────────────────
+function loadBmsEvents() {
+  try {
+    const filePath = path.join(__dirname, '..', 'data', 'bms-events.json');
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const data = JSON.parse(raw);
+    return data.events || [];
   } catch (_) {
     return [];
   }
